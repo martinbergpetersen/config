@@ -1,0 +1,369 @@
+[options]
+font = Hack 14
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+
+# special
+foreground      = #ebdbb2
+foreground_bold = #ebdbb2
+cursor          = #ebdbb2
+background      = #282828
+
+# black
+color0  = #282828
+color8  = #928374
+
+# red
+color1  = #cc241d
+color9  = #fb4934
+
+# green
+color2  = #98971a
+color10 = #b8bb26
+
+# yellow
+color3  = #d79921
+color11 = #fabd2f
+
+# blue
+color4  = #458588
+color12 = #83a598
+
+# magenta
+color5  = #b16286
+color13 = #d3869b
+
+# cyan
+color6  = #689d6a
+color14 = #8ec07c
+
+# white
+color7  = #a89984
+color15 = #ebdbb2
+
+[options]
+font = Hack 13
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+# special
+foreground      = #f8f8f2
+foreground_bold = #f8f8f2
+cursor          = #f8f8f2
+background      = #282a36
+
+# black
+color0  = #000000
+color8  = #4d4d4d
+
+# red
+color1  = #ff5555
+color9  = #ff6e67
+
+# green
+color2  = #50fa7b
+color10 = #5af78e
+
+# yellow
+color3  = #f1fa8c
+color11 = #f4f99d
+
+# blue
+color4  = #bd93f9
+color12 = #caa9fa
+
+# magenta
+color5  = #ff79c6
+color13 = #ff92d0
+
+# cyan
+color6  = #8be9fd
+color14 = #9aedfe
+
+# white
+color7  = #bfbfbf
+color15 = #e6e6e6
+
+# Solarized dark color scheme
+[options]
+font = Hack 13
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+
+# special
+foreground      = #ebdbb2
+foreground_bold = #ebdbb2
+cursor          = #ebdbb2
+background      = #282828
+
+# black
+color0  = #282828
+color8  = #928374
+
+# red
+color1  = #cc241d
+color9  = #fb4934
+
+# green
+color2  = #98971a
+color10 = #b8bb26
+
+# yellow
+color3  = #d79921
+color11 = #fabd2f
+
+# blue
+color4  = #458588
+color12 = #83a598
+
+# magenta
+color5  = #b16286
+color13 = #d3869b
+
+# cyan
+color6  = #689d6a
+color14 = #8ec07c
+
+# white
+color7  = #a89984
+color15 = #ebdbb2
+
+# Solarized dark color scheme
+[options]
+font = Hack 13
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+
+# special
+foreground      = #3c3836
+foreground_bold = #3c3836
+cursor          = #3c3836
+background      = #fbf1c7
+
+# black
+color0  = #fdf4c1
+color8  = #928374
+
+# red
+color1  = #cc241d
+color9  = #9d0006
+
+# green
+color2  = #98971a
+color10 = #79740e
+
+# yellow
+color3  = #d79921
+color11 = #b57614
+
+# blue
+color4  = #458588
+color12 = #076678
+
+# magenta
+color5  = #b16286
+color13 = #8f3f71
+
+# cyan
+color6  = #689d6a
+color14 = #427b58
+
+# white
+color7  = #7c6f64
+color15 = #3c3836
+
+# Solarized dark color scheme
+[options]
+font = Hack 13
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+
+# special
+foreground      = #ebdbb2
+foreground_bold = #ebdbb2
+cursor          = #ebdbb2
+background      = #282828
+
+# black
+color0  = #282828
+color8  = #928374
+
+# red
+color1  = #cc241d
+color9  = #fb4934
+
+# green
+color2  = #98971a
+color10 = #b8bb26
+
+# yellow
+color3  = #d79921
+color11 = #fabd2f
+
+# blue
+color4  = #458588
+color12 = #83a598
+
+# magenta
+color5  = #b16286
+color13 = #d3869b
+
+# cyan
+color6  = #689d6a
+color14 = #8ec07c
+
+# white
+color7  = #a89984
+color15 = #ebdbb2
+
+[options]
+font = Hack 13
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+# special
+foreground      = #f8f8f2
+foreground_bold = #f8f8f2
+cursor          = #f8f8f2
+background      = #282a36
+
+# black
+color0  = #000000
+color8  = #4d4d4d
+
+# red
+color1  = #ff5555
+color9  = #ff6e67
+
+# green
+color2  = #50fa7b
+color10 = #5af78e
+
+# yellow
+color3  = #f1fa8c
+color11 = #f4f99d
+
+# blue
+color4  = #bd93f9
+color12 = #caa9fa
+
+# magenta
+color5  = #ff79c6
+color13 = #ff92d0
+
+# cyan
+color6  = #8be9fd
+color14 = #9aedfe
+
+# white
+color7  = #bfbfbf
+color15 = #e6e6e6
+
+[options]
+font = Hack 13
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+# special
+foreground      = #f8f8f2
+foreground_bold = #f8f8f2
+cursor          = #f8f8f2
+background      = #282a36
+
+# black
+color0  = #000000
+color8  = #4d4d4d
+
+# red
+color1  = #ff5555
+color9  = #ff6e67
+
+# green
+color2  = #50fa7b
+color10 = #5af78e
+
+# yellow
+color3  = #f1fa8c
+color11 = #f4f99d
+
+# blue
+color4  = #bd93f9
+color12 = #caa9fa
+
+# magenta
+color5  = #ff79c6
+color13 = #ff92d0
+
+# cyan
+color6  = #8be9fd
+color14 = #9aedfe
+
+# white
+color7  = #bfbfbf
+color15 = #e6e6e6
+
+# Solarized dark color scheme
+[options]
+font = Hack 13
+dynamic_title = true
+
+[colors]
+
+# USE WEBSITE FOR CONVERTION http://stayradiated.github.io/termcolors-web/
+
+# special
+foreground      = #ebdbb2
+foreground_bold = #ebdbb2
+cursor          = #ebdbb2
+background      = #282828
+
+# black
+color0  = #282828
+color8  = #928374
+
+# red
+color1  = #cc241d
+color9  = #fb4934
+
+# green
+color2  = #98971a
+color10 = #b8bb26
+
+# yellow
+color3  = #d79921
+color11 = #fabd2f
+
+# blue
+color4  = #458588
+color12 = #83a598
+
+# magenta
+color5  = #b16286
+color13 = #d3869b
+
+# cyan
+color6  = #689d6a
+color14 = #8ec07c
+
+# white
+color7  = #a89984
+color15 = #ebdbb2
+
