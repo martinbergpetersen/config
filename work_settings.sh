@@ -1,9 +1,2 @@
-#! /bin/sh
-#
-# work_settings.sh
-# Copyright (C) 2018 sjuften <sjuften@linux>
-#
-# Distributed under terms of the MIT license.
-#
-
-xrandr --auto && xrandr --output eDP1 --off && xrandr --output HDMI2 --right-of HDMI1
+#!/bin/sh
+xrandr --output HDMI-1 --off --output DP-1 --primary --mode 2560x1440 --pos 2560x0 --rotate normal --output DP-2 --mode 2560x1440 --pos 0x0 --rotate normal
