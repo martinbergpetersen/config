@@ -138,6 +138,7 @@ nmap <leader>w :w!<cr>
 " Peek the view. It splits the screen and shows the called funtion
 map <leader>p :split<CR><leader>d
 
+" Close/delete buffer
 map <leader>qq :bdelete<CR>
 
 " Ignore case when searching
@@ -587,7 +588,7 @@ let g:vim_json_syntax_conceal = 0
 " """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""
 " => Markdown plugin
@@ -615,7 +616,7 @@ let g:deus_termcolors=256
 let g:onedark_termcolors=256
 
 set background=dark
-colorscheme gruvbox
+colorscheme onedark
 
 """"""""""""""""""""""""""""""
 " => Togglebar
