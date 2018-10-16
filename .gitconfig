@@ -1,1 +1,24 @@
-/home/mbp/.gitconfig
+[user]
+	email = martinbergpetersen@gmail.com
+	name = Martin Berg Petersen
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	branch-name  = "!git rev-parse --abbrev-ref HEAD"
+	jenkins = "!git push origin $(git branch-name):jenkins -f"
+
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
+	delmerged = branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs branch -d
+[diff]
+	tool = nvimdiff
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d -u ~/.config/nvim/init.vim \"$LOCAL\" \"$REMOTE\""
+
+[commit]
+    verbose = true
+
+[core]
+    editor = 'nvim'
