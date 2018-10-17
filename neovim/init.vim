@@ -390,6 +390,7 @@ let g:jedi#completions_enabled = 1
 " => GO section
 " """"""""""""""""""""""""""""""
 
+let g:go_version_warning = 0
 nmap <leader>a :GoAlternate<cr>
 nnoremap <leader>d :GoDef<CR>
 " let g:go_highlight_string_spellcheck = 1
