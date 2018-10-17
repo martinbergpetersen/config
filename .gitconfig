@@ -1,24 +1,19 @@
 [user]
 	email = martinbergpetersen@gmail.com
 	name = Martin Berg Petersen
-[alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	branch-name  = "!git rev-parse --abbrev-ref HEAD"
-	jenkins = "!git push origin $(git branch-name):jenkins -f"
-
+[core]
+	editor = "nvim"
+[commit]
+	verbose = true
 [mergetool "fugitive"]
-	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
 	tool = fugitive
-	delmerged = branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs branch -d
-[diff]
-	tool = nvimdiff
 
-[difftool "nvimdiff"]
-    cmd = "nvim -d -u ~/.config/nvim/init.vim \"$LOCAL\" \"$REMOTE\""
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lgall = !"git lgall --all"
+	mergeff = merge --ff-only
+	pullff = pull --ff-only
 
-[commit]
-    verbose = true
-
-[core]
-    editor = 'nvim'
+lgall = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
