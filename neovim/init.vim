@@ -51,9 +51,12 @@ Plug 'majutsushi/tagbar'
 Plug 'shime/vim-livedown'
 
 
+" zenmode
+Plug 'junegunn/goyo.vim'
+
 " C#
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'OrangeT/vim-csharp'
+" Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OrangeT/vim-csharp'
 
 " Buffer explorer
 Plug 'jlanzarotta/bufexplorer'
@@ -429,6 +432,8 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
       \ --ignore "**/*.pyc"
       \ --ignore node_modules
+      \ --ignore .env
+      \ --ignore .vscode
       \ -g ""'
 
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:30'
@@ -719,6 +724,11 @@ function! SetPython3Host()
      let g:ale_python_flake8_options = '-m flake8'
 endfunction
 
+ """""""""""""""""""""""""""""
+ " => GOYO - zen mode
+ """"""""""""""""""""""""""""""
+ let g:goyo_width = 200
+ let g:goyo_height = 100
 
  """""""""""""""""""""""""""""
  " => C#
