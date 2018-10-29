@@ -77,6 +77,7 @@ Plug 'fisadev/vim-isort'
 Plug 'tell-k/vim-autopep8'
 Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
+Plug 'plytophogy/vim-virtualenv'
 
 " Go
 Plug 'fatih/vim-go'
@@ -180,6 +181,10 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" search
+map <space> /
+map <c-space> ?
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -199,6 +204,8 @@ tnoremap <C-h> <C-\><C-n><C-h>
 tnoremap <C-j> <C-\><C-n><C-j>
 tnoremap <C-k> <C-\><C-n><C-k>
 tnoremap <C-l> <C-\><C-n><C-l>
+
+
 
 " Close a tab
 map <leader>tc :tabclose<cr>
@@ -528,7 +535,8 @@ nnoremap <leader>as :ALEPrevious<CR>
 """"""""""""""""""""""""""""""
 " => Flake plugin
 " """"""""""""""""""""""""""""""
-let g:flake8_error_marker='EE'     " set error marker to 'EE' let g:flake8_warning_marker='WW'   " set warning marker to 'WW'
+let g:flake8_error_marker='EE'     " set error marker to 'EE'
+let g:flake8_warning_marker='WW'   " set warning marker to 'WW'
 let g:flake8_show_in_gutter=1  " show
 let g:flake8_show_in_file=1  " show
 
@@ -729,75 +737,3 @@ endfunction
  """"""""""""""""""""""""""""""
  let g:goyo_width = 200
  let g:goyo_height = 100
-
- """""""""""""""""""""""""""""
- " => C#
- """"""""""""""""""""""""""""""
- let g:OmniSharp_port = 2000
-
- let g:ale_cs_mcsc_assembly_path = ['~/.omnisharp/omnisharp-roslyn/omnisharp/']
- let g:ale_cs_mcsc_assemblies = ['~/.omnisharp/omnisharp-roslyn/omnisharp/']
- set previewheight=10
-
-
- set updatetime=500
-
- sign define OmniSharpCodeActions text=💡
-
-
- augroup OSCountCodeActions
-   autocmd!
-   autocmd FileType cs set signcolumn=yes
-   autocmd CursorHold *.cs call OSCountCodeActions()
- augroup END
-
- function! OSCountCodeActions() abort
-   if OmniSharp#CountCodeActions({-> execute('sign unplace 97')})
-     let l = getpos('.')[1]
-     let f = expand('%:p')
-     execute ':sign place 97 line='.l.' name=OmniSharpCodeActions file='.f
-   endif
- endfunction
-
- augroup omnisharp_commands
-     autocmd!
-
-     " When Syntastic is available but not ALE, automatic syntax check on events
-     " (TextChanged requires Vim 7.4)
-     " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-
-     " Show type information automatically when the cursor stops moving
-     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-
-     " The following commands are contextual, based on the cursor position.
-     autocmd FileType cs nnoremap <buffer> <Leader>d :OmniSharpGotoDefinition<CR>
-     autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
-     autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
-     autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
-
-     " Finds members in the current buffer
-     autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
-
-     autocmd FileType cs nnoremap <buffer> <Leader>fx :OmniSharpFixUsings<CR>
-     autocmd FileType cs nnoremap <buffer> <Leader>tt :OmniSharpTypeLookup<CR>
-     autocmd FileType cs nnoremap <buffer> K :OmniSharpDocumentation<CR>
-     autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
-     autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
-     autocmd BufWritePost *.cs  :OmniSharpCodeFormat
-     " Start the omnisharp server for the current solution
-     autocmd FileType cs nnoremap <buffer> <Leader>ss :OmniSharpStartServer<CR>
-     autocmd FileType cs nnoremap <buffer> <Leader>sp :OmniSharpStopServer<CR>
-
-
-
-     " Navigate up and down by method/property/field
-     autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
-     autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
-     " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
-    autocmd FileType cs nnoremap <buffer> <Leader><Space> :OmniSharpGetCodeActions<CR>
-
-    " Run code actions with text selected in visual mode to extract method
-   autocmd FileType cs xnoremap <buffer> <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
-   " Add syntax highlighting for types and interfaces
-   autocmd FileType cs noremap <buffer> <Leader>th :OmniSharpHighlightTypes<CR>
- augroup END
