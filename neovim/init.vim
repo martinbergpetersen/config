@@ -4,23 +4,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-""deoplete.go
-Plug 'zchee/deoplete-go'
 "deoplete.python
 " Plug 'zchee/deoplete-jedi'
-
-" latex
-Plug 'vim-latex/vim-latex'
-
-
-" " Javascript
-" Plug 'pangloss/vim-javascript'
-" Plug 'maksimr/vim-jsbeautify'
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
-" HTML
-Plug 'mattn/emmet-vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Async linter
 Plug 'w0rp/ale'
@@ -77,6 +62,7 @@ Plug 'plytophogy/vim-virtualenv'
 
 " Go
 Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go'
 
 "Themes
 Plug 'morhetz/gruvbox'
@@ -327,13 +313,6 @@ let g:deoplete#disable_auto_complete = 0
 autocmd CompleteDone * silent! pclose!
 
 """"""""""""""""""""""""""""""
-" => Javascript section
-" """"""""""""""""""""""""""""""
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-
-""""""""""""""""""""""""""""""
 " => Python section
 " """"""""""""""""""""""""""""""
 let python_highlight_all = 1
@@ -468,8 +447,8 @@ let g:NERDTreeChDirMode=2
 
 let NERDTreeShowLineNumbers=1
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -563,27 +542,6 @@ augroup vimrc_help
 " Shortcuts
 cnoreabbrev ls !ls
 cnoreabbrev tree !tree
-
-"" => Omnifunc plugin
-"""""""""""""""""""""""""""""""
-"" use <tab> for completion
- function! TabWrap()
-     if pumvisible()
-         return "\<C-N>"
-     elseif strpart( getline('.'), 0, col('.') - 1 ) =~ '^\s*$'
-         return "\<tab>"
-     elseif &omnifunc !~ ''
-         return "\<C-X>\<C-O>"
-     else
-         return "\<C-N>"
-     endif
- endfunction
-
-" power tab
-imap <silent><expr><tab> TabWrap()
-
-" Show quotes in js
-let g:vim_json_syntax_conceal = 0
 
 """"""""""""""""""""""""""""""
 " => airline plugin
@@ -737,4 +695,18 @@ endfunction
  let g:goyo_width = 200
  let g:goyo_height = 100
 
+
+"" => Omnifunc plugin
+"""""""""""""""""""""""""""""""
+" Ctrl-Space for completions. Heck Yeah!
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+        \ "" :
+        \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+        \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+        \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
+
+" Move up and down in autocomplete with <c-j> and <c-k>
+inoremap <expr> <C-J> ("\<C-N>")
+inoremap <expr> <C-K> ("\<C-P>")
 
