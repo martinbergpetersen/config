@@ -142,8 +142,6 @@ nmap <leader>w :w!<cr>
 " Peek the view. It splits the screen and shows the called funtion
 map <leader>p :split<CR><leader>d
 
-" Close/delete buffer
-map <leader>qq :bdelete<CR>
 
 " Ignore case when searching
 set ignorecase
@@ -190,21 +188,21 @@ map <silent> <leader><cr> :noh<cr>
 nnoremap <esc> :noh<return><esc>
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
 
 " navigate splits
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+" nmap <silent> <C-k> :wincmd k<CR>
+" nmap <silent> <C-j> :wincmd j<CR>
+" nmap <silent> <C-h> :wincmd h<CR>
+" nmap <silent> <C-l> :wincmd l<CR>
 " Terminalmode navigation
-tnoremap <C-h> <C-\><C-n><C-h>
-tnoremap <C-j> <C-\><C-n><C-j>
-tnoremap <C-k> <C-\><C-n><C-k>
-tnoremap <C-l> <C-\><C-n><C-l>
+" tnoremap <C-h> <C-\><C-n><C-h>
+" tnoremap <C-j> <C-\><C-n><C-j>
+" tnoremap <C-k> <C-\><C-n><C-k>
+" tnoremap <C-l> <C-\><C-n><C-l>
 
 
 
@@ -214,13 +212,14 @@ map <leader>tc :tabclose<cr>
 " Close the current buffer
 nnoremap <leader>bd :bn<cr>:bdelete #<cr>
 
-map <leader>f :b
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
+" Close/delete buffer
+map <leader>qq :bdelete<CR>
 " next buffer
-map <leader>bn :bnext<cr>
+map <C-l> :bnext<cr>
 " Prev buffer
-map <leader>bm :bprevious<cr>
+map <C-h> :bprevious<cr>
 
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
