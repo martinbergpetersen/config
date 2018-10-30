@@ -163,9 +163,9 @@ bar {
         status_command i3blocks 
         colors {
             #color class       border  back.   text
-            focused_workspace  #084c61 #084c61 #ffffff
-            active_workspace   #555555 #555555 #ffffff
-            inactive_workspace #000000 #000000 #888888
+            focused_workspace  #902923 #902923 #ffffff
+            active_workspace   #2b2b2b #2b2b2b #ffffff
+            inactive_workspace #2b2b2b #2b2b2b #ffffff
             urgent_workspace   #2f343a #900000 #ffffff
         }
         font pango:Hack 12
@@ -175,7 +175,7 @@ bar {
 
 
 #colors:                border  backgr. text    indicator
-client.focused          #084c61 #084c61 #ffffff #2b2b2b
+client.focused          #902923 #902923 #ffffff #2b2b2b
 client.focused_inactive #888888 #2b2b2b #ffffff #2b2b2b
 client.unfocused        #888888 #2b2b2b #ffffff #2b2b2b
 client.urgent           #900000 #900000 #ffffff #2b2b2b
