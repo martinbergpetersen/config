@@ -184,9 +184,10 @@ set noswapfile
 
 " search
 map <space> /
-nnoremap <c-space> :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
+nnoremap <esc> :noh<return><esc>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -259,7 +260,7 @@ fun! CleanExtraSpaces()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>ge :e! ~/.config/nvim/init.vim<cr>
+map <leader>ge :e! ~/.myconfig/neovim/init.vim<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Parenthesis/bracket - shortcuts
@@ -676,21 +677,11 @@ endfunction
 " Type {command} to toggle highlighting on/off.
 function! AutoHighlightToggle()
    let @/ = ''
-   if exists('#auto_highlight')
-     au! auto_highlight
-     augroup! auto_highlight
-     setl updatetime=4000
-     echo 'Highlight current word: off'
-     return 0
-  else
-    augroup auto_highlight
-    au!
-    au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-  return 1
- endif
+   augroup auto_highlight
+   au!
+   au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+   setl updatetime=1
+   augroup end
 endfunction
 
 command! ZoomToggle call s:ZoomToggle()
