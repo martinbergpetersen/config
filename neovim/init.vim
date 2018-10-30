@@ -209,13 +209,10 @@ nnoremap <esc> :noh<return><esc>
 " Close a tab
 map <leader>tc :tabclose<cr>
 
-" Close the current buffer
-nnoremap <leader>bd :bn<cr>:bdelete #<cr>
-
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 " Close/delete buffer
-map <leader>qq :bdelete<CR>
+map <C-q> :bdelete<CR>
 " next buffer
 map <C-l> :bnext<cr>
 " Prev buffer
