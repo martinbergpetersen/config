@@ -8,15 +8,15 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'zchee/deoplete-go'
 "deoplete.python
 " Plug 'zchee/deoplete-jedi'
-" deoplete.javasript
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " latex
 Plug 'vim-latex/vim-latex'
 
-" Javascript
-Plug  'pangloss/vim-javascript'
-Plug  'maksimr/vim-jsbeautify'
+
+" " Javascript
+" Plug 'pangloss/vim-javascript'
+" Plug 'maksimr/vim-jsbeautify'
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " HTML
 Plug 'mattn/emmet-vim'
@@ -53,10 +53,6 @@ Plug 'shime/vim-livedown'
 
 " zenmode
 Plug 'junegunn/goyo.vim'
-
-" C#
-" Plug 'OmniSharp/omnisharp-vim'
-" Plug 'OrangeT/vim-csharp'
 
 " Buffer explorer
 Plug 'jlanzarotta/bufexplorer'
@@ -186,18 +182,6 @@ nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 nnoremap <esc> :noh<return><esc>
-
-" Smart way to move between windows
-" map <C-j> <C-W>j
-" map <C-k> <C-W>k
-" map <C-h> <C-W>h
-" map <C-l> <C-W>l
-
-" navigate splits
-" nmap <silent> <C-k> :wincmd k<CR>
-" nmap <silent> <C-j> :wincmd j<CR>
-" nmap <silent> <C-h> :wincmd h<CR>
-" nmap <silent> <C-l> :wincmd l<CR>
 " Terminalmode navigation
 " tnoremap <C-h> <C-\><C-n><C-h>
 " tnoremap <C-j> <C-\><C-n><C-j>
@@ -341,6 +325,13 @@ map <leader>h :cp<cr>
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 0
 autocmd CompleteDone * silent! pclose!
+
+""""""""""""""""""""""""""""""
+" => Javascript section
+" """"""""""""""""""""""""""""""
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 
 """"""""""""""""""""""""""""""
 " => Python section
