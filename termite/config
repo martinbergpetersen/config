@@ -1,6 +1,6 @@
 # Solarized dark color scheme
 [options]
-font = Hack 10
+font = Hack 13
 dynamic_title = true
 
 [colors]
