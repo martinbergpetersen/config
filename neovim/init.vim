@@ -184,7 +184,7 @@ set noswapfile
 
 " search
 map <space> /
-map <c-space> ?
+nnoremap <c-space> :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -602,7 +602,7 @@ let g:vim_json_syntax_conceal = 0
 " """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='onedark'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""
 " => Markdown plugin
@@ -630,7 +630,7 @@ let g:deus_termcolors=256
 let g:onedark_termcolors=256
 
 set background=dark
-colorscheme onedark
+colorscheme gruvbox
 
 """"""""""""""""""""""""""""""
 " => Togglebar
@@ -671,6 +671,27 @@ function! CmdLine(str)
 endfunction 
 
 
+ " Highlight all instances of word under cursor, when idle.
+" Useful when studying strange source code.
+" Type {command} to toggle highlighting on/off.
+function! AutoHighlightToggle()
+   let @/ = ''
+   if exists('#auto_highlight')
+     au! auto_highlight
+     augroup! auto_highlight
+     setl updatetime=4000
+     echo 'Highlight current word: off'
+     return 0
+  else
+    augroup auto_highlight
+    au!
+    au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=500
+    echo 'Highlight current word: ON'
+  return 1
+ endif
+endfunction
 
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <leader>z :ZoomToggle<CR>
@@ -737,3 +758,5 @@ endfunction
  """"""""""""""""""""""""""""""
  let g:goyo_width = 200
  let g:goyo_height = 100
+
+
