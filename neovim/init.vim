@@ -265,10 +265,7 @@ map <leader>p :split<cr><leader>d
 " search
 map <space> /
 nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
-"
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-nnoremap <esc> :noh<return><esc>
+nnoremap <esc> :call DisabledHighlight()<return><esc>
 
 cnoreabbrev ls !ls
 cnoreabbrev tree !tree
@@ -582,17 +579,44 @@ function! CmdLine(str)
     unmenu Foo
 endfunction 
 
+fun! CountWordFunction()
+    try
+        let l:win_view = winsaveview()
+        let l:old_query = getreg('/')
+        let var = expand("<cword>")
+        exec "%s/" . var . "//gn"
+    finally
+        call winrestview(l:win_view)
+        call setreg('/', l:old_query)
+    endtry
+endfun
+" Bellow we set a command "CountWord" and a mapping to count word
+" change as you like it
+command! -nargs=0 CountWord :call CountWordFunction()
+nnoremap <f3> :CountWord<CR>
 
- " Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type {command} to toggle highlighting on/off.
+
+" Removed hightlights on words
+function! DisabledHighlight()
+   if exists('#auto_highlight')
+     au! auto_highlight
+     augroup! auto_highlight
+     setl updatetime=1
+ endif
+let @/ = ""
+echo ""
+endfunction
+
+" enabled hightlights on words
 function! AutoHighlightToggle()
-   let @/ = ''
-   augroup auto_highlight
-   au!
-   au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-   setl updatetime=1
-   augroup end
+    let @/ = ''
+    augroup auto_highlight
+    au!
+    au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=1
+    call feedkeys("\<f3>")
+    echo ""
 endfunction
 
 command! ZoomToggle call s:ZoomToggle()
@@ -619,22 +643,6 @@ function! HasPaste()
     endif
     return ''
 endfunction
-
-" " Close nerd tree if no buffer is open
-" function! s:CloseIfOnlyControlWinLeft()
-"   if winnr("$") != 1
-"     return
-"   endif
-"   if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
-"         \ || &buftype == 'quickfix'
-"     q
-"   endif
-" endfunction
-" augroup CloseIfOnlyControlWinLeft
-"   au!
-"   au BufEnter * call s:CloseIfOnlyControlWinLeft()
-" augroup END
-
 
 function! SetPyhton2Host()
     echo 'Running with Python2.7'
