@@ -4,8 +4,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-"deoplete.python
-" Plug 'zchee/deoplete-jedi'
 
 " Async linter
 Plug 'w0rp/ale'
@@ -59,6 +57,7 @@ Plug 'tell-k/vim-autopep8'
 Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
 Plug 'plytophogy/vim-virtualenv'
+" Plug 'zchee/deoplete-jedi'
 
 " Go
 Plug 'fatih/vim-go'
@@ -98,7 +97,7 @@ call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" => GENERAL
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -114,15 +113,6 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
-
-" Fast saving
-nmap <leader>w :w!<cr>
-" :W sudo saves the file 
-" (useful for handling the permission-denied error)
-" command W w !sudo tee % > /dev/null
-
-" Peek the view. It splits the screen and shows the called funtion
-map <leader>p :split<CR><leader>d
 
 
 " Ignore case when searching
@@ -140,7 +130,32 @@ set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=10
 
+" set relativenumber
+set number
+set numberwidth=2
+set guifont=Hack\ 14
+set noundofile
+set nocursorcolumn
+set undolevels=1000      " use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.git
 
+" autoread
+
+au FocusGained,BufEnter * checktime
+
+set nospell
+" set spell
+" set spell spelllang=en
+syntax sync minlines=256
+set re=1
+augroup vimrc_help
+	  autocmd!
+	    autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+    augroup END
+
+    if (has("termguicolors"))
+	      set termguicolors
+	      endif
 
 
 " No annoying sound on errors
@@ -162,20 +177,6 @@ set noswapfile
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" search
-map <space> /
-nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-nnoremap <esc> :noh<return><esc>
-" Terminalmode navigation
-" tnoremap <C-h> <C-\><C-n><C-h>
-" tnoremap <C-j> <C-\><C-n><C-j>
-" tnoremap <C-k> <C-\><C-n><C-k>
-" tnoremap <C-l> <C-\><C-n><C-l>
-
-
-
 " Close a tab
 map <leader>tc :tabclose<cr>
 
@@ -194,7 +195,7 @@ autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 """"""""""""""""""""""""""""""
-" => Status line
+" => STATUS LINE
  """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
@@ -204,7 +205,7 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
+" => EDITING MAPPINGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
@@ -224,12 +225,12 @@ fun! CleanExtraSpaces()
    endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Fast editing and reloading of vimrc configs
+" => VIMRC CONFIGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>ge :e! ~/.myconfig/neovim/init.vim<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Parenthesis/bracket - shortcuts
+" => PARENTHESIS/BRACKET - SHORTCUTS
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vnoremap $1 <esc>`>a)<esc>`<i(<esc>
 vnoremap $2 <esc>`>a]<esc>`<i[<esc>
@@ -247,24 +248,44 @@ inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 
 
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => search noteable words
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CUSTOM SHORTCUTS
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Peek the view. It splits the screen and shows the called funtion
+map <leader>p :split<CR><leader>d
+
+" search
+map <space> /
+nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
+"
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+nnoremap <esc> :noh<return><esc>
+" Terminalmode navigation
+" tnoremap <C-h> <C-\><C-n><C-h>
+" tnoremap <C-j> <C-\><C-n><C-j>
+" tnoremap <C-k> <C-\><C-n><C-k>
+" tnoremap <C-l> <C-\><C-n><C-l>
+
+cnoreabbrev ls !ls
+cnoreabbrev tree !tree
 
 cnoreabbrev todo Ack! "\# TODO"
 cnoreabbrev fix Ack! "\# FIXME"
 cnoreabbrev obs Ack! "\# OBS"
+
+nmap <F8> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Git-fugitive
+" => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ack searching and cope displaying
+" => ACK SEARCHING
 " "    requires ack.vim - it's much better than vimgrep/grep
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use the the_silver_searcher if possible (much faster than Ack)
@@ -306,14 +327,14 @@ map <leader>l :cn<cr>
 map <leader>h :cp<cr>
 
 """"""""""""""""""""""""""""""
-" => Deoplete
+" => DEOPLETE
 " """"""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 0
 autocmd CompleteDone * silent! pclose!
 
 """"""""""""""""""""""""""""""
-" => Python section
+" => PYTHON
 " """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
@@ -356,7 +377,7 @@ function! AddCWDToPythonPath()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => jedi
+" => JEDI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
@@ -364,13 +385,12 @@ let g:jedi#completions_enabled = 1
 
 
 """"""""""""""""""""""""""""""
-" => GO section
+" => GO
 " """"""""""""""""""""""""""""""
 
 let g:go_version_warning = 0
 nmap <leader>a :GoAlternate<cr>
 nnoremap <leader>d :GoDef<CR>
-" let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_fields = 1
@@ -428,7 +448,7 @@ if has("autocmd")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd Tree
+" => NERDTREE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
@@ -439,22 +459,14 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
-
 let g:NERDTreeLimitedSyntax = 1
 let g:NERDTreeChDirMode=2
 
 let NERDTreeShowLineNumbers=1
 
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-multiple-cursors
+" => VIM-MULTIPLE-CURSORS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:multi_cursor_next_key="<C-s>"
 let g:multi_cursor_start_word_key='<C-s>'
 let g:multi_cursor_next_key="<C-s>"
 let g:multi_cursor_prev_key="<C-a>"
@@ -478,15 +490,15 @@ function! Multiple_cursors_after()
 endfunction
 
 """"""""""""""""""""""""""""""
-" => gitgutter
+" => GITGUTTER
 " """"""""""""""""""""""""""""""
 " only shows diffs on save
-let g:gitgutter_async = 0
+let g:gitgutter_async = 1
 " Update git gutter on save
 autocmd BufWritePost * GitGutterEnable
 
 """"""""""""""""""""""""""""""
-" => Worp/Ale plugin
+" => WORP/ALE
 " """"""""""""""""""""""""""""""
 let g:ale_sign_error='EE'
 let g:ale_sign_warning='WW'
@@ -500,51 +512,16 @@ nnoremap <leader>as :ALEPrevious<CR>
 
 
 """"""""""""""""""""""""""""""
-" => Flake plugin
+" => FLAKE
 " """"""""""""""""""""""""""""""
 let g:flake8_error_marker='EE'     " set error marker to 'EE'
 let g:flake8_warning_marker='WW'   " set warning marker to 'WW'
 let g:flake8_show_in_gutter=1  " show
 let g:flake8_show_in_file=1  " show
 
-""""""""""""""""""""""""""""""
-" => nvim settings
-" """"""""""""""""""""""""""""""
-
-" set relativenumber
-set number
-set numberwidth=2
-set guifont=Hack\ 14
-set noundofile
-set nocursorcolumn
-set undolevels=1000      " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.git
-
-" autoread
-
-au FocusGained,BufEnter * checktime
-
-set nospell
-" set spell
-" set spell spelllang=en
-syntax sync minlines=256
-set re=1
-augroup vimrc_help
-	  autocmd!
-	    autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
-    augroup END
-
-    if (has("termguicolors"))
-	      set termguicolors
-	      endif
-
-
-" Shortcuts
-cnoreabbrev ls !ls
-cnoreabbrev tree !tree
 
 """"""""""""""""""""""""""""""
-" => airline plugin
+" => AIRLINE PLUGIN
 " """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -559,16 +536,13 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "
 """"""""""""""""""""""""""""""
-" => LanguageTool
+" => LANGUAGETOOL
 " """"""""""""""""""""""""""""""
-
 let g:languagetool_jar = '/home/intempus/.languagetools/LanguageTool-4.2/languagetool-commandline.jar'
 
-
 """"""""""""""""""""""""""""""
-" => Color scheme
+" => COLOR/THEMES
 " """"""""""""""""""""""""""""""
-" SET-UP FOR SOLARIZED
 let g:apprentice_termcolors=256
 let g:gruvbox_termcolors=256
 let g:solarized_termcolors=256
@@ -578,23 +552,15 @@ let g:onedark_termcolors=256
 set background=dark
 colorscheme gruvbox
 
-""""""""""""""""""""""""""""""
-" => Togglebar
-" """"""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""
-" => Indent plugin
+" => INDENT
 " """"""""""""""""""""""""""""""
 let g:indentLine_char = '¦'
-
-" let g:indentLine_color_term = 200
-" let g:indentLine_bgcolor_term = 1
-" let g:indentLine_bgcolor_gui = '#FFFFFF'
 let g:indentLine_setColors = 0
 
 """"""""""""""""""""""""""""""
-" => Functions
+" => CUSTOM FUNCTIONS
 " """"""""""""""""""""""""""""""
 " " Zoom / Restore window.
 function! s:ZoomToggle() abort
@@ -654,20 +620,20 @@ function! HasPaste()
     return ''
 endfunction
 
-" Close nerd tree if no buffer is open
-function! s:CloseIfOnlyControlWinLeft()
-  if winnr("$") != 1
-    return
-  endif
-  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
-        \ || &buftype == 'quickfix'
-    q
-  endif
-endfunction
-augroup CloseIfOnlyControlWinLeft
-  au!
-  au BufEnter * call s:CloseIfOnlyControlWinLeft()
-augroup END
+" " Close nerd tree if no buffer is open
+" function! s:CloseIfOnlyControlWinLeft()
+"   if winnr("$") != 1
+"     return
+"   endif
+"   if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+"         \ || &buftype == 'quickfix'
+"     q
+"   endif
+" endfunction
+" augroup CloseIfOnlyControlWinLeft
+"   au!
+"   au BufEnter * call s:CloseIfOnlyControlWinLeft()
+" augroup END
 
 
 function! SetPyhton2Host()
@@ -690,13 +656,14 @@ function! SetPython3Host()
 endfunction
 
  """""""""""""""""""""""""""""
- " => GOYO - zen mode
+ " => GOYO - ZENMODE
  """"""""""""""""""""""""""""""
  let g:goyo_width = 200
  let g:goyo_height = 100
 
-
-"" => Omnifunc plugin
+ 
+"""""""""""""""""""""""""""""
+" => OMNIFUNC
 """""""""""""""""""""""""""""""
 " Ctrl-Space for completions. Heck Yeah!
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
