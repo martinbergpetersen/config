@@ -166,13 +166,6 @@ set t_vb=
 set tm=500
 
 
-" Make Vim to handle long lines nicely.
-set wrap
-set textwidth=79
-set colorcolumn=+1
-set formatoptions=qrn1
-"set colorcolumn=79
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -267,7 +260,7 @@ inoremap $e ""<esc>i
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Peek the view. It splits the screen and shows the called funtion
-map <leader>p :split<CR><leader>d
+map <leader>p :split<cr><leader>d
 
 " search
 map <space> /
@@ -276,14 +269,11 @@ nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 nnoremap <esc> :noh<return><esc>
-" Terminalmode navigation
-" tnoremap <C-h> <C-\><C-n><C-h>
-" tnoremap <C-j> <C-\><C-n><C-j>
-" tnoremap <C-k> <C-\><C-n><C-k>
-" tnoremap <C-l> <C-\><C-n><C-l>
 
 cnoreabbrev ls !ls
 cnoreabbrev tree !tree
+
+cnoreabbrev term terminal
 
 cnoreabbrev todo Ack! "\# TODO"
 cnoreabbrev fix Ack! "\# FIXME"
