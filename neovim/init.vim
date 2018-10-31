@@ -19,6 +19,8 @@ Plug 'aperezdc/vim-template'
 
 Plug 'dkprice/vim-easygrep'
 
+" SEARCH
+Plug 'google/vim-searchindex'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -277,6 +279,7 @@ cnoreabbrev fix Ack! "\# FIXME"
 cnoreabbrev obs Ack! "\# OBS"
 
 nmap <F8> :TagbarToggle<CR>
+nnoremap <f1> :SearchIndex<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -579,23 +582,6 @@ function! CmdLine(str)
     unmenu Foo
 endfunction 
 
-fun! CountWordFunction()
-    try
-        let l:win_view = winsaveview()
-        let l:old_query = getreg('/')
-        let var = expand("<cword>")
-        exec "%s/" . var . "//gn"
-    finally
-        call winrestview(l:win_view)
-        call setreg('/', l:old_query)
-    endtry
-endfun
-" Bellow we set a command "CountWord" and a mapping to count word
-" change as you like it
-command! -nargs=0 CountWord :call CountWordFunction()
-nnoremap <f3> :CountWord<CR>
-
-
 " Removed hightlights on words
 function! DisabledHighlight()
    if exists('#auto_highlight')
@@ -615,7 +601,6 @@ function! AutoHighlightToggle()
     au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
     augroup end
     setl updatetime=1
-    call feedkeys("\<f3>")
     echo ""
 endfunction
 
