@@ -109,6 +109,7 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
+set title
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
@@ -165,6 +166,13 @@ set t_vb=
 set tm=500
 
 
+" Make Vim to handle long lines nicely.
+set wrap
+set textwidth=79
+set colorcolumn=+1
+set formatoptions=qrn1
+"set colorcolumn=79
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,6 +185,8 @@ set noswapfile
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Close window
+map <C>wq :close<CR>
 " Close a tab
 map <leader>tc :tabclose<cr>
 
@@ -661,7 +671,6 @@ endfunction
  let g:goyo_width = 200
  let g:goyo_height = 100
 
- 
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
@@ -674,6 +683,5 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 imap <C-@> <C-Space>
 
 " Move up and down in autocomplete with <c-j> and <c-k>
-inoremap <expr> <C-J> ("\<C-N>")
-inoremap <expr> <C-K> ("\<C-P>")
-
+inoremap <expr> <C-J> ("\<C-n>")
+inoremap <expr> <C-k> ("\<C-p>")
