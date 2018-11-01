@@ -14,9 +14,6 @@ Plug 'elzr/vim-json'
 " Commentings
 Plug 'tpope/vim-commentary'
 
-" Template 
-Plug 'aperezdc/vim-template'
-
 Plug 'dkprice/vim-easygrep'
 
 " SEARCH
