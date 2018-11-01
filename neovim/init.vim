@@ -121,6 +121,8 @@ set nocompatible
 filetype plugin on
 filetype indent on
 
+" No preview wndow
+set completeopt-=preview
 " Set to auto read when a file is changed from the outside
 set autoread
 set title
