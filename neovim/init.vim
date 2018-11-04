@@ -102,12 +102,6 @@ call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ULTISNIPIS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetDirectories= "~/.myconfig/ultisnippets"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GENERAL
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
