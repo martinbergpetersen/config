@@ -645,8 +645,8 @@ function! SetPyhton2Host()
 endfunction
 
 function! SetPython3Host()
-     echo 'Running with Python3.5'
-     let python3_host='/usr/bin/python3.5'
+     echo 'Running with Python3.6'
+     let python3_host='/usr/bin/python3.6'
      let g:jedi#force_py_version = 3
      let g:python3_host_prog = python3_host
      let g:vim_isort_python_version = 'python3'
@@ -673,3 +673,4 @@ imap <C-@> <C-Space>
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
+
