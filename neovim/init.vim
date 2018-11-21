@@ -646,11 +646,11 @@ function! SetPyhton2Host()
 endfunction
 
 function! SetPython3Host()
-     echo 'Running with Python3.6'
-     let python3_host='/usr/bin/python3.6'
+     echo 'Running with Python3.7'
+     let python3_host='/usr/bin/python3.7'
      let g:jedi#force_py_version = 3
      let g:python3_host_prog = python3_host
-     let g:vim_isort_python_version = 'python3'
+     let g:vim_isort_python_version = 'python3.7'
      let g:ale_python_flake8_options = '-m flake8'
 endfunction
 
