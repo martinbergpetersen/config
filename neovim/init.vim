@@ -71,6 +71,7 @@ Plug 'dracula/vim'
 Plug 'joshdick/onedark.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'lifepillar/vim-solarized8'
+Plug 'sonph/onehalf'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
