@@ -674,4 +674,3 @@ imap <C-@> <C-Space>
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
-
