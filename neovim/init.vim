@@ -114,7 +114,7 @@ filetype plugin on
 filetype indent on
 
 " No preview wndow
-set completeopt-=preview
+set completeopt=longest,menuone
 " Set to auto read when a file is changed from the outside
 set autoread
 set title
@@ -674,3 +674,10 @@ imap <C-@> <C-Space>
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
+
+
+"""""""""""""""""""""""""""""
+" => ULTISNIPPETS
+"""""""""""""""""""""""""""""""
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+
