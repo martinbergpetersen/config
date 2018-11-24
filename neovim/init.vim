@@ -71,7 +71,7 @@ Plug 'dracula/vim'
 Plug 'joshdick/onedark.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'lifepillar/vim-solarized8'
-Plug 'sonph/onehalf'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
@@ -531,7 +531,7 @@ let g:flake8_show_in_file=1  " show
 " """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='onehalfdark'
 let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""
 " => Markdown plugin
@@ -555,8 +555,8 @@ let g:solarized_termcolors=256
 let g:deus_termcolors=256
 let g:onedark_termcolors=256
 
+colorscheme onehalfdark
 set background=dark
-colorscheme gruvbox
 
 
 """"""""""""""""""""""""""""""
