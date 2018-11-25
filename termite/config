@@ -6,7 +6,7 @@ dynamic_title = true
 cursor_blink = system
 
 # "block", "underline" or "ibeam"
-cursor_shape = underline
+cursor_shape = block
 
 [colors]
 
