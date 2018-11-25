@@ -2,6 +2,11 @@
 [options]
 font = Hack 13
 dynamic_title = true
+# "system", "on" or "off"
+cursor_blink = system
+
+# "block", "underline" or "ibeam"
+cursor_shape = underline
 
 [colors]
 
