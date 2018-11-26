@@ -554,6 +554,7 @@ let g:gruvbox_termcolors=256
 let g:solarized_termcolors=256
 let g:deus_termcolors=256
 let g:onedark_termcolors=256
+let g:onehalf_termcolors=256
 
 colorscheme onehalfdark
 set background=dark
@@ -681,3 +682,4 @@ inoremap <expr> <C-k> ("\<C-p>")
 """""""""""""""""""""""""""""""
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 
+hi DiffChange guifg=blue guibg=orange
