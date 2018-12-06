@@ -531,7 +531,7 @@ let g:flake8_show_in_file=1  " show
 " """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='onehalfdark'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""
 " => Markdown plugin
@@ -556,7 +556,7 @@ let g:deus_termcolors=256
 let g:onedark_termcolors=256
 let g:onehalf_termcolors=256
 
-colorscheme onehalfdark
+colorscheme gruvbox
 set background=dark
 
 
@@ -681,5 +681,3 @@ inoremap <expr> <C-k> ("\<C-p>")
 " => ULTISNIPPETS
 """""""""""""""""""""""""""""""
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-
-hi DiffChange guifg=blue guibg=orange
