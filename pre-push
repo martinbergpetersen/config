@@ -28,7 +28,7 @@ aborted="push aborted"
 origin="origin"
 alert="You are pushing to the remote: $remote on branch: $branch, are you sure? y/n: "
 
-master_alert="You are about to push to master, are you sure? y/n"
+master_alert="You are about to push to master, are you sure? (Check JENKINS) y/n"
 
 
 if [ $remote = $origin ]
