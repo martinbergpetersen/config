@@ -195,6 +195,11 @@ translate() {
       echo "$1" | translate-bin -s google -f en -t da |  grep -oP '>[a-zA-Z\Wæøå ]*'
 }
 
+create_docker(){
+~/work/create_docker $1 $2
+}
+
+
 sshintempus()
 {
     if [ "$1" = "1" ]
