@@ -130,9 +130,6 @@ export PATH=$PATH:$GO_HOME/bin
 export PATH=$PATH:$GOPATH/bin
 
 # myalias
-alias cdgo='cd ~/go/src/github.com/martinbergpetersen/'
-alias cdprojects='cd ~/projects/'
-alias cdproduction='cd ~/work/production/'
 alias sourceproduction='source ~/.virtualenvs/django/bin/activate'
 alias keepass='keepass2 & disown'
 alias slack='slack & disown && exit'
