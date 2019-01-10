@@ -288,3 +288,4 @@ if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/mb
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 [[ -s /home/mbp/.autojump/etc/profile.d/autojump.sh ]] && source /home/mbp/.autojump/etc/profile.d/autojump.sh
+[[ -s /home/mbp/.wd ]] && source /home/mbp/.wd
