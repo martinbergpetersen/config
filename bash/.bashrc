@@ -130,9 +130,6 @@ export PATH=$PATH:$GO_HOME/bin
 export PATH=$PATH:$GOPATH/bin
 
 # myalias
-alias cdgo='cd ~/go/src/github.com/martinbergpetersen/'
-alias cdprojects='cd ~/projects/'
-alias cdproduction='cd ~/work/production/'
 alias sourceproduction='source ~/.virtualenvs/django/bin/activate'
 alias keepass='keepass2 & disown'
 alias slack='slack & disown && exit'
@@ -141,6 +138,7 @@ alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "stat
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
 alias startshift='~/.shift/Shift & disown'
 alias spotify='spotify & disown'
+alias jcom='j --complete'
 
 # Path to the bash it configuration
 export BASH_IT="/home/mbp/.bash_it"
@@ -285,7 +283,8 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mbp/google-cloud-sdk/path.bash.inc' ]; then . '/home/mbp/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/mbp/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mbp/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+[[ -s /home/mbp/.autojump/etc/profile.d/autojump.sh ]] && source /home/mbp/.autojump/etc/profile.d/autojump.sh
