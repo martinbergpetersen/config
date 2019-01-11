@@ -220,7 +220,7 @@ bindsym $mod+shift+m exec thunderbird
 
 
 # Setup workspace10
--exec --no-startup-id i3-msg 'workspace $workspace10; exec /usr/bin/slack & disown';
+exec --no-startup-id i3-msg 'workspace $workspace10; exec /usr/bin/slack & disown';
 
 
 # Setup workspace10
