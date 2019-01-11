@@ -138,8 +138,8 @@ alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "stat
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
 alias spotify='spotify & disown'
 alias jcom='j --complete'
-alias work_screens='~/.myconfig/work_settings.sh'
-alias home_screens='~/.myconfig/home.sh'
+alias work_screens='. ~/.myconfig/work_settings.sh'
+alias home_screens='. ~/.myconfig/home.sh'
 
 # Path to the bash it configuration
 export BASH_IT="/home/mbp/.bash_it"
