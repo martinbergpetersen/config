@@ -220,7 +220,7 @@ bindsym $mod+shift+m exec thunderbird
 
 
 # Setup workspace10
-exec --no-startup-id i3-msg 'workspace $workspace10; exec /home/mbp/.shift/Shift & disown';
+-exec --no-startup-id i3-msg 'workspace $workspace10; exec /usr/bin/slack & disown';
 
 
 # Setup workspace10
@@ -234,7 +234,6 @@ assign [class="Okular"] $workspace8
 assign [class="Evince"] $workspace8
 
 #workspace10 
-assign [class="Shift"] $workspace10
 assign [class="Slack"] $workspace10
 
 #Setup wallpaper ---
