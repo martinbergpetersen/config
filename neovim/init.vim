@@ -56,6 +56,8 @@ Plug 'tell-k/vim-autopep8'
 Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
 Plug 'plytophogy/vim-virtualenv'
+Plug 'Chiel92/vim-autoformat'
+
 " Plug 'zchee/deoplete-jedi'
 
 " Go
@@ -284,6 +286,7 @@ cnoreabbrev todo Ack! "\# TODO"
 cnoreabbrev fix Ack! "\# FIXME"
 cnoreabbrev obs Ack! "\# OBS"
 
+noremap <F3> :Autoformat<CR>
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
