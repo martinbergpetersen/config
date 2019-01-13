@@ -13,8 +13,12 @@
 [alias]
 	wlist = worktree list
 	cm = commit
+
+	lsfull = log --oneline --stat -p --color --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
+	lssemi = log --oneline --stat  --color --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
 	ls = log --oneline --color --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
 	lg = log --color --graph --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
 	lgall = log --all --color --graph --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
+	sta = status
 	mergeff = merge --ff-only
 	pullff = pull --ff-only
