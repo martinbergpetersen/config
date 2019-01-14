@@ -292,7 +292,8 @@ nnoremap <f1> :SearchIndex<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+map <C-g><c-d> :Gdiff<cr>
+map <C-g><c-b> :Gblame<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ACK SEARCHING
 " "    requires ack.vim - it's much better than vimgrep/grep
