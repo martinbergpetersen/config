@@ -57,6 +57,7 @@ Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'Chiel92/vim-autoformat'
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 " Plug 'zchee/deoplete-jedi'
 
@@ -121,7 +122,9 @@ set completeopt=longest,menuone
 set autoread
 set title
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
+map <c-w><c-w> :w<cr>
+map <c-w><c-a> :wa<cr>
+
 let mapleader = ","
 let g:mapleader = ","
 
@@ -188,8 +191,6 @@ set noswapfile
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Close window
-map <C>wq :close<CR>
 " Close a tab
 map <leader>tc :tabclose<cr>
 
@@ -277,16 +278,13 @@ map <space> /
 nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 nnoremap <esc> :call DisabledHighlight()<return><esc>
 
-cnoreabbrev ls !ls
-cnoreabbrev tree !tree
-
 cnoreabbrev term terminal
 
 cnoreabbrev todo Ack! "\# TODO"
 cnoreabbrev fix Ack! "\# FIXME"
 cnoreabbrev obs Ack! "\# OBS"
 
-noremap <F3> :Autoformat<CR>
+noremap <F3> :YAPF<CR>
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
