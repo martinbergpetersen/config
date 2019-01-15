@@ -140,6 +140,7 @@ alias spotify='spotify & disown'
 alias jcom='j --complete'
 alias work_screens='. ~/.myconfig/work_settings.sh'
 alias home_screens='. ~/.myconfig/home.sh'
+alias rg='ripgrep.rg'
 
 # Path to the bash it configuration
 export BASH_IT="/home/mbp/.bash_it"
