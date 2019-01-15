@@ -120,10 +120,6 @@ stty -ixon
 set -o vi
 figlet $USER
 # neofetch
-translate() {
-      echo "$1" | translate-bin -s google -f en -t da |  grep -oP '>[a-zA-Z\Wæøå ]*'
-}
-
 GO_HOME="/usr/local/go"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GO_HOME/bin
