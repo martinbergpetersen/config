@@ -282,6 +282,7 @@ nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 nnoremap <esc> :call DisabledHighlight()<return><esc>
 
 cnoreabbrev term terminal
+cnoreabbrev git Git
 
 noremap <F3> :YAPF<CR>
 nmap <F8> :TagbarToggle<CR>
