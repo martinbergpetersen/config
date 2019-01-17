@@ -193,6 +193,9 @@ set noswapfile
 
 " Close a tab
 map <leader>tc :tabclose<cr>
+map <leader>te :tabedit<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
@@ -279,10 +282,6 @@ nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 nnoremap <esc> :call DisabledHighlight()<return><esc>
 
 cnoreabbrev term terminal
-
-cnoreabbrev todo Ack! "\# TODO"
-cnoreabbrev fix Ack! "\# FIXME"
-cnoreabbrev obs Ack! "\# OBS"
 
 noremap <F3> :YAPF<CR>
 nmap <F8> :TagbarToggle<CR>
@@ -424,8 +423,8 @@ nnoremap <leader>o :BufExplorer<cr>
 let g:ctrlp_working_path_mode = 0
 
 let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
-map <c-b> :CtrlPBuffer<cr>
+map <c-a> :CtrlPBuffer<cr>
+map <c-r> :CtrlPMRUFiles<cr>
 
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
@@ -519,6 +518,13 @@ highlight clear ALEWarningSign
 nnoremap <leader>ad :ALENext<CR>
 nnoremap <leader>as :ALEPrevious<CR>
 
+
+" Check Python files with flake8 and pylint.
+" Fix Python files with autopep8 and yapf.
+
+let g:ale_fixers = {
+      \ 'python': ['yapf']
+      \ }
 
 """"""""""""""""""""""""""""""
 " => FLAKE
