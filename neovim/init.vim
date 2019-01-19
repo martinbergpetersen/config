@@ -1,9 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " deoplete
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+ Plug 'Shougo/deoplete.nvim'
 
 " Async linter
 Plug 'w0rp/ale'
@@ -50,11 +48,15 @@ Plug 'ryanoasis/vim-devicons'
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
 
+
+
+" Youcomplete me
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 " Python
 Plug 'fisadev/vim-isort'
 Plug 'tell-k/vim-autopep8'
 Plug 'nvie/vim-flake8'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'Chiel92/vim-autoformat'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
@@ -62,8 +64,8 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 " Plug 'zchee/deoplete-jedi'
 
 " Go
-Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go'
+" Plug 'fatih/vim-go'
+" Plug 'zchee/deoplete-go'
 
 "Themes
 Plug 'morhetz/gruvbox'
@@ -385,28 +387,36 @@ function! AddCWDToPythonPath()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YOUCOMPLETEME
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_min_num_of_chars_for_completion = 2
+
+nnoremap <leader>d :YcmComplete GoTo<CR>
+nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => JEDI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 1
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#popup_select_first = 0
+" let g:jedi#completions_enabled = 1
 
 
 """"""""""""""""""""""""""""""
 " => GO
 " """"""""""""""""""""""""""""""
 
-let g:go_version_warning = 0
-nmap <leader>a :GoAlternate<cr>
-nnoremap <leader>d :GoDef<CR>
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_trailing_whitespace_error = 1
-let g:go_highlight_structs = 1
+" let g:go_version_warning = 0
+" nmap <leader>a :GoAlternate<cr>
+" nnoremap <leader>d :GoDef<CR>
+" let g:go_highlight_build_constraints = 1
+" let g:go_highlight_generate_tags = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_types = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_trailing_whitespace_error = 1
+" let g:go_highlight_structs = 1
 
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
@@ -642,18 +652,18 @@ endfunction
 function! SetPyhton2Host()
     echo 'Running with Python2.7'
     " sets ale to use flake for python 2.7
-    let python2_host='/usr/bin/python2.7'
-    let g:jedi#force_py_version = 2
+    let python2_host='/usr/lib/python2.7'
     let g:python_host_prog =python2_host
+    let g:jedi#force_py_version = 2
     let g:vim_isort_python_version ='python2'
     let g:ale_python_flake8_args = '-m flake8'
 endfunction
 
 function! SetPython3Host()
      echo 'Running with Python3.7'
-     let python3_host='/usr/bin/python3.7'
-     let g:jedi#force_py_version = 3
+     let python3_host='/usr/lib/python3.7'
      let g:python3_host_prog = python3_host
+     let g:jedi#force_py_version = 3
      let g:vim_isort_python_version = 'python3.7'
      let g:ale_python_flake8_options = '-m flake8'
 endfunction
@@ -667,14 +677,6 @@ endfunction
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
-" Ctrl-Space for completions. Heck Yeah!
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-        \ "" :
-        \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-        \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-        \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
-
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
