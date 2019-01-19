@@ -389,7 +389,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YOUCOMPLETEME
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_auto_trigger = 0
 
 nnoremap <leader>d :YcmComplete GoTo<CR>
 nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
@@ -407,7 +407,7 @@ nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
 " """"""""""""""""""""""""""""""
 
 " let g:go_version_warning = 0
-" nmap <leader>a :GoAlternate<cr>
+nmap <leader>a :GoAlternate<cr>
 nnoremap <leader>d :GoDef<CR>
 nnoremap <C-K> :GoDoc<CR>
 let g:go_highlight_build_constraints = 1
