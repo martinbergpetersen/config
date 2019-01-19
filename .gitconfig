@@ -12,8 +12,8 @@
 [alias]
 	wlist = worktree list
 	cm = commit
-	symdiff = !sh -c 'git $1 --right-only $2...'
-	cmm = !sh -c  'git commit -m "$1"'
+	symdiff = !sh -c 'git $1 --right-only $2...' -
+	cmm = !sh -c 'git commit -m \"$1\"' -
 	lsfull = log --oneline --stat -p --color --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
 	lssemi = log --oneline --stat  --color --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
 	ls = log --oneline --color --pretty=format:'%Cgreen%h%Creset %Cgreen(%cr)  %C(yellow)%d%Creset%s %C(bold blue)[%an]%Creset' --abbrev-commit
