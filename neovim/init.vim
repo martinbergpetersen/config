@@ -65,7 +65,7 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 
 " Go
-" Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 "Themes
 Plug 'morhetz/gruvbox'
@@ -408,15 +408,16 @@ nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
 
 " let g:go_version_warning = 0
 " nmap <leader>a :GoAlternate<cr>
-" nnoremap <leader>d :GoDef<CR>
-" let g:go_highlight_build_constraints = 1
-" let g:go_highlight_generate_tags = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_types = 1
-" let g:go_highlight_methods = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_trailing_whitespace_error = 1
-" let g:go_highlight_structs = 1
+nnoremap <leader>d :GoDef<CR>
+nnoremap <C-K> :GoDoc<CR>
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_structs = 1
 
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
