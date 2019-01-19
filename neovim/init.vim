@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-" deoplete
- Plug 'Shougo/deoplete.nvim'
+Plug 'farmergreg/vim-lastplace'
+
 
 " Async linter
 Plug 'w0rp/ale'
@@ -48,10 +48,12 @@ Plug 'ryanoasis/vim-devicons'
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
 
-
-
 " Youcomplete me
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+
+
+
+
 " Python
 Plug 'fisadev/vim-isort'
 Plug 'tell-k/vim-autopep8'
@@ -61,11 +63,9 @@ Plug 'plytophogy/vim-virtualenv'
 Plug 'Chiel92/vim-autoformat'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
-" Plug 'zchee/deoplete-jedi'
 
 " Go
 " Plug 'fatih/vim-go'
-" Plug 'zchee/deoplete-go'
 
 "Themes
 Plug 'morhetz/gruvbox'
