@@ -389,7 +389,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YOUCOMPLETEME
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_min_num_of_chars_for_completion = 3
 
 nnoremap <leader>d :YcmComplete GoTo<CR>
 nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
