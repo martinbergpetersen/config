@@ -6,7 +6,7 @@ Plug 'farmergreg/vim-lastplace'
 
 
 " C family
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'zchee/deoplete-clang'
 
 " Async linter
@@ -392,7 +392,7 @@ endfunction
 " => YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ycm_auto_trigger = 1
+let g:ycm_auto_trigger = 0
 let g:ycm_max_num_candidates = 10
 let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
@@ -410,9 +410,6 @@ let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
 autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
 autocmd FileType python nnoremap <C-K> :call jedi#show_documentation()<CR>
-let g:deoplete#sources#jedi#statement_length = 10
-let g:deoplete#sources#jedi#disaple_au = 10
-let g:deoplete_disable_auto_complete=1
 
 
 """"""""""""""""""""""""""""""
