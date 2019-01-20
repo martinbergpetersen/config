@@ -68,7 +68,7 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 
 " Go
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "Themes
 Plug 'morhetz/gruvbox'
@@ -392,10 +392,9 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YOUCOMPLETEME
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ycm_min_num_of_chars_for_completion = 2
-" let g:ycm_auto_trigger = 0
-let g:ycm_max_num_candidates = 10
-let g:ycm_max_num_identifier_candidates = 5
+let g:ycm_max_num_candidates = 7
+let g:ycm_max_num_identifier_candidates = 7
+let g:ycm_min_num_identifier_candidate_chars = 3
 
 nnoremap <leader>d :YcmComplete GoTo<CR>
 nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
@@ -688,13 +687,13 @@ endfunction
  let g:goyo_width = 200
  let g:goyo_height = 100
 
+
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
-
 
 """""""""""""""""""""""""""""
 " => ULTISNIPPETS
@@ -704,12 +703,10 @@ let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" better key bindings for UltiSnipsExpandTrigger
+" " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-
 
 
 
@@ -792,4 +789,6 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
+
 
