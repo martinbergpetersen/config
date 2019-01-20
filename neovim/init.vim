@@ -6,7 +6,7 @@ Plug 'farmergreg/vim-lastplace'
 
 
 " C family
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'zchee/deoplete-clang'
 
 " Async linter
