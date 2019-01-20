@@ -1,7 +1,13 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 Plug 'farmergreg/vim-lastplace'
 
+
+" C family
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'zchee/deoplete-clang'
 
 " Async linter
 Plug 'w0rp/ale'
@@ -48,20 +54,14 @@ Plug 'ryanoasis/vim-devicons'
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
 
-" Youcomplete me
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-
-
 Plug 'ervandew/supertab'
-
-
-
 
 " Python
 Plug 'fisadev/vim-isort'
 Plug 'tell-k/vim-autopep8'
 Plug 'nvie/vim-flake8'
-" Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'Chiel92/vim-autoformat'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
@@ -69,13 +69,13 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'zchee/deoplete-go'
 
 "Themes
 Plug 'morhetz/gruvbox'
 Plug 'romainl/Apprentice'
 Plug 'sheerun/vim-wombat-scheme'
 Plug 'dracula/vim'
-" Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'lifepillar/vim-solarized8'
@@ -343,8 +343,7 @@ map <leader>h :cp<cr>
 " => DEOPLETE
 " """"""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 0
-autocmd CompleteDone * silent! pclose!
+let g:deoplete#max_list = 10
 
 """"""""""""""""""""""""""""""
 " => PYTHON
@@ -390,21 +389,30 @@ function! AddCWDToPythonPath()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YOUCOMPLETEME
+" => YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_max_num_candidates = 7
-let g:ycm_max_num_identifier_candidates = 7
-let g:ycm_min_num_identifier_candidate_chars = 3
 
-nnoremap <leader>d :YcmComplete GoTo<CR>
-nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
+let g:ycm_auto_trigger = 1
+let g:ycm_max_num_candidates = 10
+let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => C++
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => JEDI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:jedi#popup_on_dot = 0
-" let g:jedi#popup_select_first = 0
-" let g:jedi#completions_enabled = 1
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 1
+autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
+autocmd FileType python nnoremap <C-K> :call jedi#show_documentation()<CR>
+let g:deoplete#sources#jedi#statement_length = 10
+let g:deoplete#sources#jedi#disaple_au = 10
+let g:deoplete_disable_auto_complete=1
 
 
 """"""""""""""""""""""""""""""
@@ -413,8 +421,8 @@ nnoremap <C-K> :YcmComplete GetDoc<CR><c-w><c-k>
 
 " let g:go_version_warning = 0
 nmap <leader>a :GoAlternate<cr>
-nnoremap <leader>d :GoDef<CR>
-nnoremap <C-K> :GoDoc<CR>
+autocmd FileType go nnoremap <leader>d :GoDef<CR>
+autocmd FileType go nnoremap <C-K> :GoDoc<CR>
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_fields = 1
@@ -497,21 +505,11 @@ let g:multi_cursor_next_key="<C-s>"
 let g:multi_cursor_prev_key="<C-a>"
 
 
-" Disable Deoplete when selecting multiple cursors starts
-function! Multiple_cursors_before()
-    if exists('*deoplete#disable')
-        exe 'call deoplete#toggle()'
-    elseif exists(':NeoCompleteLock') == 2
-        exe 'NeoCompleteLock'
-    endif
+function g:Multiple_cursors_before()
+ call deoplete#custom#buffer_option('auto_complete', v:false)
 endfunction
-" Enable Deoplete when selecting multiple cursors ends
-function! Multiple_cursors_after()
-    if exists('*deoplete#enable')
-        exe 'call deoplete#toggle()'
-    elseif exists(':NeoCompleteUnlock') == 2
-        exe 'NeoCompleteUnlock'
-    endif
+function g:Multiple_cursors_after()
+ call deoplete#custom#buffer_option('auto_complete', v:true)
 endfunction
 
 """"""""""""""""""""""""""""""
@@ -691,6 +689,15 @@ endfunction
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
+" Ctrl-Space for completions. Heck Yeah!
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+        \ "" :
+        \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+        \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+        \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
+
+
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
@@ -789,6 +796,7 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
 
 
 
