@@ -20,8 +20,6 @@ Plug 'tpope/vim-commentary'
 
 Plug 'dkprice/vim-easygrep'
 
-" SEARCH
-Plug 'google/vim-searchindex'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -84,9 +82,11 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " NERDTree
 Plug 'scrooloose/nerdtree'
 
-" Search
+" SEARCH
 Plug 'mileszs/ack.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'google/vim-searchindex'
 
 " Indentline
 Plug 'Yggdroot/indentLine'
@@ -126,6 +126,7 @@ set completeopt=longest,menuone
 " Set to auto read when a file is changed from the outside
 set autoread
 set title
+
 " With a map leader it's possible to do extra key combinations
 map <c-w><c-w> :w<cr>
 map <c-w><c-a> :wa<cr>
@@ -146,6 +147,7 @@ set incsearch
 " Show matching brackets when text indicator is over them
 set showmatch 
 
+set wildignore=*.pyc,*.git
 " How many tenths of a second to blink when matching brackets
 set mat=10
 
@@ -156,7 +158,6 @@ set guifont=Hack\ 14
 set noundofile
 set nocursorcolumn
 set undolevels=1000      " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.git
 
 " autoread
 
@@ -395,7 +396,7 @@ endfunction
 let g:ycm_auto_trigger = 0
 let g:ycm_max_num_candidates = 10
 let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C++
@@ -438,44 +439,87 @@ let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='nmber'
 nnoremap <leader>o :BufExplorer<cr> 
 
-
 """"""""""""""""""""""""""""""
-" => CTRL-P
+" => FuzzyFinder
 " """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
+"
+let g:netrw_list_hide= '.*\.pyc$'
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-o': 'edit',
+  \ 'ctrl-i': 'badd',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
-let g:ctrlp_map = '<c-f>'
-map <c-a> :CtrlPBuffer<cr>
-map <c-r> :CtrlPMRUFiles<cr>
 
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .coffee
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ --ignore node_modules
-      \ --ignore .env
-      \ --ignore .vscode
-      \ --ignore "**/*.css"
-      \ -g ""'
 
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:30'
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
 
-" CtrlP auto cache clearing.
-" ----------------------------------------------------------------------------
-function! SetupCtrlP()
-  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-    augroup CtrlPExtension
-      autocmd!
-      autocmd FocusGained  * CtrlPClearCache
-      autocmd BufWritePost * CtrlPClearCache
-    augroup END
-  endif
-endfunction
-if has("autocmd")
-  autocmd VimEnter * :call SetupCtrlP()
-endif
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+let g:fzf_layout = { 'down': '~20%' }
+
+map <c-a> :Buffers<cr>
+map <c-f> :Files<cr>
+map <c-i> :Tags<cr>
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+
+" Hide Status line
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+"""""""""""""""""""""""""""""""
+"" => CTRL-P
+"" """"""""""""""""""""""""""""""
+"let g:ctrlp_working_path_mode = 0
+
+"let g:ctrlp_map = '<c-f>'
+"map <c-a> :CtrlPBuffer<cr>
+"map <c-r> :CtrlPMRUFiles<cr>
+
+"let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+"      \ --ignore .git
+"      \ --ignore .svn
+"      \ --ignore .coffee
+"      \ --ignore .DS_Store
+"      \ --ignore "**/*.pyc"
+"      \ --ignore node_modules
+"      \ --ignore .env
+"      \ --ignore .vscode
+"      \ --ignore "**/*.css"
+"      \ -g ""'
+
+"let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:30'
+
+"" CtrlP auto cache clearing.
+"" ----------------------------------------------------------------------------
+"function! SetupCtrlP()
+"  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+"    augroup CtrlPExtension
+"      autocmd!
+"      autocmd FocusGained  * CtrlPClearCache
+"      autocmd BufWritePost * CtrlPClearCache
+"    augroup END
+"  endif
+"endfunction
+"if has("autocmd")
+"  autocmd VimEnter * :call SetupCtrlP()
+"endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTREE
