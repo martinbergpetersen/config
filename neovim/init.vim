@@ -124,6 +124,7 @@ filetype indent on
 
 " No preview wndow
 set completeopt=longest,menuone
+set completeopt+=noselect
 " Set to auto read when a file is changed from the outside
 set autoread
 set title
@@ -310,7 +311,8 @@ map <C-g><c-b> :Gblame<cr>
 " => DEOPLETE
 " """"""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#max_list = 10
+let g:deoplete#max_list = 20
+
 
 """"""""""""""""""""""""""""""
 " => PYTHON
@@ -360,8 +362,8 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ycm_auto_trigger = 0
-let g:ycm_max_num_candidates = 10
-let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
+let g:ycm_max_num_candidates = 20
+" let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
 " let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -724,15 +726,6 @@ endfunction
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
-" Ctrl-Space for completions. Heck Yeah!
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-        \ "" :
-        \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-        \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-        \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
-
-
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
