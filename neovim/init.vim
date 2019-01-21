@@ -455,6 +455,21 @@ vnoremap <leader>s :call VisualSelection('s', '')<CR>
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
