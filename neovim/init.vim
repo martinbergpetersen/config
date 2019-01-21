@@ -367,7 +367,6 @@ let g:ycm_auto_trigger = 0
 let g:ycm_max_num_candidates = 20
 " let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C++
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -399,6 +398,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_structs = 1
+let g:go_list_height = 0
+
 
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
