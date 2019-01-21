@@ -4,6 +4,6 @@
 --exclude=*/node_modules/*
 --exclude=db/*
 --exclude=log/*
---exclude=*.pyc
---exclude=*.js
 --exclude=*.html
+--exclude=*.css
+--exclude=*.js
