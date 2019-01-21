@@ -90,7 +90,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'google/vim-searchindex'
 
 " Indentline
-" Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " Easy motiom
 Plug 'easymotion/vim-easymotion'
@@ -623,7 +623,7 @@ set background=dark
 " => INDENT
 " """"""""""""""""""""""""""""""
 let g:indentLine_char = '¦'
-let g:indentLine_setColors = 0
+" let g:indentLine_setColors = 1
 
 """"""""""""""""""""""""""""""
 " => CUSTOM FUNCTIONS
