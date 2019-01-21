@@ -30,6 +30,7 @@ Plug 'tommcdo/vim-fubitive'
 
 " Ctags
 Plug 'majutsushi/tagbar' 
+Plug 'craigemery/vim-autotag'
 
 " MD instant markdown
 Plug 'shime/vim-livedown'
@@ -294,6 +295,7 @@ cnoreabbrev git Git
 
 noremap <F3> :YAPF<CR>
 nmap <F8> :TagbarToggle<CR>
+
 nnoremap <f1> :SearchIndex<CR>
 
 map <leader>cc :botright cope<cr>
@@ -363,8 +365,8 @@ endfunction
 
 let g:ycm_auto_trigger = 0
 let g:ycm_max_num_candidates = 20
-" let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
 " let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C++
@@ -410,15 +412,14 @@ nnoremap <leader>o :BufExplorer<cr>
 """"""""""""""""""""""""""""""
 " => FuzzyFinder
 " """"""""""""""""""""""""""""""
-"
-let g:netrw_list_hide= '.*\.pyc$'
+
+
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-o': 'edit',
   \ 'ctrl-i': 'badd',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-
 
 
 " [Buffers] Jump to the existing window if possible
