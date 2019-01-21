@@ -83,7 +83,6 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'scrooloose/nerdtree'
 
 " SEARCH
-Plug 'mileszs/ack.vim'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'google/vim-searchindex'
@@ -293,52 +292,17 @@ cnoreabbrev git Git
 noremap <F3> :YAPF<CR>
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => GIT-FUGITIVE
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-g><c-d> :Gdiff<cr>
-map <C-g><c-b> :Gblame<cr>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ACK SEARCHING
-" "    requires ack.vim - it's much better than vimgrep/grep
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the the_silver_searcher if possible (much faster than Ack)
-let g:ag_highlight = 1
-let g:ackhighlight = 1
-cnoreabbrev Ack Ack!
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-" vnoremap <leader>gv y:Ack! <C-r>=fnameescape(@")<CR><CR>
-
-" When you press gv you Ack after the selected text
-vnoremap <leader>gv :call VisualSelection('gv', '')<CR>
-" Open Ack and put the cursor in the right position
-map <leader>s :Ack -i '
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-
-" When you search with Ack, display your results in cope by doing:
-"   <leader>cc
-
-" To go to the next search result do:
-"   <leader>n
-
-" To go to the previous search results do:
-"   <leader>p
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>l :cn<cr>
 map <leader>h :cp<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GIT-FUGITIVE
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-g><c-d> :Gdiff<cr>
+map <C-g><c-b> :Gblame<cr>
+
 
 """"""""""""""""""""""""""""""
 " => DEOPLETE
@@ -470,6 +434,7 @@ let g:fzf_layout = { 'down': '~20%' }
 map <c-a> :Buffers<cr>
 map <c-f> :Files<cr>
 map <c-i> :Tags<cr>
+map <c-r> :Rg 
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -483,6 +448,17 @@ autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
+"
+" When you press gv you Rg after the selected text
+vnoremap <leader>s :call VisualSelection('s', '')<CR>
+
+" When you press <leader>r you can search and replace the selected text
+vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""
 "" => CTRL-P
 "" """"""""""""""""""""""""""""""
@@ -684,8 +660,8 @@ function! VisualSelection(direction, extra_filter) range
     let l:pattern = escape(@", "\\/.*'$^~[]")
     let l:pattern = substitute(l:pattern, "\n$", "", "")
     echo l:pattern
-    if a:direction == 'gv'
-        call CmdLine("Ack '" . l:pattern . "' " )
+    if a:direction == 's'
+        call CmdLine("Rg " . l:pattern . "")
     elseif a:direction == 'replace'
         call CmdLine("%s" . '/'. l:pattern . '/')
     endif
