@@ -136,7 +136,6 @@ alias spotify='spotify & disown'
 alias jcom='j --complete'
 alias work_screens='. ~/.myconfig/work_settings.sh'
 alias home_screens='. ~/.myconfig/home.sh'
-alias rg='ripgrep.rg'
 
 # Path to the bash it configuration
 export BASH_IT="/home/mbp/.bash_it"
@@ -230,8 +229,8 @@ sshintempus()
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='ripgrep.rg --files'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 
 # Path to the bash it configuration
