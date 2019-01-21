@@ -78,6 +78,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'lifepillar/vim-solarized8'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'fxn/vim-monochrome'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
@@ -88,7 +90,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'google/vim-searchindex'
 
 " Indentline
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 
 " Easy motiom
 Plug 'easymotion/vim-easymotion'
@@ -587,7 +589,7 @@ let g:flake8_show_in_file=1  " show
 " """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='onehalfdark'
 let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""
 " => Markdown plugin
@@ -612,7 +614,8 @@ let g:deus_termcolors=256
 let g:onedark_termcolors=256
 let g:onehalf_termcolors=256
 
-colorscheme gruvbox
+colorscheme monochrome
+let g:monochrome_italic_comments = 1
 set background=dark
 
 
