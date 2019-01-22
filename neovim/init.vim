@@ -157,7 +157,6 @@ set mat=10
 " set relativenumber
 set number
 set numberwidth=2
-set guifont=Hack\ 14
 set noundofile
 set nocursorcolumn
 set undolevels=1000      " use many muchos levels of undo
