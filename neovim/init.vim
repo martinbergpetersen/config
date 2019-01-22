@@ -215,7 +215,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => STATUS LINE
  """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=0
+set laststatus=2
 " Format the status line
 set statusline+=%#CursorColumn#
 set statusline+=\ %F%m%r%h\ %w 
