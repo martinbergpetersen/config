@@ -448,6 +448,16 @@ nmap <c-r> :Rg
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Terminal
+
+  " Terminal mode:
+tnoremap <c-h> <c-\><c-n><c-w>h
+tnoremap <c-j> <c-\><c-n><c-w>j
+tnoremap <c-k> <c-\><c-n><c-w>k
+tnoremap <c-l> <c-\><c-n><c-w>l
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTREE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeWinPos = "left"
