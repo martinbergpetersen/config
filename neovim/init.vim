@@ -671,12 +671,6 @@ endfunction
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
-" inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-"         \ "" :
-"         \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-"         \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-"         \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-" imap <C-@> <C-Space>
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
@@ -775,7 +769,3 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
-
-
-
-
