@@ -222,8 +222,6 @@ bindsym $mod+shift+m exec thunderbird
 # Setup workspace10
 exec --no-startup-id i3-msg 'workspace $workspace10; exec /usr/bin/slack & disown';
 
-exec --no-startup-id i3-msg 'exec indicator-sound-switcher & disown';
-
 # Setup workspace10
 exec --no-startup-id i3-msg 'workspace $workspace1; exec termite';
 
