@@ -393,6 +393,7 @@ let g:go_highlight_functions = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_structs = 1
 let g:go_list_height = 0
+let g:go_fmt_fail_silently = 1
 
 
 """"""""""""""""""""""""""""""
