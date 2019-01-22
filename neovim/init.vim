@@ -229,8 +229,8 @@ set statusline+=\
 let g:airline#extensions#tabline#enabled = 1
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_section_a = ''
-let g:airline_section_b = '%t'
+let g:airline_section_a = '%t'
+let g:airline_section_b = ''
 let g:airline_section_c = '%{strftime("%H:%M")}'
 let g:airline_section_x = ''
 let g:airline_section_z = ''
@@ -423,7 +423,7 @@ nnoremap <leader>o :BufExplorer<cr>
 " => Seach
 " """"""""""""""""""""""""""""""
 " When you press leader you Rg after the selected text
-vnoremap <leader>s :call VisualSelection('s', '')<CR>
+xnoremap <C-F> :call VisualSelection('s', '')<CR>
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
@@ -459,10 +459,10 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 let g:fzf_layout = { 'down': '~20%' }
 
-map <c-a> :Buffers<cr>
-map <c-f> :Files<cr>
-map <c-i> :Tags<cr>
-map <c-r> :Rg 
+nmap <c-a> :Buffers<cr>
+nmap <c-f> :Files<cr>
+nmap <c-i> :Tags<cr>
+nmap <c-r> :Rg 
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
