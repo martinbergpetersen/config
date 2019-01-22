@@ -231,7 +231,7 @@ autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_a = ''
 let g:airline_section_b = ''
-let g:airline_section_c = '%{getcwd()}'
+let g:airline_section_c = '%-0.50{getcwd()}'
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
