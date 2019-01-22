@@ -131,9 +131,6 @@ set autoread
 set title
 
 " With a map leader it's possible to do extra key combinations
-map <c-w><c-w> :w<cr>
-map <c-w><c-a> :wa<cr>
-
 let mapleader = ","
 let g:mapleader = ","
 
@@ -150,9 +147,12 @@ set incsearch
 " Show matching brackets when text indicator is over them
 set showmatch 
 
-set wildignore=*.pyc,*.git
 " How many tenths of a second to blink when matching brackets
 set mat=10
+
+" split
+set splitright
+set splitbelow
 
 " set relativenumber
 set number
@@ -161,13 +161,7 @@ set noundofile
 set nocursorcolumn
 set undolevels=1000      " use many muchos levels of undo
 
-" autoread
-
 au FocusGained,BufEnter * checktime
-
-set nospell
-" set spell
-" set spell spelllang=en
 syntax sync minlines=256
 set re=1
 augroup vimrc_help
@@ -179,12 +173,12 @@ augroup vimrc_help
 	      set termguicolors
 	      endif
 
-
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -273,8 +267,6 @@ inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 
 
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CUSTOM SHORTCUTS
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -292,15 +284,18 @@ nnoremap <esc> :call DisabledHighlight()<return><esc>
 cnoreabbrev term terminal
 cnoreabbrev git Git
 
-noremap <F3> :YAPF<CR>
 nmap <F8> :TagbarToggle<CR>
-
 nnoremap <f1> :SearchIndex<CR>
 
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>l :cn<cr>
-map <leader>h :cp<cr>
+map <leader>h :cp<cr>"
+
+" Save
+map <c-w><c-w> :w<cr>
+map <c-w><c-a> :wa<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -358,20 +353,6 @@ function! AddCWDToPythonPath()
 	execute "python import os, sys; sys.path.append(os.getcwd())"
 endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:ycm_auto_trigger = 0
-let g:ycm_max_num_candidates = 20
-" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => C++
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => JEDI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:jedi#popup_on_dot = 0
@@ -379,7 +360,21 @@ let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
 autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
 autocmd FileType python nnoremap <C-K> :call jedi#show_documentation()<CR>
+autocmd FileType python noremap <F3> :YAPF<CR>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteMe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_auto_trigger = 0
+let g:ycm_max_num_candidates = 20
+" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+" let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
+
+
+" => C++
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
 
 """"""""""""""""""""""""""""""
 " => GO
@@ -410,6 +405,19 @@ let g:bufExplorerSortBy='nmber'
 nnoremap <leader>o :BufExplorer<cr> 
 
 """"""""""""""""""""""""""""""
+" => Seach
+" """"""""""""""""""""""""""""""
+" When you press leader you Rg after the selected text
+vnoremap <leader>s :call VisualSelection('s', '')<CR>
+
+" When you press <leader>r you can search and replace the selected text
+vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
 " => FuzzyFinder
 " """"""""""""""""""""""""""""""
 
@@ -452,70 +460,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-"
-" When you press gv you Rg after the selected text
-vnoremap <leader>s :call VisualSelection('s', '')<CR>
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-"""""""""""""""""""""""""""""""
-"" => CTRL-P
-"" """"""""""""""""""""""""""""""
-"let g:ctrlp_working_path_mode = 0
-
-"let g:ctrlp_map = '<c-f>'
-"map <c-a> :CtrlPBuffer<cr>
-"map <c-r> :CtrlPMRUFiles<cr>
-
-"let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-"      \ --ignore .git
-"      \ --ignore .svn
-"      \ --ignore .coffee
-"      \ --ignore .DS_Store
-"      \ --ignore "**/*.pyc"
-"      \ --ignore node_modules
-"      \ --ignore .env
-"      \ --ignore .vscode
-"      \ --ignore "**/*.css"
-"      \ -g ""'
-
-"let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:30'
-
-"" CtrlP auto cache clearing.
-"" ----------------------------------------------------------------------------
-"function! SetupCtrlP()
-"  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-"    augroup CtrlPExtension
-"      autocmd!
-"      autocmd FocusGained  * CtrlPClearCache
-"      autocmd BufWritePost * CtrlPClearCache
-"    augroup END
-"  endif
-"endfunction
-"if has("autocmd")
-"  autocmd VimEnter * :call SetupCtrlP()
-"endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTREE
@@ -727,6 +671,12 @@ endfunction
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
+" inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+"         \ "" :
+"         \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+"         \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+"         \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+" imap <C-@> <C-Space>
 " Move up and down in autocomplete with <c-j> and <c-k>
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
