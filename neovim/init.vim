@@ -25,6 +25,7 @@ Plug 'dkprice/vim-easygrep'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
+
 " Support bitbucket with Gbrowse
 Plug 'tommcdo/vim-fubitive'
 
@@ -39,12 +40,8 @@ Plug 'shime/vim-livedown'
 " zenmode
 Plug 'junegunn/goyo.vim'
 
-" Buffer explorer
-Plug 'jlanzarotta/bufexplorer'
-
-" Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Tab buffer
+Plug 'bling/vim-bufferline'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
@@ -215,7 +212,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => STATUS LINE
  """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=2
+set laststatus=1
 " Format the status line
 set statusline+=%#CursorColumn#
 set statusline+=\ %F%m%r%h\ %w 
@@ -223,21 +220,6 @@ set statusline+=%=
 set statusline+=%{strftime('%H:%M')}
 set statusline+=\ 
 
-""""""""""""""""""""""""""""""
-" => AIRLINE PLUGIN
-" """"""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
-autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_section_a = '%t'
-let g:airline_section_b = ''
-let g:airline_section_c = '%{strftime("%H:%M")}'
-let g:airline_section_x = ''
-let g:airline_section_z = ''
-let g:airline_section_y = ''
-let g:airline_section_gutter = ''
-let g:airline_section_warning = ''
-let g:airline_section_error = ''
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -411,15 +393,6 @@ let g:go_list_height = 0
 
 
 """"""""""""""""""""""""""""""
-" => bufExplorer plugin
-" """"""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='nmber'
-nnoremap <leader>o :BufExplorer<cr> 
-
-""""""""""""""""""""""""""""""
 " => Seach
 " """"""""""""""""""""""""""""""
 " When you press leader you Rg after the selected text
@@ -473,8 +446,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Hide Status line
 autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  " \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTREE
