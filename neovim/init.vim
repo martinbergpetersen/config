@@ -212,13 +212,16 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => STATUS LINE
  """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=1
+set laststatus=0
 " Format the status line
 set statusline+=%#CursorColumn#
 set statusline+=\ %F%m%r%h\ %w 
 set statusline+=%=       
 set statusline+=%{strftime('%H:%M')}
 set statusline+=\ 
+
+let g:bufferline_show_bufnr = 0
+let g:bufferline_fname_mod = ':.'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
@@ -442,12 +445,6 @@ nmap <c-r> :Rg
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-
-" Hide Status line
-autocmd! FileType fzf
-" autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  " \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTREE
