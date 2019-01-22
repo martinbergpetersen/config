@@ -1,0 +1,13 @@
+# Exclude directories that don't contain real code
+--recurse=yes
+--exclude=Units
+--exclude=tinst-root
+--exclude=Tmain
+--exclude=.git
+--exclude=vendor/*
+--exclude=*/node_modules/*
+--exclude=db/*
+--exclude=log/*
+--exclude=*.html
+--exclude=*.css
+--exclude=*.js
