@@ -148,7 +148,6 @@ set mat=10
 
 " split
 set splitright
-set splitbelow
 
 " set relativenumber
 set number
@@ -281,8 +280,6 @@ map <space> /
 nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 nnoremap <esc> :call DisabledHighlight()<return><esc>
 
-cnoreabbrev term terminal
-cnoreabbrev git Git
 
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
@@ -458,7 +455,7 @@ tnoremap <c-w><c-j <c-\><c-n><c-w>j
 tnoremap <c-w><c-k> <c-\><c-n><c-w>k
 tnoremap <c-w><c-l> <c-\><c-n><c-w>l
 
-nmap <C-T><C-T> :split+terminal<cr>
+nmap <C-T><C-T> :vsplit+terminal<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
