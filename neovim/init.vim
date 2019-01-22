@@ -359,7 +359,7 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
 autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
-autocmd FileType python nnoremap <C-K> :call jedi#show_documentation()<CR>
+autocmd FileType python nmap <S-K> :call jedi#show_documentation()<CR>
 autocmd FileType python noremap <F3> :YAPF<CR>
 
 
@@ -383,7 +383,7 @@ let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
 " let g:go_version_warning = 0
 nmap <leader>a :GoAlternate<cr>
 autocmd FileType go nnoremap <leader>d :GoDef<CR>
-autocmd FileType go nnoremap <C-K> :GoDoc<CR>
+autocmd FileType go nmap <S-K> :GoDoc<CR>
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_fields = 1
@@ -447,14 +447,18 @@ nmap <c-r> :Rg
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Terminal
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-  " Terminal mode:
-tnoremap <c-h> <c-\><c-n><c-w>h
-tnoremap <c-j> <c-\><c-n><c-w>j
-tnoremap <c-k> <c-\><c-n><c-w>k
-tnoremap <c-l> <c-\><c-n><c-w>l
+" Terminal mode:
+tnoremap <c-w><c-h> <c-\><c-n><c-w>h
+tnoremap <c-w><c-j <c-\><c-n><c-w>j
+tnoremap <c-w><c-k> <c-\><c-n><c-w>k
+tnoremap <c-w><c-l> <c-\><c-n><c-w>l
+
+nmap <C-T><C-T> :split+terminal<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
