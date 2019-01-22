@@ -42,7 +42,6 @@ Plug 'junegunn/goyo.vim'
 " Buffer explorer
 Plug 'jlanzarotta/bufexplorer'
 
-
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -208,7 +207,6 @@ map <C-l> :bnext<cr>
 " Prev buffer
 map <C-h> :bprevious<cr>
 
-autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -217,12 +215,29 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => STATUS LINE
  """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=2
-
+set laststatus=0
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline+=%#CursorColumn#
+set statusline+=\ %F%m%r%h\ %w 
+set statusline+=%=       
+set statusline+=%{strftime('%H:%M')}
+set statusline+=\ 
 
-
+""""""""""""""""""""""""""""""
+" => AIRLINE PLUGIN
+" """"""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_section_a = ''
+let g:airline_section_b = ''
+let g:airline_section_c = '%{getcwd()}'
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_z = ''
+let g:airline_section_gutter = ''
+let g:airline_section_warning = ''
+let g:airline_section_error = ''
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -531,13 +546,6 @@ let g:flake8_show_in_gutter=1  " show
 let g:flake8_show_in_file=1  " show
 
 
-""""""""""""""""""""""""""""""
-" => AIRLINE PLUGIN
-" """"""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='onehalfdark'
-let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""
 " => Markdown plugin
 " """"""""""""""""""""""""""""""
