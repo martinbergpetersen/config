@@ -230,11 +230,11 @@ let g:airline#extensions#tabline#enabled = 1
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_a = ''
-let g:airline_section_b = ''
-let g:airline_section_c = '%-0.50{getcwd()}'
+let g:airline_section_b = '%t'
+let g:airline_section_c = '%{strftime("%H:%M")}'
 let g:airline_section_x = ''
-let g:airline_section_y = ''
 let g:airline_section_z = ''
+let g:airline_section_y = ''
 let g:airline_section_gutter = ''
 let g:airline_section_warning = ''
 let g:airline_section_error = ''
