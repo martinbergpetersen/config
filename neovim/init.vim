@@ -40,11 +40,9 @@ Plug 'shime/vim-livedown'
 " zenmode
 Plug 'junegunn/goyo.vim'
 
-" Tab buffer
-Plug 'bling/vim-bufferline'
-
 " Icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'ap/vim-buftabline'
 
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
@@ -219,8 +217,6 @@ set statusline+=%=
 set statusline+=%{strftime('%H:%M')}
 set statusline+=\ 
 
-let g:bufferline_show_bufnr = 0
-let g:bufferline_fname_mod = ':.'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
