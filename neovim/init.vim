@@ -356,7 +356,7 @@ function! AddCWDToPythonPath()
 	execute "python import os, sys; sys.path.append(os.getcwd())"
 endfunction
 
-let g:virtualenv_directory = '/home/$USER/.pyenv/versions/'
+let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
 
 " => JEDI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
