@@ -163,10 +163,6 @@ augroup vimrc_help
 	    autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
     augroup END
 
-    if (has("termguicolors"))
-	      set termguicolors
-	      endif
-
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
