@@ -325,4 +325,7 @@ _yargs_completions()
 }
 complete -F _yargs_completions graphql
 ###-end-graphql-completions-###
-
+export PATH="/home/$USER/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1

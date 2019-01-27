@@ -356,6 +356,8 @@ function! AddCWDToPythonPath()
 	execute "python import os, sys; sys.path.append(os.getcwd())"
 endfunction
 
+let g:virtualenv_directory = '/home/$USER/.pyenv/versions/'
+
 " => JEDI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:jedi#popup_on_dot = 0
@@ -765,3 +767,4 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
