@@ -459,7 +459,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Terminal mode:
 tnoremap <c-w><c-h> <c-\><c-n><c-w>h
-tnoremap <c-w><c-j <c-\><c-n><c-w>j
+tnoremap <c-w><c-j> <c-\><c-n><c-w>j
 tnoremap <c-w><c-k> <c-\><c-n><c-w>k
 tnoremap <c-w><c-l> <c-\><c-n><c-w>l
 
