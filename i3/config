@@ -30,7 +30,8 @@ font pango:12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite -e 'nvim -c te'
+bindsym $mod+Return exec termite
+# bindsym $mod+Return exec termite -e 'nvim -c terminal'
 
 # kill focused window
 bindsym $mod+Shift+q kill

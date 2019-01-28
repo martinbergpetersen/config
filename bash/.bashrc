@@ -118,7 +118,6 @@ fi
 
 stty -ixon
 set -o vi
-figlet $USER
 # neofetch
 GO_HOME="/usr/local/go"
 export GOPATH=$HOME/go
