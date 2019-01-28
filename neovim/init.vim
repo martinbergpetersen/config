@@ -47,7 +47,6 @@ Plug 'b4b4r07/vim-buftabs'
 
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
-
 Plug 'ervandew/supertab'
 
 " Python
@@ -463,7 +462,9 @@ tnoremap <c-w><c-j> <c-\><c-n><c-w>j
 tnoremap <c-w><c-k> <c-\><c-n><c-w>k
 tnoremap <c-w><c-l> <c-\><c-n><c-w>l
 
-nmap <C-T><C-T> :vsplit+terminal<CR>
+tnoremap <c-w><c-w> <c-\><c-n>
+tnoremap <c-Space> <c-\><c-n>
+nmap <c-t><c-t> :vsplit+terminal<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
