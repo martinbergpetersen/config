@@ -340,12 +340,23 @@ augroup PythonCustomization
   :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
 augroup END
 
-cnoreabbrev pt !pytest -v
-cnoreabbrev pn !python
+function! SetPyhton2Host()
+    echo 'Running with Python2.7'
+    " sets ale to use flake for python 2.7
+    let python2_host='/usr/lib/python2.7'
+    let g:python_host_prog =python2_host
+    let g:jedi#force_py_version = 2
+    let g:vim_isort_python_version ='python2'
+    let g:ale_python_flake8_args = '-m flake8'
+endfunction
 
-function! AddCWDToPythonPath()
-	execute "python3 import os, sys; sys.path.append(os.getcwd())"
-	execute "python import os, sys; sys.path.append(os.getcwd())"
+function! SetPython3Host()
+     echo 'Running with Python3.7'
+     let python3_host='/usr/lib/python3.7'
+     let g:python3_host_prog = python3_host
+     let g:jedi#force_py_version = 3
+     let g:vim_isort_python_version = 'python3.7'
+     let g:ale_python_flake8_options = '-m flake8'
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
@@ -556,8 +567,8 @@ let g:monochrome_italic_comments = 1
 set background=dark
 
 
-au BufEnter * call SetMon()
-au BufEnter  * if &diff | call SetFugitive() | endif
+au BufEnter,BufNew * if &diff | call SetFugitive() | else | call SetMon() | endif
+" autocmd FilterWritePre * if &diff | call SetFugitive() | endif
 
 function! SetFugitive()
 colorscheme minimalist
@@ -569,7 +580,6 @@ function! SetMon()
 	colorscheme monochrome
 	let g:monochrome_italic_comments = 1
 	set background=dark
-	let g:indentLine_char = '¦'
 endfunction
 """"""""""""""""""""""""""""""
 " => INDENT
@@ -630,25 +640,6 @@ function! HasPaste()
         return 'PASTE MODE  '
     endif
     return ''
-endfunction
-
-function! SetPyhton2Host()
-    echo 'Running with Python2.7'
-    " sets ale to use flake for python 2.7
-    let python2_host='/usr/lib/python2.7'
-    let g:python_host_prog =python2_host
-    let g:jedi#force_py_version = 2
-    let g:vim_isort_python_version ='python2'
-    let g:ale_python_flake8_args = '-m flake8'
-endfunction
-
-function! SetPython3Host()
-     echo 'Running with Python3.7'
-     let python3_host='/usr/lib/python3.7'
-     let g:python3_host_prog = python3_host
-     let g:jedi#force_py_version = 3
-     let g:vim_isort_python_version = 'python3.7'
-     let g:ale_python_flake8_options = '-m flake8'
 endfunction
 
  """""""""""""""""""""""""""""
