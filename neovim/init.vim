@@ -282,9 +282,7 @@ map <leader>p :split<cr><leader>d
 
 " search
 map <space> /
-nnoremap <c-space> :call AutoHighlightToggle()<Bar>set hls<CR>
 nnoremap <esc> :call DisabledHighlight()<return><esc>
-
 
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
@@ -401,22 +399,19 @@ let g:go_fmt_fail_silently = 1
 
 
 """"""""""""""""""""""""""""""
-" => Seach
+" => Search & Replace
 " """"""""""""""""""""""""""""""
-" When you press leader you Rg after the selected text
-xnoremap <C-F> :call VisualSelection('s', '')<CR>
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
+xnoremap <C-S> :call VisualSelection('s', '')<CR>
+nnoremap <C-Space> viwy/<C-R>"<CR><S-N> :SearchIndex<CR>b
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+nnoremap <C-R> viw"hy:%s/<C-R>h//gc<left><left><left>
+
 " => FuzzyFinder
 " """"""""""""""""""""""""""""""
-
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -440,10 +435,10 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 let g:fzf_layout = { 'down': '~20%' }
 
-nmap <c-a> :Buffers<cr>
-nmap <c-f> :Files<cr>
-nmap <c-i> :Tags<cr>
-nmap <c-r> :Rg 
+nmap <C-B> :Buffers<cr>
+nmap <C-F> :Files<cr>
+nmap <C-T> :Tags<cr>
+nmap <C-S> :Rg
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -487,17 +482,17 @@ let NERDTreeShowLineNumbers=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM-MULTIPLE-CURSORS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_start_word_key='<C-s>'
-let g:multi_cursor_next_key="<C-s>"
-let g:multi_cursor_prev_key="<C-a>"
+let g:multi_cursor_start_word_key='<C-a>'
+let g:multi_cursor_next_key="<C-a>"
+let g:multi_cursor_prev_key="<C-s>"
 
 
-function g:Multiple_cursors_before()
- call deoplete#custom#buffer_option('auto_complete', v:false)
-endfunction
-function g:Multiple_cursors_after()
- call deoplete#custom#buffer_option('auto_complete', v:true)
-endfunction
+" function g:Multiple_cursors_before()
+"  call deoplete#custom#buffer_option('auto_complete', v:false)
+" endfunction
+" function g:Multiple_cursors_after()
+"  call deoplete#custom#buffer_option('auto_complete', v:true)
+" endfunction
 
 """"""""""""""""""""""""""""""
 " => GITGUTTER
@@ -605,19 +600,9 @@ let @/ = ""
 echo ""
 endfunction
 
-" enabled hightlights on words
-function! AutoHighlightToggle()
-    let @/ = ''
-    augroup auto_highlight
-    au!
-    au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=1
-    echo ""
-endfunction
-
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <leader>z :ZoomToggle<CR>
+
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
     execute "normal! v\gvy"
@@ -626,10 +611,7 @@ function! VisualSelection(direction, extra_filter) range
     echo l:pattern
     if a:direction == 's'
         call CmdLine("Rg " . l:pattern . "")
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
     endif
-
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
