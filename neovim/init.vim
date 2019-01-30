@@ -279,6 +279,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map <leader>p :split<cr><leader>d
 
 
+nmap <F2> :call ToggleIndent()<CR>
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
 
@@ -567,7 +568,7 @@ let g:monochrome_italic_comments = 1
 set background=dark
 
 
-au BufEnter,BufNew * if &diff | call SetFugitive() | else | call SetMon() | endif
+au BufEnter,BufNew * if &diff | call SetFugitive() | else | call SetMon()| endif
 " autocmd FilterWritePre * if &diff | call SetFugitive() | endif
 
 function! SetFugitive()
@@ -580,6 +581,7 @@ function! SetMon()
 	colorscheme monochrome
 	let g:monochrome_italic_comments = 1
 	set background=dark
+	call ToggleIndent()
 endfunction
 """"""""""""""""""""""""""""""
 " => INDENT
@@ -688,6 +690,10 @@ function! s:Warn(msg)
   echohl NONE
 endfunction
 
+
+function! ToggleIndent()
+  colorscheme monochrome
+endfunction
 
 
 
