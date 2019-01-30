@@ -280,9 +280,6 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Peek the view. It splits the screen and shows the called funtion
 map <leader>p :split<cr><leader>d
 
-" search
-map <space> /
-nnoremap <esc> :call DisabledHighlight()<return><esc>
 
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
@@ -399,21 +396,22 @@ let g:go_fmt_fail_silently = 1
 
 
 """"""""""""""""""""""""""""""
-" => Search & Replace
+" => Search and Replace
 " """"""""""""""""""""""""""""""
+map <SPACE> /
+nnoremap <ESC> :call DisabledHighlight()<return><ESC>
 xnoremap <C-S> :call VisualSelection('s', '')<CR>
-nnoremap <C-Space> viwy/<C-R>"<CR><S-N> :SearchIndex<CR>b
+nnoremap <SILENT> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>
+
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+vnoremap <SILENT> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <SILENT> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 nnoremap <C-R> viw"hy:%s/<C-R>h//gc<left><left><left>
 
 " => FuzzyFinder
 " """"""""""""""""""""""""""""""
-
-" This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-o': 'edit',
   \ 'ctrl-i': 'badd',
@@ -438,7 +436,7 @@ let g:fzf_layout = { 'down': '~20%' }
 nmap <C-B> :Buffers<cr>
 nmap <C-F> :Files<cr>
 nmap <C-T> :Tags<cr>
-nmap <C-S> :Rg
+nmap <C-S> :Rg 
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
