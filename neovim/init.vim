@@ -555,15 +555,26 @@ colorscheme monochrome
 let g:monochrome_italic_comments = 1
 set background=dark
 
-" Sets another theme on diff files.
-au FilterWritePre * if &diff | colorscheme minimalist | endif
 
+au BufEnter * call SetMon()
+au BufEnter  * if &diff | call SetFugitive() | endif
+
+function! SetFugitive()
+colorscheme minimalist
+hi DiffAdd ctermbg=black ctermfg=green
+hi DiffText ctermbg=black ctermfg=blue
+endfunction
+
+function! SetMon()
+	colorscheme monochrome
+	let g:monochrome_italic_comments = 1
+	set background=dark
+	let g:indentLine_char = '¦'
+endfunction
 """"""""""""""""""""""""""""""
 " => INDENT
 " """"""""""""""""""""""""""""""
 let g:indentLine_char = '¦'
-" let g:indentLine_setColors = 1
-
 """"""""""""""""""""""""""""""
 " => CUSTOM FUNCTIONS
 " """"""""""""""""""""""""""""""
@@ -748,3 +759,4 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
