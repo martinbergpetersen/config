@@ -100,8 +100,6 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
-
-
 " Initialize plugin system
 call plug#end()
 
@@ -557,6 +555,8 @@ colorscheme monochrome
 let g:monochrome_italic_comments = 1
 set background=dark
 
+" Sets another theme on diff files.
+au FilterWritePre * if &diff | colorscheme minimalist | endif
 
 """"""""""""""""""""""""""""""
 " => INDENT
@@ -748,4 +748,3 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
-
