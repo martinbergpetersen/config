@@ -401,12 +401,12 @@ let g:go_fmt_fail_silently = 1
 map <SPACE> /
 nnoremap <ESC> :call DisabledHighlight()<return><ESC>
 xnoremap <C-S> :call VisualSelection('s', '')<CR>
-nnoremap <SILENT> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>
+nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
-vnoremap <SILENT> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <SILENT> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 nnoremap <C-R> viw"hy:%s/<C-R>h//gc<left><left><left>
 
