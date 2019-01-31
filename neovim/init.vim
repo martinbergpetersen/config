@@ -279,7 +279,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map <leader>p :split<cr><leader>d
 
 
-nmap <F2> :call ToggleIndent()<CR>
+nmap <F5> :call SetFugitive()<CR>
+nmap <F6> :call SetMon()<CR>
 nmap <F8> :TagbarToggle<CR>
 nnoremap <f1> :SearchIndex<CR>
 
@@ -335,7 +336,6 @@ au FileType python set indentkeys-=0#
 
 "Autopep8 - visual mode gq
 au FileType python setlocal formatprg=autopep8\ -
-
 " highlight python self, when followed by a comma, a period or a parenth
 augroup PythonCustomization
   :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
@@ -567,10 +567,6 @@ colorscheme monochrome
 let g:monochrome_italic_comments = 1
 set background=dark
 
-
-au BufEnter,BufNew * if &diff | call SetFugitive() | else | call SetMon()| endif
-" autocmd FilterWritePre * if &diff | call SetFugitive() | endif
-
 function! SetFugitive()
 colorscheme minimalist
 hi DiffAdd ctermbg=black ctermfg=green
@@ -581,8 +577,8 @@ function! SetMon()
 	colorscheme monochrome
 	let g:monochrome_italic_comments = 1
 	set background=dark
-	call ToggleIndent()
 endfunction
+
 """"""""""""""""""""""""""""""
 " => INDENT
 " """"""""""""""""""""""""""""""
@@ -689,13 +685,6 @@ function! s:Warn(msg)
   echomsg a:msg
   echohl NONE
 endfunction
-
-
-function! ToggleIndent()
-  colorscheme monochrome
-endfunction
-
-
 
 
 """""""""""""""""""""""""""""
