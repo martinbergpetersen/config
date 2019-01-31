@@ -45,6 +45,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'ryanoasis/vim-devicons'
 " Buffer
 Plug 'vim-airline/vim-airline' 
+Plug 'vim-airline/vim-airline-themes'
 
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
@@ -222,6 +223,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+" Removes statusline/
 au VimEnter * set laststatus=0
 
 
@@ -567,14 +569,13 @@ let g:onehalf_termcolors=256
 " colorscheme seoul256
 " Unified color scheme (default: dark)
 colorscheme nord
-let g:seoul256_background = 235
+let g:airline_theme='nord'
 
 set background=dark
 
 function! SetDark()
 	colorscheme monochrome
 	let g:monochrome_italic_comments = 1
-	set background=dark
 endfunction
 function! SetLight()
 	colorscheme nord
