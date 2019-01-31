@@ -74,6 +74,8 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'fxn/vim-monochrome'
+Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
@@ -203,6 +205,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
  """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=0
+set showtabline=0
 " Format the status line
 set statusline+=%#CursorColumn#
 set statusline+=\ %F%m%r%h\ %w 
@@ -264,10 +267,11 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map <leader>p :split<cr><leader>d
 
 
-nmap <F5> :call SetFugitive()<CR>
-nmap <F6> :call SetMon()<CR>
+nmap <F1> :call SetDark()<CR>
+nmap <F2> :call SetLight()<CR>
+nnoremap <F5> :SearchIndex<CR>
 nmap <F8> :TagbarToggle<CR>
-nnoremap <f1> :SearchIndex<CR>
+
 
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
@@ -321,6 +325,7 @@ au FileType python set indentkeys-=0#
 
 "Autopep8 - visual mode gq
 au FileType python setlocal formatprg=autopep8\ -
+au FileType python noremap <F4> :YAPF<CR>
 " highlight python self, when followed by a comma, a period or a parenth
 augroup PythonCustomization
   :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
@@ -354,7 +359,6 @@ let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
 autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
 autocmd FileType python nmap <S-K> :call jedi#show_documentation()<CR>
-autocmd FileType python noremap <F3> :YAPF<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -548,20 +552,21 @@ let g:deus_termcolors=256
 let g:onedark_termcolors=256
 let g:onehalf_termcolors=256
 
-colorscheme monochrome
-let g:monochrome_italic_comments = 1
+" colorscheme seoul256
+" Unified color scheme (default: dark)
+colorscheme nord
+let g:seoul256_background = 235
+
 set background=dark
 
-function! SetFugitive()
-colorscheme minimalist
-hi DiffAdd ctermbg=black ctermfg=green
-hi DiffText ctermbg=black ctermfg=blue
-endfunction
-
-function! SetMon()
+function! SetDark()
 	colorscheme monochrome
 	let g:monochrome_italic_comments = 1
 	set background=dark
+endfunction
+function! SetLight()
+	colorscheme nord
+	let g:nord_italic = 1
 endfunction
 
 """"""""""""""""""""""""""""""
