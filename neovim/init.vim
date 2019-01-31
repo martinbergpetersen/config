@@ -37,12 +37,14 @@ Plug 'craigemery/vim-autotag'
 Plug 'shime/vim-livedown'
 
 
+
 " zenmode
 Plug 'junegunn/goyo.vim'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
-" Plug 'ap/vim-buftabline'
+" Buffer
+Plug 'vim-airline/vim-airline' 
 
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
@@ -213,6 +215,16 @@ set statusline+=%=
 set statusline+=%{strftime('%H:%M')}
 set statusline+=\ 
 
+
+" => Buffer LINE
+ """"""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+au VimEnter * set laststatus=0
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -325,7 +337,7 @@ au FileType python set indentkeys-=0#
 
 "Autopep8 - visual mode gq
 au FileType python setlocal formatprg=autopep8\ -
-au FileType python noremap <F4> :YAPF<CR>
+au FileType python noremap <C-Y> :YAPF<CR>
 " highlight python self, when followed by a comma, a period or a parenth
 augroup PythonCustomization
   :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
