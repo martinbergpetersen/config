@@ -42,7 +42,7 @@ Plug 'junegunn/goyo.vim'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
-Plug 'ap/vim-buftabline'
+" Plug 'ap/vim-buftabline'
 
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
@@ -475,9 +475,9 @@ let NERDTreeShowLineNumbers=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM-MULTIPLE-CURSORS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_start_word_key='<C-a>'
-let g:multi_cursor_next_key="<C-a>"
-let g:multi_cursor_prev_key="<C-s>"
+let g:multi_cursor_start_word_key='<C-b>'
+let g:multi_cursor_next_key="<C-b>"
+let g:multi_cursor_prev_key="<C-n>"
 
 
 " function g:Multiple_cursors_before()
