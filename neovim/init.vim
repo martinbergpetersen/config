@@ -42,8 +42,7 @@ Plug 'junegunn/goyo.vim'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
-Plug 'b4b4r07/vim-buftabs'
-" Plug 'ap/vim-buftabline'
+Plug 'ap/vim-buftabline'
 
 " Tabular - text alignment
 Plug 'godlygeek/tabular'
@@ -203,27 +202,13 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => STATUS LINE
  """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=2
+set laststatus=0
 " Format the status line
 set statusline+=%#CursorColumn#
 set statusline+=\ %F%m%r%h\ %w 
 set statusline+=%=       
 set statusline+=%{strftime('%H:%M')}
 set statusline+=\ 
-
-
-let g:buftabs_enabled = 1
-let g:buftabs_in_statusline = 1
-let g:buftabs_in_cmdline = 0
-let g:buftabs_only_basename = 1
-let g:buftabs_active_highlight_group = "Visual"
-let g:buftabs_inactive_highlight_group = ""
-let g:buftabs_statusline_highlight_group = ""
-let g:buftabs_marker_start = "| "
-let g:buftabs_marker_end = " |"
-let g:buftabs_separator = " - "
-let g:buftabs_marker_modified = "+++"
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
@@ -443,7 +428,7 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 let g:fzf_layout = { 'down': '~20%' }
 
-nmap <C-B> :Buffers<cr>
+nmap <C-A> :Buffers<cr>
 nmap <C-F> :Files<cr>
 nmap <C-T> :Tags<cr>
 nmap <C-S> :Rg 
