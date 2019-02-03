@@ -347,7 +347,6 @@ au FileType python set indentkeys-=0#
 "Autopep8 - visual mode gq
 au FileType python setlocal formatprg=autopep8\ -
 au FileType python noremap <C-Y> :YAPF<CR>
-autocmd FileType * if &ft == 'python' | Limelight | else | Limelight!
 
 let g:ale_python_flake8_args = '-m flake8'
 " highlight python self, when followed by a comma, a period or a parenth
@@ -357,15 +356,15 @@ augroup END
 
 function! SetPython2Host()
     echo 'Running with Python2.7'
-    let python2_host='/usr/lib/python2.7'
+    let python2_host='/usr/bin/python2.7'
     let g:python_host_prog =python2_host
     let g:jedi#force_py_version = 2
     let g:vim_isort_python_version ='python2'
 endfunction
 
 function! SetPython3Host()
-     echo 'Running with Python3'
-     let python3_host='/usr/lib/python3'
+     echo 'Running with Python3.7'
+     let python3_host='/usr/bin/python3.7'
      let g:python3_host_prog = python3_host
      let g:jedi#force_py_version = 3
      let g:vim_isort_python_version = 'python3'
@@ -403,7 +402,6 @@ let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
 nmap <leader>a :GoAlternate<cr>
 autocmd FileType go nnoremap <leader>d :GoDef<CR>
 autocmd FileType go nmap <S-K> :GoDoc<CR>
-autocmd FileType * if &ft == 'go' | Limelight | else | Limelight!
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_fields = 1
