@@ -305,7 +305,10 @@ map <C-g><c-b> :Gblame<cr>
 
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 0
+let g:limelight_conceal_ctermfg = 242
+
+let g:limelight_default_coefficient = 0.1
+
 
 
 """"""""""""""""""""""""""""""
