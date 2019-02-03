@@ -47,6 +47,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Tabular - text alignment
 Plug 'ervandew/supertab'
+Plug 'junegunn/limelight.vim', {'for': ['python', 'go']}
 
 " Python
 Plug 'fisadev/vim-isort', { 'for': 'python' }
@@ -99,7 +100,6 @@ Plug 'honza/vim-snippets'
 
 " Initialize plugin system
 call plug#end()
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GENERAL
@@ -299,6 +299,15 @@ map <C-g><c-d> :Gdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Limelight
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 0
+
+
 """"""""""""""""""""""""""""""
 " => DEOPLETE
 " """"""""""""""""""""""""""""""
@@ -335,7 +344,8 @@ au FileType python set indentkeys-=0#
 "Autopep8 - visual mode gq
 au FileType python setlocal formatprg=autopep8\ -
 au FileType python noremap <C-Y> :YAPF<CR>
-" Flake8
+autocmd FileType * if &ft == 'python' | Limelight | else | Limelight!
+
 let g:ale_python_flake8_args = '-m flake8'
 " highlight python self, when followed by a comma, a period or a parenth
 augroup PythonCustomization
@@ -390,6 +400,7 @@ let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
 nmap <leader>a :GoAlternate<cr>
 autocmd FileType go nnoremap <leader>d :GoDef<CR>
 autocmd FileType go nmap <S-K> :GoDoc<CR>
+autocmd FileType * if &ft == 'go' | Limelight | else | Limelight!
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_fields = 1
