@@ -6,14 +6,14 @@ Plug 'farmergreg/vim-lastplace'
 
 
 " C family
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'zchee/deoplete-clang'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all', 'for':'ccp'}
+Plug 'zchee/deoplete-clang', {'for':'ccp'}
 
 " Async linter
 Plug 'w0rp/ale'
 
 " JSON
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', {'for': 'json'}
 
 " Commentings
 Plug 'tpope/vim-commentary'
@@ -34,7 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'craigemery/vim-autotag'
 
 " MD instant markdown
-Plug 'shime/vim-livedown'
+Plug 'shime/vim-livedown', {'for': 'md'}
 
 " zenmode
 Plug 'junegunn/goyo.vim'
@@ -46,31 +46,31 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Tabular - text alignment
-Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 
 " Python
-Plug 'fisadev/vim-isort'
-Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'plytophogy/vim-virtualenv'
+Plug 'fisadev/vim-isort', { 'for': 'python' }
+
+Plug 'davidhalter/jedi-vim', {'for': 'python' }
+
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+
+Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
+
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+
+" Indentline
+Plug 'Yggdroot/indentLine', {'for': 'python'}
 
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'zchee/deoplete-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
+Plug 'zchee/deoplete-go', {'for': 'go'}
 
 "Themes
 Plug 'morhetz/gruvbox'
-Plug 'romainl/Apprentice'
-Plug 'sheerun/vim-wombat-scheme'
-Plug 'dracula/vim'
 Plug 'joshdick/onedark.vim'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'lifepillar/vim-solarized8'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'owickstrom/vim-colors-paramount'
 Plug 'fxn/vim-monochrome'
 Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -83,8 +83,6 @@ Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'google/vim-searchindex'
 
-" Indentline
-Plug 'Yggdroot/indentLine'
 
 " Easy motiom
 Plug 'easymotion/vim-easymotion'
