@@ -2,4 +2,4 @@
 .env/
 tags
 .ctags.d/
-
+.nvimrc

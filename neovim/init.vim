@@ -36,8 +36,6 @@ Plug 'craigemery/vim-autotag'
 " MD instant markdown
 Plug 'shime/vim-livedown'
 
-
-
 " zenmode
 Plug 'junegunn/goyo.vim'
 
@@ -53,12 +51,9 @@ Plug 'ervandew/supertab'
 
 " Python
 Plug 'fisadev/vim-isort'
-Plug 'tell-k/vim-autopep8'
-Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'plytophogy/vim-virtualenv'
-Plug 'Chiel92/vim-autoformat'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 
@@ -130,6 +125,8 @@ set title
 let mapleader = ","
 let g:mapleader = ","
 
+" Workspace
+set exrc
 
 " Ignore case when searching
 set ignorecase
@@ -310,7 +307,6 @@ map <C-g><c-b> :Gblame<cr>
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#max_list = 20
 
-
 """"""""""""""""""""""""""""""
 " => PYTHON
 " """"""""""""""""""""""""""""""
@@ -341,28 +337,27 @@ au FileType python set indentkeys-=0#
 "Autopep8 - visual mode gq
 au FileType python setlocal formatprg=autopep8\ -
 au FileType python noremap <C-Y> :YAPF<CR>
+" Flake8
+let g:ale_python_flake8_args = '-m flake8'
 " highlight python self, when followed by a comma, a period or a parenth
 augroup PythonCustomization
   :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
 augroup END
 
-function! SetPyhton2Host()
+function! SetPython2Host()
     echo 'Running with Python2.7'
-    " sets ale to use flake for python 2.7
     let python2_host='/usr/lib/python2.7'
     let g:python_host_prog =python2_host
     let g:jedi#force_py_version = 2
     let g:vim_isort_python_version ='python2'
-    let g:ale_python_flake8_args = '-m flake8'
 endfunction
 
 function! SetPython3Host()
-     echo 'Running with Python3.7'
-     let python3_host='/usr/lib/python3.7'
+     echo 'Running with Python3'
+     let python3_host='/usr/lib/python3'
      let g:python3_host_prog = python3_host
      let g:jedi#force_py_version = 3
-     let g:vim_isort_python_version = 'python3.7'
-     let g:ale_python_flake8_options = '-m flake8'
+     let g:vim_isort_python_version = 'python3'
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
@@ -749,4 +744,3 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
-
