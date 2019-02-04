@@ -23,18 +23,6 @@ Plug 'dkprice/vim-easygrep'
 
 " Git
 Plug 'tpope/vim-fugitive'
-
-" command! Gstatus call LazyLoadFugitive('Gstatus')
-" command! Gdiff call LazyLoadFugitive('Gdiff')
-" command! Glog call LazyLoadFugitive('Glog')
-" command! Gblame call LazyLoadFugitive('Gblame')
-
-" function! LazyLoadFugitive(cmd)
-"   call plug#load('vim-fugitive')
-"   call fugitive#detect(expand('%:p'))
-"   exe a:cmd
-" endfunction
-
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
@@ -106,6 +94,10 @@ Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
 
 " Initialize plugin system
 call plug#end()
