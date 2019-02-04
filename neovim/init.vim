@@ -6,14 +6,14 @@ Plug 'farmergreg/vim-lastplace'
 
 
 " C family
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'zchee/deoplete-clang'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all', 'for':'ccp'}
+Plug 'zchee/deoplete-clang', {'for':'ccp'}
 
 " Async linter
 Plug 'w0rp/ale'
 
 " JSON
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', {'for': 'json'}
 
 " Commentings
 Plug 'tpope/vim-commentary'
@@ -34,9 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'craigemery/vim-autotag'
 
 " MD instant markdown
-Plug 'shime/vim-livedown'
-
-
+Plug 'shime/vim-livedown', {'for': 'md'}
 
 " zenmode
 Plug 'junegunn/goyo.vim'
@@ -48,34 +46,32 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Tabular - text alignment
-Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
+Plug 'junegunn/limelight.vim', {'for': ['python', 'go']}
 
 " Python
-Plug 'fisadev/vim-isort'
-Plug 'tell-k/vim-autopep8'
-Plug 'nvie/vim-flake8'
-Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'plytophogy/vim-virtualenv'
-Plug 'Chiel92/vim-autoformat'
+Plug 'fisadev/vim-isort', { 'for': 'python' }
+
+Plug 'davidhalter/jedi-vim', {'for': 'python' }
+
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+
+Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
+
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+
+" Indentline
+Plug 'Yggdroot/indentLine', {'for': 'python'}
 
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'zchee/deoplete-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
+Plug 'zchee/deoplete-go', {'for': 'go'}
 
 "Themes
 Plug 'morhetz/gruvbox'
-Plug 'romainl/Apprentice'
-Plug 'sheerun/vim-wombat-scheme'
-Plug 'dracula/vim'
 Plug 'joshdick/onedark.vim'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'lifepillar/vim-solarized8'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'owickstrom/vim-colors-paramount'
 Plug 'fxn/vim-monochrome'
 Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -88,8 +84,6 @@ Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'google/vim-searchindex'
 
-" Indentline
-Plug 'Yggdroot/indentLine'
 
 " Easy motiom
 Plug 'easymotion/vim-easymotion'
@@ -106,7 +100,6 @@ Plug 'honza/vim-snippets'
 
 " Initialize plugin system
 call plug#end()
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GENERAL
@@ -130,6 +123,8 @@ set title
 let mapleader = ","
 let g:mapleader = ","
 
+" Workspace
+set exrc
 
 " Ignore case when searching
 set ignorecase
@@ -304,12 +299,26 @@ map <C-g><c-d> :Gdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Limelight
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 242
+
+let g:limelight_default_coefficient = 0.1
+
+let whitelist = ['go', 'python']
+autocmd BufRead * if index(whitelist, &ft) > -1 | Limelight | else |  Limelight! |
+
+
+
 """"""""""""""""""""""""""""""
 " => DEOPLETE
 " """"""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#max_list = 20
-
 
 """"""""""""""""""""""""""""""
 " => PYTHON
@@ -341,28 +350,27 @@ au FileType python set indentkeys-=0#
 "Autopep8 - visual mode gq
 au FileType python setlocal formatprg=autopep8\ -
 au FileType python noremap <C-Y> :YAPF<CR>
+
+let g:ale_python_flake8_args = '-m flake8'
 " highlight python self, when followed by a comma, a period or a parenth
 augroup PythonCustomization
   :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
 augroup END
 
-function! SetPyhton2Host()
+function! SetPython2Host()
     echo 'Running with Python2.7'
-    " sets ale to use flake for python 2.7
-    let python2_host='/usr/lib/python2.7'
+    let python2_host='/usr/bin/python2.7'
     let g:python_host_prog =python2_host
     let g:jedi#force_py_version = 2
     let g:vim_isort_python_version ='python2'
-    let g:ale_python_flake8_args = '-m flake8'
 endfunction
 
 function! SetPython3Host()
      echo 'Running with Python3.7'
-     let python3_host='/usr/lib/python3.7'
+     let python3_host='/usr/bin/python3.7'
      let g:python3_host_prog = python3_host
      let g:jedi#force_py_version = 3
-     let g:vim_isort_python_version = 'python3.7'
-     let g:ale_python_flake8_options = '-m flake8'
+     let g:vim_isort_python_version = 'python3'
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
@@ -749,4 +757,3 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
-
