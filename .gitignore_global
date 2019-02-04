@@ -1,5 +1,6 @@
+.vimrc
+.nvimrc
 .vscode/
 .env/
 tags
 .ctags.d/
-
