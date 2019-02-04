@@ -159,7 +159,7 @@ set t_vb=
 set tm=500
 
 let syntax_list = ['python', 'go']
-au BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
+au FileType * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -315,7 +315,7 @@ let g:limelight_conceal_ctermfg = 242
 let g:limelight_default_coefficient = 1
 
 " let whitelist = ['python', 'go']
-" autocmd BufRead * if index(whitelist, &ft) > -1 | Limelight | else |  Limelight! |
+" autocmd FileType * if index(whitelist, &ft) > -1 | Limelight | else |  Limelight! |
 
 
 
