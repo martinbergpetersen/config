@@ -504,12 +504,12 @@ let g:multi_cursor_next_key="<C-b>"
 let g:multi_cursor_prev_key="<C-n>"
 
 
-" function g:Multiple_cursors_before()
-"  call deoplete#custom#buffer_option('auto_complete', v:false)
-" endfunction
-" function g:Multiple_cursors_after()
-"  call deoplete#custom#buffer_option('auto_complete', v:true)
-" endfunction
+function g:Multiple_cursors_before()
+ call deoplete#custom#buffer_option('auto_complete', v:false)
+endfunction
+function g:Multiple_cursors_after()
+ call deoplete#custom#buffer_option('auto_complete', v:true)
+endfunction
 
 """"""""""""""""""""""""""""""
 " => GITGUTTER
