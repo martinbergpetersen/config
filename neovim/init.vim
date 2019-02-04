@@ -159,9 +159,7 @@ set t_vb=
 set tm=500
 
 let syntax_list = ['python', 'go']
-au FileType * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
-
-
+au BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -292,16 +290,16 @@ map <c-w><c-a> :wa<cr>
 map <C-g><c-d> :Gdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
-command! Gstatus call LazyLoadFugitive('Gstatus')
-command! Gdiff call LazyLoadFugitive('Gdiff')
-command! Glog call LazyLoadFugitive('Glog')
-command! Gblame call LazyLoadFugitive('Gblame')
+" command! Gstatus call LazyLoadFugitive('Gstatus')
+" command! Gdiff call LazyLoadFugitive('Gdiff')
+" command! Glog call LazyLoadFugitive('Glog')
+" command! Gblame call LazyLoadFugitive('Gblame')
 
-function! LazyLoadFugitive(cmd)
-  call plug#load('vim-fugitive')
-  call fugitive#detect(expand('%:p'))
-  exe a:cmd
-endfunction
+" function! LazyLoadFugitive(cmd)
+"   call plug#load('vim-fugitive')
+"   call fugitive#detect(expand('%:p'))
+"   exe a:cmd
+" endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -329,35 +327,22 @@ let g:deoplete#max_list = 20
 " => PYTHON
 " """"""""""""""""""""""""""""""
 let python_highlight_all = 1
-au FileType python syn keyword pythonDecorator True None False self
-
-au BufNewFile,BufRead *.jinja set syntax=htmljinja
-au BufNewFile,BufRead *.mako set ft=mako
-
-
-au FileType python inoremap <buffer> $r return 
-au FileType python inoremap <buffer> $d on_delete=models.CASCADE 
-au FileType python inoremap <buffer> $i import 
-au FileType python inoremap <buffer> $t import pdb;pdb.set_trace()
-au FileType python inoremap <buffer> $p print(
-au FileType python inoremap <buffer> $f #--- <esc>a
-au FileType python map <buffer> <leader>1 /class 
-au FileType python map <buffer> <leader>2 /def 
-
-
-au FileType python map <buffer> <leader>C ?class 
-au FileType python map <buffer> <leader>D ?def 
-au FileType python set cindent
-au FileType python set cinkeys-=0#
-au FileType python set indentkeys-=0#
-
-au FileType python vmap <leader>f :YAPF<CR>
-au FileType python nmap <leader>f :YAPF<CR>
 
 let g:ale_python_flake8_args = '-m flake8'
 " highlight python self, when followed by a comma, a period or a parenth
 augroup PythonCustomization
-  :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
+     :autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
+     :autocmd FileType python syn keyword pythonDecorator True None False self
+     :autocmd FileType python inoremap <buffer> $t import pdb;pdb.set_trace()
+     :autocmd FileType python map <buffer> <leader>1 /class 
+     :autocmd FileType python map <buffer> <leader>2 /def 
+     :autocmd FileType python map <buffer> <leader>C ?class 
+     :autocmd FileType python map <buffer> <leader>D ?def 
+     :autocmd FileType python set cindent
+     :autocmd FileType python set cinkeys-=0#
+     :autocmd FileType python set indentkeys-=0#
+     :autocmd FileType python vmap <leader>f :YAPF<CR>
+     :autocmd FileType python nmap <leader>f :YAPF<CR>
 augroup END
 
 function! SetPython2Host()
@@ -383,8 +368,10 @@ let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 1
-autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
-autocmd FileType python nmap <S-K> :call jedi#show_documentation()<CR>
+augroup JediCustomization
+    :autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
+    :autocmd FileType python nmap <S-K> :call jedi#show_documentation()<CR>
+augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -406,8 +393,10 @@ let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
 
 " let g:go_version_warning = 0
 nmap <leader>a :GoAlternate<cr>
-autocmd FileType go nnoremap <leader>d :GoDef<CR>
-autocmd FileType go nmap <S-K> :GoDoc<CR>
+augroup GoCustomization
+    :autocmd FileType go nnoremap <leader>d :GoDef<CR>
+    :autocmd FileType go nmap <S-K> :GoDoc<CR>
+augroup END
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_fields = 1
