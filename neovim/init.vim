@@ -159,7 +159,7 @@ set t_vb=
 set tm=500
 
 let syntax_list = ['python', 'go']
-au BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
+autocmd BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
