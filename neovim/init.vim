@@ -23,11 +23,20 @@ Plug 'dkprice/vim-easygrep'
 
 " Git
 Plug 'tpope/vim-fugitive'
+
+" command! Gstatus call LazyLoadFugitive('Gstatus')
+" command! Gdiff call LazyLoadFugitive('Gdiff')
+" command! Glog call LazyLoadFugitive('Glog')
+" command! Gblame call LazyLoadFugitive('Gblame')
+
+" function! LazyLoadFugitive(cmd)
+"   call plug#load('vim-fugitive')
+"   call fugitive#detect(expand('%:p'))
+"   exe a:cmd
+" endfunction
+
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
-
-" Support bitbucket with Gbrowse
-Plug 'tommcdo/vim-fubitive'
 
 " Ctags
 Plug 'majutsushi/tagbar' 
@@ -291,6 +300,17 @@ map <c-w><c-a> :wa<cr>
 map <C-g><c-d> :Gdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
+command! Gstatus call LazyLoadFugitive('Gstatus')
+command! Gdiff call LazyLoadFugitive('Gdiff')
+command! Glog call LazyLoadFugitive('Glog')
+command! Gblame call LazyLoadFugitive('Gblame')
+
+function! LazyLoadFugitive(cmd)
+  call plug#load('vim-fugitive')
+  call fugitive#detect(expand('%:p'))
+  exe a:cmd
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Limelight
@@ -339,7 +359,7 @@ au FileType python set cindent
 au FileType python set cinkeys-=0#
 au FileType python set indentkeys-=0#
 
-nmap <leader>f :YAPF<CR>
+au FileType python nmap <leader>f :YAPF<CR>
 
 let g:ale_python_flake8_args = '-m flake8'
 " highlight python self, when followed by a comma, a period or a parenth
