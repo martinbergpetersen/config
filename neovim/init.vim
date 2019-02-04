@@ -26,9 +26,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
-" Support bitbucket with Gbrowse
-Plug 'tommcdo/vim-fubitive'
-
 " Ctags
 Plug 'majutsushi/tagbar' 
 Plug 'craigemery/vim-autotag'
@@ -97,9 +94,14 @@ Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
 
 " Initialize plugin system
 call plug#end()
+" Lists
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GENERAL
@@ -149,15 +151,6 @@ set number
 set numberwidth=2
 set noundofile
 set nocursorcolumn
-set undolevels=1000      " use many muchos levels of undo
-
-au FocusGained,BufEnter * checktime
-syntax sync minlines=256
-set re=1
-augroup vimrc_help
-	  autocmd!
-	    autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
-    augroup END
 
 " No annoying sound on errors
 set noerrorbells
@@ -165,6 +158,8 @@ set novisualbell
 set t_vb=
 set tm=500
 
+let syntax_list = ['python', 'go']
+au BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -284,7 +279,6 @@ nmap <F8> :TagbarToggle<CR>
 
 
 map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>l :cn<cr>
 map <leader>h :cp<cr>"
 
@@ -298,6 +292,17 @@ map <c-w><c-a> :wa<cr>
 map <C-g><c-d> :Gdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
+command! Gstatus call LazyLoadFugitive('Gstatus')
+command! Gdiff call LazyLoadFugitive('Gdiff')
+command! Glog call LazyLoadFugitive('Glog')
+command! Gblame call LazyLoadFugitive('Gblame')
+
+function! LazyLoadFugitive(cmd)
+  call plug#load('vim-fugitive')
+  call fugitive#detect(expand('%:p'))
+  exe a:cmd
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Limelight
@@ -307,7 +312,10 @@ map <C-g><c-b> :Gblame<cr>
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 242
 
-let g:limelight_default_coefficient = 0.1
+let g:limelight_default_coefficient = 1
+
+" let whitelist = ['python', 'go']
+" autocmd BufRead * if index(whitelist, &ft) > -1 | Limelight | else |  Limelight! |
 
 
 
@@ -343,10 +351,7 @@ au FileType python set cindent
 au FileType python set cinkeys-=0#
 au FileType python set indentkeys-=0#
 
-
-"Autopep8 - visual mode gq
-au FileType python setlocal formatprg=autopep8\ -
-au FileType python noremap <C-Y> :YAPF<CR>
+au FileType python nmap <leader>f :YAPF<CR>
 
 let g:ale_python_flake8_args = '-m flake8'
 " highlight python self, when followed by a comma, a period or a parenth
@@ -541,15 +546,6 @@ let g:ale_fixers = {
       \ }
 
 """"""""""""""""""""""""""""""
-" => FLAKE
-" """"""""""""""""""""""""""""""
-let g:flake8_error_marker='EE'     " set error marker to 'EE'
-let g:flake8_warning_marker='WW'   " set warning marker to 'WW'
-let g:flake8_show_in_gutter=1  " show
-let g:flake8_show_in_file=1  " show
-
-
-""""""""""""""""""""""""""""""
 " => Markdown plugin
 " """"""""""""""""""""""""""""""
 let g:instant_markdown_autostart = 1
@@ -565,27 +561,21 @@ let g:languagetool_jar = '/home/intempus/.languagetools/LanguageTool-4.2/languag
 """"""""""""""""""""""""""""""
 " => COLOR/THEMES
 " """"""""""""""""""""""""""""""
-let g:apprentice_termcolors=256
-let g:gruvbox_termcolors=256
-let g:solarized_termcolors=256
-let g:deus_termcolors=256
-let g:onedark_termcolors=256
-let g:onehalf_termcolors=256
-
-" colorscheme seoul256
-" Unified color scheme (default: dark)
+" let g:zenesque_colors=2
 colorscheme nord
 let g:airline_theme='nord'
-
 set background=dark
+
 
 function! SetDark()
 	colorscheme monochrome
 	let g:monochrome_italic_comments = 1
+	set syntax=off
 endfunction
 function! SetLight()
 	colorscheme nord
 	let g:nord_italic = 1
+	set syntax=off
 endfunction
 
 """"""""""""""""""""""""""""""
@@ -754,3 +744,4 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
