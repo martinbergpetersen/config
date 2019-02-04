@@ -351,6 +351,7 @@ au FileType python set cindent
 au FileType python set cinkeys-=0#
 au FileType python set indentkeys-=0#
 
+au FileType python vmap <leader>f :YAPF<CR>
 au FileType python nmap <leader>f :YAPF<CR>
 
 let g:ale_python_flake8_args = '-m flake8'
