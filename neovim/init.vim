@@ -307,10 +307,10 @@ map <C-g><c-b> :Gblame<cr>
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 242
 
-let g:limelight_default_coefficient = 0.1
+let g:limelight_default_coefficient = 1
 
-let whitelist = ['go', 'python']
-autocmd BufRead * if index(whitelist, &ft) > -1 | Limelight | else |  Limelight! |
+" let whitelist = ['python', 'go']
+" autocmd BufRead * if index(whitelist, &ft) > -1 | Limelight | else |  Limelight! |
 
 
 
