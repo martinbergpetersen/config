@@ -270,8 +270,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map <leader>p :split<cr><leader>d
 
 
-nmap <F1> :call SetDark()<CR>
-nmap <F2> :call SetLight()<CR>
+nmap <F1> :call AddSyntax()<CR>
+nmap <F2> :call RemoveSyntax()<CR>
 nnoremap <F5> :SearchIndex<CR>
 nmap <F8> :TagbarToggle<CR>
 
@@ -556,14 +556,10 @@ let g:airline_theme='nord'
 set background=dark
 
 
-function! SetDark()
-	colorscheme monochrome
-	let g:monochrome_italic_comments = 1
-	set syntax=off
+function! AddSyntax()
+	set syntax=on
 endfunction
-function! SetLight()
-	colorscheme nord
-	let g:nord_italic = 1
+function! RemoveSyntax()
 	set syntax=off
 endfunction
 
