@@ -73,9 +73,6 @@ Plug 'fxn/vim-monochrome'
 Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
 
-" NERDTree
-Plug 'scrooloose/nerdtree'
-
 " SEARCH
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
@@ -472,23 +469,6 @@ tnoremap <c-w><c-w> <c-\><c-n>
 tnoremap <c-Space> <c-\><c-n>
 nmap <c-t><c-t> :vsplit+terminal<CR>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTREE
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=30
-let g:nerdtree_tabs_open_on_console_startup = 0
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
-
-let g:NERDTreeLimitedSyntax = 1
-let g:NERDTreeChDirMode=2
-
-let NERDTreeShowLineNumbers=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM-MULTIPLE-CURSORS
