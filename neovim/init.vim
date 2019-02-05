@@ -12,8 +12,8 @@ Plug 'zchee/deoplete-clang', {'for':'ccp'}
 " Async linter
 Plug 'w0rp/ale'
 
-" JSON
-Plug 'elzr/vim-json', {'for': 'json'}
+" " JSON
+" Plug 'elzr/vim-json', {'for': 'json'}
 
 " Commentings
 Plug 'tpope/vim-commentary'
