@@ -53,7 +53,7 @@ Plug 'davidhalter/jedi-vim', {'for': 'python' }
 
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
-Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
+Plug 'plytophogy/vim-virtualenv'
 
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
@@ -156,7 +156,7 @@ set t_vb=
 set tm=500
 
 let syntax_list = ['python', 'go']
-autocmd BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
+autocmd FileType * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 
 " Set updatetime - Used with tagbar
 set updatetime=100
