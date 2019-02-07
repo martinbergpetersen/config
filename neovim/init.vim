@@ -55,7 +55,7 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 Plug 'plytophogy/vim-virtualenv'
 
-Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'google/yapf', { 'rtp': 'plugins/vim'}
 
 " Indentline
 Plug 'Yggdroot/indentLine', {'for': 'python'}
@@ -156,10 +156,10 @@ set t_vb=
 set tm=500
 
 let syntax_list = ['python', 'go']
-autocmd FileType * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
+autocmd BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 
 " Set updatetime - Used with tagbar
-set updatetime=100
+set updatetime=1000
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
