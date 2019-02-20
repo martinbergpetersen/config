@@ -159,7 +159,7 @@ let syntax_list = ['python', 'go']
 autocmd BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 
 " Set updatetime - Used with tagbar
-set updatetime=1000
+set updatetime=2000
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
