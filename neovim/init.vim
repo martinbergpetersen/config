@@ -91,10 +91,6 @@ Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-rhubarb'
 
 " Initialize plugin system
 call plug#end()
@@ -288,11 +284,11 @@ map <c-w><c-a> :wa<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-g><c-d> :Gdiff<cr>
+map <C-g><c-d> :Gvdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
 command! Gstatus call LazyLoadFugitive('Gstatus')
-command! Gdiff call LazyLoadFugitive('Gdiff')
+command! Gvdiff call LazyLoadFugitive('Gvdiff')
 command! Glog call LazyLoadFugitive('Glog')
 command! Gblame call LazyLoadFugitive('Gblame')
 
