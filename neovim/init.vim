@@ -411,6 +411,7 @@ let g:go_fmt_fail_silently = 1
 map <SPACE> /
 nnoremap <ESC> :call DisabledHighlight()<return><ESC>
 xnoremap <C-S> :call VisualSelection('s', '')<CR>
+xnoremap <C-R> :call VisualSelection('r', '')<CR>
 nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>
 
 " Visual mode pressing * or # searches for the current selection
@@ -418,7 +419,7 @@ nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: Search
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
-nnoremap <C-R> viw"hy:%s/<C-R>h//gc<left><left><left>
+" nnoremap <C-R> viw"hy:%s/<C-R>h//gc<left><left><left>
 
 " => FuzzyFinder
 " """"""""""""""""""""""""""""""
@@ -592,6 +593,9 @@ function! VisualSelection(direction, extra_filter) range
     echo l:pattern
     if a:direction == 's'
         call CmdLine("Rg " . l:pattern . "")
+    endif
+    if a:direction == 'r'
+        call CmdLine("%s/" . l:pattern . "//gc<LEFT><LEFT><LEFT>")
     endif
     let @/ = l:pattern
     let @" = l:saved_reg
