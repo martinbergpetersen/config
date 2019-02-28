@@ -30,9 +30,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'majutsushi/tagbar' 
 Plug 'craigemery/vim-autotag'
 
-" MD instant markdown
-Plug 'shime/vim-livedown', {'for': 'md'}
-
 " zenmode
 Plug 'junegunn/goyo.vim'
 
@@ -44,8 +41,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Tabular - text alignment
 Plug 'ervandew/supertab'
-Plug 'junegunn/limelight.vim', {'for': ['python', 'go']}
-
+Plug 'junegunn/limelight.vim'
 " Python
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 
@@ -58,12 +54,12 @@ Plug 'plytophogy/vim-virtualenv'
 Plug 'google/yapf', { 'rtp': 'plugins/vim'}
 
 " Indentline
-Plug 'Yggdroot/indentLine', {'for': 'python'}
+Plug 'Yggdroot/indentLine'
 
 
 " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
-Plug 'zchee/deoplete-go', {'for': 'go'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
+Plug 'zchee/deoplete-go'
 
 "Themes
 Plug 'morhetz/gruvbox'
@@ -269,6 +265,8 @@ map <leader>p :split<cr><leader>d
 
 nmap <F1> :call AddSyntax()<CR>
 nmap <F2> :call RemoveSyntax()<CR>
+nmap <F3> :Limelight<CR>
+nmap <F4> :Limelight!<CR>
 nnoremap <F5> :SearchIndex<CR>
 nmap <F8> :TagbarToggle<CR>
 
