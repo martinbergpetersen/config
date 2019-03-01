@@ -49,6 +49,8 @@ Plug 'davidhalter/jedi-vim', {'for': 'python' }
 
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
+Plug 'python-rope/ropevim', { 'for': 'python' }
+
 Plug 'plytophogy/vim-virtualenv'
 
 Plug 'google/yapf', { 'rtp': 'plugins/vim'}
