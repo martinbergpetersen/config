@@ -1,6 +1,6 @@
-.vimrc
-.nvimrc
 .vscode/
 .env/
+.ropeproject/
 tags
 .ctags.d/
+.nvimrc
