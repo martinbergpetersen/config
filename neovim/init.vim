@@ -153,8 +153,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
-let syntax_list = ['python', 'go']
-autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
+" let syntax_list = ['python', 'go']
+" autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
+autocmd BufWrite,BufRead * set syntax=off
 
 " Set updatetime - Used with tagbar
 set updatetime=2000
@@ -698,4 +699,3 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
-
