@@ -155,7 +155,7 @@ set tm=500
 
 " let syntax_list = ['python', 'go']
 " autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
-autocmd BufWrite,BufRead * set syntax=off
+autocmd BufWrite,BufRead,VimEnter * set syntax=off
 
 " Set updatetime - Used with tagbar
 set updatetime=2000
