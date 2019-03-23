@@ -194,8 +194,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """"""""""""""""""""""""""""""
 " => STATUS LINE
  """"""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=0
+" never how the status line
+autocmd VimEnter,BufRead,BufWrite * set laststatus=0
 set showtabline=0
 " Format the status line
 set statusline+=%#CursorColumn#
@@ -211,10 +211,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ' '
 let g:airline#extensions#tabline#fnamemod=':t'
-
-" Removes statusline/
-au VimEnter * set laststatus=0
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
@@ -460,9 +456,9 @@ nmap <c-t><c-t> :vsplit+terminal<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM-MULTIPLE-CURSORS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_start_word_key='<C-b>'
-let g:multi_cursor_next_key="<C-b>"
-let g:multi_cursor_prev_key="<C-n>"
+let g:multi_cursor_start_word_key='<C-c>'
+let g:multi_cursor_next_key="<C-c>"
+let g:multi_cursor_prev_key="<C-v>"
 
 
 function g:Multiple_cursors_before()
