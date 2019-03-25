@@ -401,12 +401,11 @@ nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: Search
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
-" nnoremap <C-R> viw"hy:%s/<C-R>h//gc<left><left><left>
 
 " => FuzzyFinder
 " """"""""""""""""""""""""""""""
 let g:fzf_action = {
-  \ 'ctrl-o': 'edit',
+  \ 'ctrl-space': 'edit',
   \ 'ctrl-i': 'badd',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
@@ -449,7 +448,6 @@ tnoremap <c-w><c-k> <c-\><c-n><c-w>k
 tnoremap <c-w><c-l> <c-\><c-n><c-w>l
 
 tnoremap <c-w><c-w> <c-\><c-n>
-tnoremap <c-Space> <c-\><c-n>
 nmap <c-t><c-t> :vsplit+terminal<CR>
 
 
@@ -593,7 +591,7 @@ endfunction
  """""""""""""""""""""""""""""
  " => GOYO - ZENMODE
  """"""""""""""""""""""""""""""
- let g:goyo_width = 85
+ let g:goyo_width = '100%'
  let g:goyo_height = 100
 
 
