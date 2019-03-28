@@ -5,10 +5,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'farmergreg/vim-lastplace'
 
 
-" C family
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all', 'for':'ccp'}
-Plug 'zchee/deoplete-clang', {'for':'ccp'}
-
 " Async linter
 Plug 'w0rp/ale'
 
@@ -291,11 +287,6 @@ let g:limelight_conceal_ctermfg = 242
 
 let g:limelight_default_coefficient = 1
 
-" let whitelist = ['python', 'go']
-" autocmd FileType * if index(whitelist, &ft) > -1 | Limelight | else |  Limelight! |
-
-
-
 """"""""""""""""""""""""""""""
 " => DEOPLETE
 " """"""""""""""""""""""""""""""
@@ -319,9 +310,6 @@ augroup PythonCustomization
 	:autocmd FileType python vmap <leader>f :YAPF<CR>
 	:autocmd FileType python nmap <leader>f :YAPF<CR>
 augroup END
-
-let g:ale_python_flake8_args = '-m flake8'
-" highlight python self, when followed by a comma, a period or a parenth
 
 function! SetPython2Host()
     echo 'Running with Python2.7'
@@ -351,19 +339,6 @@ augroup JediCustomization
 	:autocmd FileType python nmap <S-K> :call jedi#show_documentation()<CR>
 augroup END
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_auto_trigger = 0
-let g:ycm_max_num_candidates = 20
-" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-" let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
-
-
-" => C++
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
 
 """"""""""""""""""""""""""""""
 " => GO
@@ -480,10 +455,11 @@ autocmd BufWritePost * GitGutterEnable
 let g:ale_sign_error='EE'
 let g:ale_sign_warning='WW'
 let g:ale_lint_on_enter = 1
+let g:ale_linters = {'python':['flake8']}
+" Check Python files with flake8 and pylint.
 highlight clear ALEWarningSign
 " sets ale to use python3 for flake
 " highlight clear ALEWarningSign
-" autocmd VimEnter * ALEDisable
 nnoremap <leader>ad :ALENext<CR>
 nnoremap <leader>as :ALEPrevious<CR>
 
@@ -494,19 +470,6 @@ nnoremap <leader>as :ALEPrevious<CR>
 let g:ale_fixers = {
       \ 'python': ['yapf']
       \ }
-
-""""""""""""""""""""""""""""""
-" => Markdown plugin
-" """"""""""""""""""""""""""""""
-let g:instant_markdown_autostart = 1
-" let vim_markdown_preview_toggle=2
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-"
-""""""""""""""""""""""""""""""
-" => LANGUAGETOOL
-" """"""""""""""""""""""""""""""
-let g:languagetool_jar = '/home/intempus/.languagetools/LanguageTool-4.2/languagetool-commandline.jar'
 
 """"""""""""""""""""""""""""""
 " => COLOR/THEMES
@@ -579,13 +542,6 @@ function! VisualSelection(direction, extra_filter) range
     endif
     let @/ = l:pattern
     let @" = l:saved_reg
-endfunction
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
 endfunction
 
  """""""""""""""""""""""""""""
