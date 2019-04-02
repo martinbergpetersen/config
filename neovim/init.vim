@@ -423,7 +423,7 @@ tnoremap <c-w><c-k> <c-\><c-n><c-w>k
 tnoremap <c-w><c-l> <c-\><c-n><c-w>l
 
 tnoremap <c-w><c-w> <c-\><c-n>
-nmap <c-t><c-t> :vsplit+terminal<CR>
+nmap <c-t><c-t> :split+terminal<CR><c-w>r
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
