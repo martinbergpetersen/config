@@ -125,14 +125,10 @@ export PATH=$PATH:$GO_HOME/bin
 export PATH=$PATH:$GOPATH/bin
 
 # myalias
-alias sourceproduction='source ~/.virtualenvs/django/bin/activate'
-alias keepass='keepass2 & disown'
 alias slack='slack & disown && exit'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
-alias spotify='spotify & disown'
-alias jcom='j --complete'
 alias work_screens='. ~/.myconfig/work_settings.sh'
 alias home_screens='. ~/.myconfig/home.sh'
 
