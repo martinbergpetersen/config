@@ -318,8 +318,6 @@ _yargs_completions()
 
     return 0
 }
-complete -F _yargs_completions graphql
-###-end-graphql-completions-###
 export PATH="/home/$USER/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
