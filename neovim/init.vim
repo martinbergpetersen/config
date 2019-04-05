@@ -30,7 +30,7 @@ Plug 'craigemery/vim-autotag'
 Plug 'junegunn/goyo.vim'
 
 " Icons
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 " Buffer
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
