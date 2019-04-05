@@ -147,6 +147,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # 
 bar {
+	    separator_symbol " : "
+
         status_command i3status
         colors {
             #color class       border  back.   text
@@ -157,7 +159,6 @@ bar {
         }
         font pango:Hack 12
     	position top
-	#Disalbe click
 }
 
 
