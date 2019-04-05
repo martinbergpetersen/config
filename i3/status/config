@@ -19,7 +19,7 @@ order += "cpu_usage"
 
 wireless _first_ {
         # format_up = "%quality at %essid"
-        format_up = "%essid"
+        format_up = "%quality %essid"
         format_down = ""
 }
 ethernet _first_ {
