@@ -8,7 +8,7 @@
 
 general {
         colors = true
-        interval = 1
+        interval = 5
 }
 
 order += "tztime local"
@@ -19,7 +19,7 @@ order += "cpu_usage"
 
 wireless _first_ {
         # format_up = "%quality at %essid"
-        format_up = "%quality %essid"
+        format_up = "%essid %quality"
         format_down = ""
 }
 ethernet _first_ {
@@ -36,8 +36,8 @@ cpu_usage {
 battery 0 {
         format = "%status %percentage"
         format_down = ""
-        status_chr = "CHARGING"
-        status_bat = "BATTERY"
+        status_chr = "CHARGING: "
+        status_bat = "BATTERY:"
         # status_chr = "⚡ CHARGING"
         # status_bat = "🔋 BATTERY"
         # status_unk = "? UNK"
@@ -52,5 +52,6 @@ battery all {
 }
 
 tztime local {
-        format = "🕐 %H:%M:%S"
+        # format = "🕐 %H:%M:%S"
+        format = "%H:%M"
 }

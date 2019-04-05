@@ -147,8 +147,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # 
 bar {
-	    separator_symbol " : "
-
         status_command i3status
         colors {
             #color class       border  back.   text
