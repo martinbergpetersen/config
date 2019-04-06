@@ -234,7 +234,7 @@ fun! CleanExtraSpaces()
 map <leader>ge :e! ~/.myconfig/neovim/init.vim<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CUSTOM SHORTCUTS
+" => CUSTOM KEYBINDINGS
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -309,6 +309,7 @@ augroup PythonCustomization
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python vmap <leader>f :YAPF<CR>
 	:autocmd FileType python nmap <leader>f :YAPF<CR>
+	:autocmd FileType python nmap <leader>s :Isort<CR>
 augroup END
 
 function! SetPython2Host()
@@ -455,8 +456,9 @@ autocmd BufWritePost * GitGutterEnable
 let g:ale_sign_error='EE'
 let g:ale_sign_warning='WW'
 let g:ale_lint_on_enter = 1
-let g:ale_linters = {'python':['flake8']}
-" Check Python files with flake8 and pylint.
+let g:ale_linters = {'python': ['flake8']}
+" let g:ale_linters = {'python': ['pylint', 'flake8']}
+
 highlight clear ALEWarningSign
 " sets ale to use python3 for flake
 " highlight clear ALEWarningSign
