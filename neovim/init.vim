@@ -149,9 +149,11 @@ set novisualbell
 set t_vb=
 set tm=500
 
+set syntax=off
+
 " let syntax_list = ['python', 'go']
 " autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
-autocmd BufWrite,BufRead,VimEnter * set syntax=off
+autocmd BufWrite,BufNewFile,BufRead,VimEnter * set syntax=off
 
 " Set updatetime - Used with tagbar
 set updatetime=2000
@@ -231,7 +233,7 @@ fun! CleanExtraSpaces()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIMRC CONFIGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>ge :e! ~/.myconfig/neovim/init.vim<cr>
+map <leader>ge :e! ~/.config/nvim/init.vim<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CUSTOM KEYBINDINGS
