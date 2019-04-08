@@ -244,6 +244,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Peek the view. It splits the screen and shows the called funtion
 map <leader>p :split<cr><leader>d
 
+inoremap <C-A> <C-U>
+
 
 nmap <F1> :call AddSyntax()<CR>
 nmap <F2> :call RemoveSyntax()<CR>
