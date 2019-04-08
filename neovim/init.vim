@@ -45,6 +45,8 @@ Plug 'davidhalter/jedi-vim', {'for': 'python' }
 
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
+Plug 'python-rope/ropevim', { 'for': 'python' }
+
 Plug 'plytophogy/vim-virtualenv'
 
 Plug 'google/yapf', { 'rtp': 'plugins/vim'}
@@ -147,11 +149,11 @@ set novisualbell
 set t_vb=
 set tm=500
 
-set syntax=off
+
 
 " let syntax_list = ['python', 'go']
 " autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
-autocmd BufWrite,BufNewFile,BufRead,VimEnter * set syntax=off
+autocmd VimEnter * syntax off
 
 " Set updatetime - Used with tagbar
 set updatetime=2000
@@ -231,7 +233,7 @@ fun! CleanExtraSpaces()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIMRC CONFIGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>ge :e! ~/.config/nvim/init.vim<cr>
+map <leader>ge :e! ~/.myconfig/neovim/init.vim<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CUSTOM KEYBINDINGS
@@ -483,10 +485,10 @@ set background=dark
 
 
 function! AddSyntax()
-	set syntax=on
+	syntax on
 endfunction
 function! RemoveSyntax()
-	set syntax=off
+	syntax off
 endfunction
 
 """"""""""""""""""""""""""""""
