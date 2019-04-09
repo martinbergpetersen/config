@@ -148,12 +148,13 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+syntax off
 
 
 
 " let syntax_list = ['python', 'go']
 " autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
-autocmd VimEnter * syntax off
+autocmd BufRead,VimEnter * syntax off
 
 " Set updatetime - Used with tagbar
 set updatetime=2000
