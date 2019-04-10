@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'dkprice/vim-easygrep'
 
+Plug 'vim-scripts/diffchanges.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
