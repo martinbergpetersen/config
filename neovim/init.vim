@@ -137,10 +137,8 @@ set mat=10
 " split
 set splitright
 
-" set relativenumber
 set number
 set numberwidth=2
-set relativenumber
 set noundofile
 set nocursorcolumn
 
@@ -304,8 +302,6 @@ let g:deoplete#max_list = 20
 " """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 augroup PythonCustomization
-	:autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
-	:autocmd FileType python syn keyword pythonDecorator True None False self
 	:autocmd FileType python map <buffer> <leader>1 /class 
 	:autocmd FileType python map <buffer> <leader>2 /def 
 	:autocmd FileType python map <buffer> <leader>C ?class 
