@@ -302,10 +302,6 @@ let g:deoplete#max_list = 20
 " """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 augroup PythonCustomization
-	:autocmd FileType python map <buffer> <leader>1 /class 
-	:autocmd FileType python map <buffer> <leader>2 /def 
-	:autocmd FileType python map <buffer> <leader>C ?class 
-	:autocmd FileType python map <buffer> <leader>D ?def 
 	:autocmd FileType python set cindent
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
