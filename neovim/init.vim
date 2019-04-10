@@ -140,6 +140,7 @@ set splitright
 " set relativenumber
 set number
 set numberwidth=2
+set relativenumber
 set noundofile
 set nocursorcolumn
 
@@ -366,6 +367,10 @@ let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_structs = 1
 let g:go_list_height = 0
 let g:go_fmt_fail_silently = 1
+let g:go_addtags_transform = "snakecase"
+let g:go_snippet_engine = "neosnippet"
+
+
 
 
 """"""""""""""""""""""""""""""
