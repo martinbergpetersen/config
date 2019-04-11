@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'dkprice/vim-easygrep'
 
+Plug 'vim-scripts/diffchanges.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -137,7 +138,6 @@ set mat=10
 " split
 set splitright
 
-" set relativenumber
 set number
 set numberwidth=2
 set noundofile
@@ -149,6 +149,7 @@ set novisualbell
 set t_vb=
 set tm=500
 syntax off
+set shiftwidth=4
 
 
 
@@ -303,12 +304,6 @@ let g:deoplete#max_list = 20
 " """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 augroup PythonCustomization
-	:autocmd FileType python syn match pythonStatement "\(\W\|^\)\@<=self\([\.,)]\)\@="
-	:autocmd FileType python syn keyword pythonDecorator True None False self
-	:autocmd FileType python map <buffer> <leader>1 /class 
-	:autocmd FileType python map <buffer> <leader>2 /def 
-	:autocmd FileType python map <buffer> <leader>C ?class 
-	:autocmd FileType python map <buffer> <leader>D ?def 
 	:autocmd FileType python set cindent
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
@@ -366,6 +361,10 @@ let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_structs = 1
 let g:go_list_height = 0
 let g:go_fmt_fail_silently = 1
+let g:go_addtags_transform = "snakecase"
+let g:go_snippet_engine = "neosnippet"
+
+
 
 
 """"""""""""""""""""""""""""""
