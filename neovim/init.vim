@@ -406,7 +406,7 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 let g:fzf_layout = { 'down': '~20%' }
 
-nmap <C-A> :Buffers<cr>
+nmap <C-B> :Buffers<cr>
 nmap <C-F> :Files<cr>
 nmap <C-T> :Tags<cr>
 nmap <C-S> :Rg 
