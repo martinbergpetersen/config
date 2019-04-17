@@ -182,7 +182,7 @@ client.urgent           #900000 #900000 #ffffff #2b2b2b
 bindsym $mod+Shift+x exec i3lock
 
 #Keyboard settings
-bindsym Mod4+Shift+i mode $keyboardMode
+bindsym $mod+Shift+i mode $keyboardMode
 set $keyboardMode "keyboard d=dk, u=us"
 mode $keyboardMode {
     bindsym d exec "setxkbmap dk && xmodmap ~/.Xmodmap", mode "default"
