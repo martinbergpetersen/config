@@ -8,10 +8,8 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#set $mod Mod1
-exec "setxkbmap -option caps:super"
+set $mod Mod1
 
-set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -33,11 +31,9 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec termite
-bindsym $mod+space exec termite
 
 # kill focused window
-bindsym $mod+Mod1+q kill
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -50,23 +46,17 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
-bindsym $mod+Mod1+h move left
-bindsym $mod+Mod1+j move down
-bindsym $mod+Mod1+k move up
-bindsym $mod+Mod1+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Mod1+Left move left
-bindsym $mod+Mod1+Down move down
-bindsym $mod+Mod1+Up move up
-bindsym $mod+Mod1+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+semicolon split h
@@ -82,7 +72,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # # toggle tiling / floating
-# bindsym $mod+Mod1+space floating toggle
+# bindsym $mod+Shift+space floating toggle
 
 # # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
@@ -115,23 +105,23 @@ bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Mod1+1 move container to workspace $workspace1
-bindsym $mod+Mod1+2 move container to workspace $workspace2
-bindsym $mod+Mod1+3 move container to workspace $workspace3
-bindsym $mod+Mod1+4 move container to workspace $workspace4
-bindsym $mod+Mod1+5 move container to workspace $workspace5
-bindsym $mod+Mod1+6 move container to workspace $workspace6
-bindsym $mod+Mod1+7 move container to workspace $workspace7
-bindsym $mod+Mod1+8 move container to workspace $workspace8
-bindsym $mod+Mod1+9 move container to workspace $workspace9
-bindsym $mod+Mod1+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
-bindsym $mod+Mod1+c reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Mod1+r restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Mod1+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -189,10 +179,10 @@ client.urgent           #900000 #900000 #ffffff #2b2b2b
 
 
 # custom Bindings
-bindsym $mod+Mod1+x exec i3lock
+bindsym $mod+Shift+x exec i3lock
 
 #Keyboard settings
-bindsym Mod4+Mod1+i mode $keyboardMode
+bindsym Mod4+Shift+i mode $keyboardMode
 set $keyboardMode "keyboard d=dk, u=us"
 mode $keyboardMode {
     bindsym d exec "setxkbmap dk && xmodmap ~/.Xmodmap", mode "default"
