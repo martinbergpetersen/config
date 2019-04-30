@@ -457,8 +457,8 @@ autocmd BufWritePost * GitGutterEnable
 """"""""""""""""""""""""""""""
 " => WORP/ALE
 " """"""""""""""""""""""""""""""
-let g:ale_sign_error='EE'
-let g:ale_sign_warning='WW'
+let g:ale_sign_error='●'
+let g:ale_sign_warning='●'
 let g:ale_lint_on_enter = 1
 let g:ale_linters = {'python': ['pylint', 'flake8']}
 " let g:ale_linters = {'python': ['flake8']}
