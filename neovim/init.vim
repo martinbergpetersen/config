@@ -460,8 +460,8 @@ autocmd BufWritePost * GitGutterEnable
 let g:ale_sign_error='EE'
 let g:ale_sign_warning='WW'
 let g:ale_lint_on_enter = 1
-let g:ale_linters = {'python': ['flake8']}
-" let g:ale_linters = {'python': ['pylint', 'flake8']}
+let g:ale_linters = {'python': ['pylint', 'flake8']}
+" let g:ale_linters = {'python': ['flake8']}
 
 highlight clear ALEWarningSign
 " sets ale to use python3 for flake
