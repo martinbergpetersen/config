@@ -2,7 +2,7 @@
 	name = Martin Berg Petersen
 [core]
 	editor = "nvim"
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore-global
 [commit]
 	verbose = true
 	template = ~/.gitmessage
