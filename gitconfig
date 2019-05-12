@@ -5,6 +5,7 @@
 	excludesfile = ~/.gitignore_global
 [commit]
 	verbose = true
+	template = ~/.gitmessage
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
