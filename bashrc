@@ -125,7 +125,7 @@ export PATH=$PATH:$GO_HOME/bin
 export PATH=$PATH:$GOPATH/bin
 
 # myalias
-alias slack='slack & disown && exit'
+alias slack='slack & disown'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
