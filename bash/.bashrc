@@ -129,8 +129,8 @@ alias slack='slack & disown && exit'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
-alias work_screens='. ~/.myconfig/work_settings.sh'
-alias home_screens='. ~/.myconfig/home.sh'
+alias work-screens='. ~/.myconfig/work-settings.sh'
+alias home-screens='. ~/.myconfig/home.sh'
 
 # Path to the bash it configuration
 export BASH_IT="/home/mbp/.bash_it"
