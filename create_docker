@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-NAME=${1?Error: no container name is given}
-DIR=${2?Error: No dir name}
-PORT=$(python -S -c "import random; print random.randrange(9001,63000)")
-# PORT=$(( ((RANDOM<<15)|RANDOM) % 63001 + 9001 ))
-
-
-docker run --name $NAME --network local_ipv6 -p $PORT:8000 --tty --interactive -d  -v $DIR:/app intempus/dev-django
