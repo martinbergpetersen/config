@@ -247,6 +247,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map <leader>p :split<cr><leader>d
 
 inoremap <C-A> <C-U>
+" Exit insert mode
+inoremap jj <ESC>
 
 
 nmap <F1> :call AddSyntax()<CR>
