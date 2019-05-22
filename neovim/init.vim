@@ -56,6 +56,12 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim'}
 Plug 'Yggdroot/indentLine'
 
 
+" Haskel
+Plug 'enomsg/vim-haskellConcealPlus'
+Plug 'alx741/vim-hindent'
+Plug 'nbouscal/vim-stylish-haskell'
+Plug 'sheerun/vim-polyglot'
+
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
 Plug 'zchee/deoplete-go'
@@ -156,6 +162,7 @@ set shiftwidth=4
 " let syntax_list = ['python', 'go']
 " autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 autocmd BufRead,VimEnter * syntax off
+autocmd FileType gitcommit setlocal spell
 
 " Set updatetime - Used with tagbar
 set updatetime=2000
