@@ -162,7 +162,6 @@ set shiftwidth=4
 " let syntax_list = ['python', 'go']
 " autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 autocmd BufRead,VimEnter * syntax off
-autocmd FileType gitcommit setlocal spell
 
 " Set updatetime - Used with tagbar
 set updatetime=2000
@@ -668,6 +667,7 @@ endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
 
+autocmd FileType gitcommit,markdown setlocal spell
 nnoremap <silent><F7> :cal SpellSuggest()<CR>
 function! SpellSuggest()
   let s = substitute(system("echo ".expand("<cword>")." | aspell -a -W2 | grep '^&'"), "^.*:\\s\\(.*\\)\\n", "\\1,", "")
