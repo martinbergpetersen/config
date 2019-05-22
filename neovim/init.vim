@@ -667,3 +667,26 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
+nnoremap <silent><F7> :cal SpellSuggest()<CR>
+function! SpellSuggest()
+  let s = substitute(system("echo ".expand("<cword>")." | aspell -a -W2 | grep '^&'"), "^.*:\\s\\(.*\\)\\n", "\\1,", "")
+  if s != ""
+    let slength = strlen(s)
+    let end = 0
+    let i = 0
+    while end != slength
+      let i = i + 1
+      let w = matchstr(s, "^\\%(.\\{-}\\zs[^ ,]\\+\\ze,\\)\\{".i."}")
+      echon "(".i.")".w." "
+      let end = matchend(s, w.",")
+    endwhile
+    echo ""
+    let c = input("Replace with: ")
+    if c =~ "^[1-9]\\d*$" && c > 0 && c <= i
+      execute "normal! ciw".matchstr(s, "^\\%(.\\{-}\\zs[^ ,]\\+\\ze,\\)\\{".c."}")
+    endif
+  else
+    echo "No suggestions"
+  endif
+endfunction
