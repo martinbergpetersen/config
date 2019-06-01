@@ -131,6 +131,7 @@ alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "stat
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
 alias work-screens='. ~/.myconfig/work-settings.sh'
 alias home-screens='. ~/.myconfig/home.sh'
+alias python=python3.7
 
 # Path to the bash it configuration
 export BASH_IT="/home/mbp/.bash_it"
