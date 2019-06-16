@@ -213,6 +213,9 @@ sshintempus()
     elif [ "$1" = "6" ]
     then
         ssh root@139.59.215.205
+    elif [ "$1" = "7" ]
+    then
+        ssh root@165.22.71.224
     else
         echo "What server?"
         echo "1. do-fra-apitest-integration.intempus.dk"
@@ -221,6 +224,7 @@ sshintempus()
         echo "4. staging-web.intempus.dk"
 	echo "5. do-fra-quicktest"
 	echo "6. production-integration"
+	echo "7. do-fra-staging-proxy1"
     fi
 }
 
