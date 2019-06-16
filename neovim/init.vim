@@ -156,7 +156,10 @@ set novisualbell
 set t_vb=
 set tm=500
 syntax off
+" Use of spaces instead of tabs
+set tabstop=4
 set shiftwidth=4
+set expandtab
 
 
 
