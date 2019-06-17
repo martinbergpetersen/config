@@ -178,7 +178,9 @@ client.urgent           #900000 #900000 #ffffff #2b2b2b
 
 
 # custom Bindings
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec --no-startup-id i3lock
+exec xautolock -detectsleep -time 10 -locker "i3lock -d" &
+
 
 #Keyboard settings
 bindsym $mod+Shift+i mode $keyboardMode
@@ -199,15 +201,11 @@ bindsym $mod+g exec google-chrome
 # Setup workspace10
 exec --no-startup-id i3-msg 'workspace $workspace10; exec /usr/bin/slack & disown';
 
-# Setup workspace10
+# Setup workspace1
 exec --no-startup-id i3-msg 'workspace $workspace1; exec termite';
 
 #workspace7
 assign [class="Thunderbird"] $workspace7
-
-#workspace8
-assign [class="Okular"] $workspace8
-assign [class="Evince"] $workspace8
 
 #workspace10 
 assign [class="Slack"] $workspace10
