@@ -17,7 +17,6 @@ Plug 'tpope/vim-commentary'
 Plug 'dkprice/vim-easygrep'
 
 Plug 'vim-scripts/diffchanges.vim'
-Plug 'jiangmiao/auto-pairs'
 
 " Git
 Plug 'tpope/vim-fugitive'
