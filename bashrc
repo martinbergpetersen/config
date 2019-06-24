@@ -328,24 +328,24 @@ if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/mb
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
-SSH_ENV=$HOME/.ssh/environment
+env=~/.ssh/agent.env
 
-# start the ssh-agent
-function start_agent {
-    echo "Initializing new SSH agent..."
-    # spawn ssh-agent
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add
-}
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
 
-if [ -f "${SSH_ENV}" ]; then
-     . "${SSH_ENV}" > /dev/null
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
 fi
+
+unset env
