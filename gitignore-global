@@ -7,3 +7,4 @@ tags
 .nvimrc
 pylintrc
 .huskyrc
+.hypothesis
