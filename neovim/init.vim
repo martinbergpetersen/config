@@ -4,6 +4,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'farmergreg/vim-lastplace'
 
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Async linter
 Plug 'w0rp/ale'
@@ -31,54 +32,30 @@ Plug 'craigemery/vim-autotag'
 Plug 'junegunn/goyo.vim'
 
 " Icons
-" Plug 'ryanoasis/vim-devicons'
-" Buffer
+" Tabular - text alignment
+Plug 'ervandew/supertab'
+"
+" Python
+Plug 'fisadev/vim-isort', { 'for': 'python' }
+Plug 'python-rope/ropevim', { 'for': 'python' }
+Plug 'google/yapf', { 'rtp': 'plugins/vim'}
+
+" Theme
+Plug 'arcticicestudio/nord-vim'
+
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
 
-" Tabular - text alignment
-Plug 'ervandew/supertab'
-Plug 'junegunn/limelight.vim'
-" Python
-Plug 'fisadev/vim-isort', { 'for': 'python' }
-
-Plug 'davidhalter/jedi-vim', {'for': 'python' }
-
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-
-Plug 'python-rope/ropevim', { 'for': 'python' }
-
 Plug 'plytophogy/vim-virtualenv'
 
-Plug 'google/yapf', { 'rtp': 'plugins/vim'}
 
 " Indentline
 Plug 'Yggdroot/indentLine'
-
-
-" Haskel
-Plug 'enomsg/vim-haskellConcealPlus'
-Plug 'alx741/vim-hindent'
-Plug 'nbouscal/vim-stylish-haskell'
-Plug 'sheerun/vim-polyglot'
-
-" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
-Plug 'zchee/deoplete-go'
-
-"Themes
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'fxn/vim-monochrome'
-Plug 'junegunn/seoul256.vim'
-Plug 'arcticicestudio/nord-vim'
 
 " SEARCH
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'google/vim-searchindex'
-
 
 " Easy motiom
 Plug 'easymotion/vim-easymotion'
@@ -160,14 +137,24 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-
-
-" let syntax_list = ['python', 'go']
-" autocmd BufWrite,BufRead * if index(syntax_list, &ft) > -1 | set syntax=off | else | set syntax=on |
 autocmd BufRead,VimEnter * syntax off
 
-" Set updatetime - Used with tagbar
-set updatetime=2000
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => COC settings
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+set cmdheight=2
+
+set hidden
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -176,6 +163,7 @@ set updatetime=2000
 set nobackup
 set nowb
 set noswapfile
+set nowritebackup
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -213,14 +201,12 @@ set statusline+=%=
 set statusline+=%{strftime('%H:%M')}
 set statusline+=\ 
 
-
 " => Buffer LINE
  """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ' '
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = '||'
 let g:airline#extensions#tabline#fnamemod=':t'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -259,11 +245,6 @@ inoremap <C-A> <C-U>
 " Exit insert mode
 inoremap jj <ESC>
 
-
-nmap <F1> :call AddSyntax()<CR>
-nmap <F2> :call RemoveSyntax()<CR>
-nmap <F3> :Limelight<CR>
-nmap <F4> :Limelight!<CR>
 nnoremap <F5> :SearchIndex<CR>
 nmap <F8> :TagbarToggle<CR>
 
@@ -282,33 +263,16 @@ map <c-w><c-a> :wa<cr>
 map <C-g><c-d> :Gvdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
-command! Gstatus call LazyLoadFugitive('Gstatus')
-command! Gvdiff call LazyLoadFugitive('Gvdiff')
-command! Glog call LazyLoadFugitive('Glog')
-command! Gblame call LazyLoadFugitive('Gblame')
+" command! Gstatus call LazyLoadFugitive('Gstatus')
+" command! Gvdiff call LazyLoadFugitive('Gvdiff')
+" command! Glog call LazyLoadFugitive('Glog')
+" command! Gblame call LazyLoadFugitive('Gblame')
 
-function! LazyLoadFugitive(cmd)
-  call plug#load('vim-fugitive')
-  call fugitive#detect(expand('%:p'))
-  exe a:cmd
-endfunction
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Limelight
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 242
-
-let g:limelight_default_coefficient = 1
-
-""""""""""""""""""""""""""""""
-" => DEOPLETE
-" """"""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#max_list = 20
+" function! LazyLoadFugitive(cmd)
+"   call plug#load('vim-fugitive')
+"   call fugitive#detect(expand('%:p'))
+"   exe a:cmd
+" endfunction
 
 """"""""""""""""""""""""""""""
 " => PYTHON
@@ -318,8 +282,6 @@ augroup PythonCustomization
 	:autocmd FileType python set cindent
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
-	:autocmd FileType python vmap <leader>f :YAPF<CR>
-	:autocmd FileType python nmap <leader>f :YAPF<CR>
 	:autocmd FileType python nmap <leader>s :Isort<CR>
 augroup END
 
@@ -340,42 +302,6 @@ function! SetPython3Host()
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
-
-" => JEDI
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 1
-augroup JediCustomization
-	:autocmd FileType python nnoremap <leader>d :call jedi#goto()<CR>
-	:autocmd FileType python nmap <S-K> :call jedi#show_documentation()<CR>
-augroup END
-
-
-""""""""""""""""""""""""""""""
-" => GO
-" """"""""""""""""""""""""""""""
-
-" let g:go_version_warning = 0
-nmap <leader>a :GoAlternate<cr>
-augroup GoCustomization
-	:autocmd FileType go nnoremap <leader>d :GoDef<CR>
-	:autocmd FileType go nmap <S-K> :GoDoc<CR>
-augroup END
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_trailing_whitespace_error = 1
-let g:go_highlight_structs = 1
-let g:go_list_height = 0
-let g:go_fmt_fail_silently = 1
-let g:go_addtags_transform = "snakecase"
-let g:go_snippet_engine = "neosnippet"
-
-
 
 
 """"""""""""""""""""""""""""""
@@ -468,10 +394,7 @@ autocmd BufWritePost * GitGutterEnable
 """"""""""""""""""""""""""""""
 " => WORP/ALE
 " """"""""""""""""""""""""""""""
-let g:ale_sign_error='●'
-let g:ale_sign_warning='●'
 let g:ale_lint_on_enter = 1
-" let g:ale_linters = {'python': ['pylint', 'flake8']}
 let g:ale_linters = {'python': ['flake8']}
 
 highlight clear ALEWarningSign
@@ -480,30 +403,12 @@ highlight clear ALEWarningSign
 nnoremap <leader>ad :ALENext<CR>
 nnoremap <leader>as :ALEPrevious<CR>
 
-
-" Check Python files with flake8 and pylint.
-" Fix Python files with autopep8 and yapf.
-
-let g:ale_fixers = {
-      \ 'python': ['yapf']
-      \ }
-
 """"""""""""""""""""""""""""""
 " => COLOR/THEMES
 " """"""""""""""""""""""""""""""
-" let g:zenesque_colors=2
 colorscheme nord
 let g:airline_theme='nord'
 set background=dark
-
-
-function! AddSyntax()
-	syntax on
-endfunction
-function! RemoveSyntax()
-	syntax off
-endfunction
-
 """"""""""""""""""""""""""""""
 " => INDENT
 " """"""""""""""""""""""""""""""
@@ -693,3 +598,50 @@ function! SpellSuggest()
     echo "No suggestions"
   endif
 endfunction
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent><leader>d <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+" Remap for format selected region
+
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
