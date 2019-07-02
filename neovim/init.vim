@@ -310,7 +310,7 @@ let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
 " => Search and Replace
 " """"""""""""""""""""""""""""""
 map <SPACE> /
-nnoremap <ESC> :call DisabledHighlight()<return><ESC>
+nnoremap <C-J> :call DisabledHighlight()<return><ESC>
 xnoremap <C-S> :call VisualSelection('s', '')<CR>
 xnoremap <C-R> :call VisualSelection('r', '')<CR>
 nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>
