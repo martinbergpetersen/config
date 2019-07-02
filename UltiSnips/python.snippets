@@ -21,9 +21,8 @@
 #		private readonly ${1} = new Emitter<$2>()
 #		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
 #		endsnippet
-#
-# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-snippet defaultcoding "Add default coding"
+
+snippet defaultcoding "Add default coding" b
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
