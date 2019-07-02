@@ -283,8 +283,8 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nmap <leader>s :Isort<CR>
-	" :autocmd FileType python nmap <leader>f :YAPF<CR>
-	" :autocmd FileType python xmap <leader>f :YAPF<CR>
+	:autocmd FileType python nmap <leader>f :YAPF<CR>
+	:autocmd FileType python xmap <leader>f :YAPF<CR>
 augroup END
 
 function! SetPython2Host()
