@@ -12,5 +12,6 @@
             "lintTool": "golint"
         }
     }
-  }
+  },
+  "java.format.settings.url": "/home/mbp/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
 }
