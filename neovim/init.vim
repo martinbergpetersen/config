@@ -203,8 +203,8 @@ set statusline+=\
 " => Buffer LINE
  """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ''
-" let g:airline#extensions#tabline#left_alt_sep = '||'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ' '
 let g:airline#extensions#tabline#fnamemod=':t'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => EDITING MAPPINGS
@@ -282,6 +282,8 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nmap <leader>s :Isort<CR>
+	:autocmd FileType python nmap <leader>f :YAPF<CR>
+	:autocmd FileType python xmap <leader>f :YAPF<CR>
 augroup END
 
 function! SetPython2Host()
@@ -307,7 +309,7 @@ let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
 " => Search and Replace
 " """"""""""""""""""""""""""""""
 map <SPACE> /
-nnoremap <ESC> :call DisabledHighlight()<return><ESC>
+nnoremap <C-J> :call DisabledHighlight()<return><ESC>
 xnoremap <C-S> :call VisualSelection('s', '')<CR>
 xnoremap <C-R> :call VisualSelection('r', '')<CR>
 nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>

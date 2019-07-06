@@ -25,5 +25,9 @@
 	sta = status
 	mergeff = merge --ff-only
 	pullff = pull --ff-only
+
+    hide = update-index --skip-worktree
+    unhide = update-index --no-skip-worktree
+    hidden = "!git ls-files -v | grep ^S | cut -c3-"
 [diff]
 	renameLimit = 1210
