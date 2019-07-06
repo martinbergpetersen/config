@@ -64,7 +64,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 
 "Snippets
-" Track the engine.
 Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
