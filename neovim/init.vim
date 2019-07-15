@@ -143,7 +143,6 @@ autocmd BufRead,VimEnter * syntax off
 " => COC settings
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " You will have bad experience for diagnostic messages when it's default 4000.
-" set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
