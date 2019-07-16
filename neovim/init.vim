@@ -287,21 +287,23 @@ augroup END
 
 function! SetPython2Host()
     echo 'Running with Python2.7'
-    let python2_host='~/.pyenv/versions/neovim2/bin/python2.7'
-    let g:python_host_prog =python2_host
     let g:vim_isort_python_version ='python2'
+    let g:ale_python_flake8_executable = 'python'
+    let g:ale_python_flake8_options = '-m flake8'
 endfunction
 
 function! SetPython3Host()
      echo 'Running with Python3.7'
-     let python3_host='~/.pyenv/versions/neovim3/bin/python3.7'
-     let g:python3_host_prog = python3_host
-     let g:vim_isort_python_version = 'python3'
+     let g:vim_isort_python_version ='python3'
+     let g:ale_python_flake8_executable = 'python3'
+     let g:ale_python_flake8_options = '-m flake8'
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
 let python3_host='~/.pyenv/versions/neovim3/bin/python3.7'
 let g:python3_host_prog = python3_host
+let python2_host='~/.pyenv/versions/neovim2/bin/python2.7'
+let g:python_host_prog =python2_host
 
 
 """"""""""""""""""""""""""""""
