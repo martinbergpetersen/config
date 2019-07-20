@@ -2,6 +2,7 @@
   "python.linting.pylintEnabled": false,
   "python.linting.pep8Enabled": true,
   "python.linting.enabled": true,
+  "python.jediEnabled": false,
   "languageserver": {
     "golang": {
         "command": "go-langserver",

@@ -13,6 +13,7 @@ general {
 
 order += "tztime local"
 order += "battery 0"
+order += "battery 1"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "cpu_usage"
@@ -36,8 +37,8 @@ cpu_usage {
 battery 0 {
         format = "%status %percentage"
         format_down = ""
-        status_chr = "CHARGING: "
-        status_bat = "BATTERY:"
+        status_chr = "CHARGING:"
+        status_bat = "BATTERY0:"
         # status_chr = "⚡ CHARGING"
         # status_bat = "🔋 BATTERY"
         # status_unk = "? UNK"
@@ -45,6 +46,20 @@ battery 0 {
         # status_unk = "? UNK"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
+}
+
+battery 1 {
+        format = "%status %percentage"
+        format_down = ""
+        status_chr = "CHARGING1:"
+        status_bat = "BATTERY1:"
+        # status_chr = "⚡ CHARGING"
+        # status_bat = "🔋 BATTERY"
+        # status_unk = "? UNK"
+        # status_full = "🔋 BATTERY"
+        status_unk = "BATTERY1:"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 20
 }
 
 battery all {
