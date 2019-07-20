@@ -28,6 +28,6 @@
 
     hide = update-index --skip-worktree
     unhide = update-index --no-skip-worktree
-    hidden = "!git ls-files -v | grep ^S | cut -c3-"
+    hidden = "!git ls-files -v | grep ^S"
 [diff]
 	renameLimit = 1210
