@@ -289,6 +289,7 @@ function! SetPython2Host()
     echo 'Running with Python2.7'
     let python2_host='~/.pyenv/versions/neovim2/bin/python2.7'
     let g:python_host_prog =python2_host
+    let g:python3_host_prog = ''
     let g:vim_isort_python_version ='python2'
 endfunction
 
