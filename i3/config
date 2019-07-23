@@ -196,7 +196,7 @@ mode $keyboardMode {
 
 
 # custom keyshortcuts
-bindsym $mod+g exec google-chrome
+bindsym $mod+g exec firefox
 
 
 # Setup workspace10
