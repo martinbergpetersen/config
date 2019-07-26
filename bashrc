@@ -328,16 +328,6 @@ if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/mb
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
-
-JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64/
-export PATH=$JAVA_HOME/bin:$PATH
-
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
@@ -348,3 +338,14 @@ source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
+
+JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64/
+export PATH=$JAVA_HOME/bin:$PATH
+
