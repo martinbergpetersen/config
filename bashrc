@@ -289,7 +289,6 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 
-[[ -s /home/mbp/.autojump/etc/profile.d/autojump.sh ]] && source /home/mbp/.autojump/etc/profile.d/autojump.sh
 [[ -s /home/mbp/.wd ]] && source /home/mbp/.wd
 
 ###-begin-graphql-completions-###
