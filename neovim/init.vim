@@ -39,6 +39,7 @@ Plug 'ervandew/supertab'
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
 Plug 'google/yapf', { 'rtp': 'plugins/vim'}
+Plug 'psf/black'
 
 " Theme
 Plug 'arcticicestudio/nord-vim'
@@ -281,7 +282,7 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nmap <leader>s :Isort<CR>
-	:autocmd FileType python nmap <leader>f :YAPF<CR>
+	:autocmd FileType python nmap <leader>f :Black<CR>
 	:autocmd FileType python xmap <leader>f :YAPF<CR>
 augroup END
 
