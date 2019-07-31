@@ -274,6 +274,11 @@ map <C-g><c-b> :Gblame<cr>
 " endfunction
 
 """"""""""""""""""""""""""""""
+" => BLACK
+" """"""""""""""""""""""""""""""
+let g:black_skip_string_normalization = 1
+
+""""""""""""""""""""""""""""""
 " => PYTHON
 " """"""""""""""""""""""""""""""
 let python_highlight_all = 1
