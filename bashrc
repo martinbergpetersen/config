@@ -334,10 +334,11 @@ case $- in
     *) return;;
 esac
 
-source /usr/share/fzf/key-bindings.bash
-source /usr/share/fzf/completion.bash
-export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+if [ -f '/usr/share/fzf/key-bindings.bash' ]; then 
+    source /usr/share/fzf/key-bindings.bash
+    source /usr/share/fzf/completion.bash
+    export FZF_DEFAULT_COMMAND="rg --files"
+    export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND; fi
 
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
   eval `ssh-agent`
