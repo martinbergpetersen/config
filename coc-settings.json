@@ -1,18 +1,17 @@
 {
-  "python.linting.pylintEnabled": false,
-  "python.linting.pep8Enabled": false,
-  "python.linting.enabled": true,
-  "python.jediEnabled": false,
-  "languageserver": {
-    "golang": {
-        "command": "go-langserver",
-        "filetypes": ["go"],
-        "initializationOptions": {
-            "gocodeCompletionEnabled": true,
-            "diagnosticsEnabled": true,
-            "lintTool": "golint"
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": false,
+    "python.linting.enabled": true,
+    "python.jediEnabled": false,
+    "languageserver": {
+        "golang": {
+            "command": "go-langserver",
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "gocodeCompletionEnabled": true,
+                "diagnosticsEnabled": true,
+                "lintTool": "golint",
+            },
         }
-    }
-  },
-  "java.format.settings.url": "/home/mbp/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+    },
 }
