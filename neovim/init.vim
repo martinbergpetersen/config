@@ -274,6 +274,13 @@ map <C-g><c-b> :Gblame<cr>
 " endfunction
 
 """"""""""""""""""""""""""""""
+" => Rust
+" """"""""""""""""""""""""""""""
+augroup RustCustomization
+	:autocmd FileType rust nmap <leader>f :write<CR>
+augroup END
+
+""""""""""""""""""""""""""""""
 " => BLACK
 " """"""""""""""""""""""""""""""
 let g:black_skip_string_normalization=1

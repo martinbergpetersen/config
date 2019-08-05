@@ -347,6 +347,4 @@ fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
 
-JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64/
-export PATH=$JAVA_HOME/bin:$PATH
-
+export PATH="$HOME/.cargo/bin:$PATH"

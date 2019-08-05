@@ -3,6 +3,7 @@
     "python.linting.pep8Enabled": false,
     "python.linting.enabled": true,
     "python.jediEnabled": false,
+    "coc.preferences.formatOnSaveFiletypes": ["rust"],
     "languageserver": {
         "golang": {
             "command": "go-langserver",
