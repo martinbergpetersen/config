@@ -276,7 +276,8 @@ map <C-g><c-b> :Gblame<cr>
 """"""""""""""""""""""""""""""
 " => BLACK
 " """"""""""""""""""""""""""""""
-let g:black_skip_string_normalization = 1
+let g:black_skip_string_normalization=1
+let g:black_linelength=79
 
 """"""""""""""""""""""""""""""
 " => PYTHON

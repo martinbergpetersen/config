@@ -12,7 +12,7 @@
 	tool = fugitive
 
 [alias]
-        cleanmergedbranches = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+    cleanmergedbranches = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 	wlist = worktree list
 	cm = commit
 	symdiff = !sh -c 'git $1 --right-only $2...' -
