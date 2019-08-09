@@ -10,3 +10,5 @@ pylintrc
 .vim
 target/
 release/
+core/static
+api2/static
