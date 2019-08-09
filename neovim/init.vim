@@ -262,17 +262,6 @@ map <c-w><c-a> :wa<cr>
 map <C-g><c-d> :Gvdiff<cr>
 map <C-g><c-b> :Gblame<cr>
 
-" command! Gstatus call LazyLoadFugitive('Gstatus')
-" command! Gvdiff call LazyLoadFugitive('Gvdiff')
-" command! Glog call LazyLoadFugitive('Glog')
-" command! Gblame call LazyLoadFugitive('Gblame')
-
-" function! LazyLoadFugitive(cmd)
-"   call plug#load('vim-fugitive')
-"   call fugitive#detect(expand('%:p'))
-"   exe a:cmd
-" endfunction
-
 """"""""""""""""""""""""""""""
 " => Rust
 " """"""""""""""""""""""""""""""
