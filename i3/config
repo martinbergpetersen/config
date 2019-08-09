@@ -198,12 +198,6 @@ mode $keyboardMode {
 # custom keyshortcuts
 bindsym $mod+g exec firefox
 
-# Setup workspace1
-exec --no-startup-id i3-msg 'workspace $workspace1; exec termite';
-
-#workspace7
-assign [class="Thunderbird"] $workspace7
-
 #workspace10 
 assign [class="Slack"] $workspace10
 
