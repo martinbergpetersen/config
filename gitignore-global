@@ -8,3 +8,5 @@ pylintrc
 .hypothesis
 *.huskyrc
 .vim
+target/
+release/
