@@ -229,7 +229,7 @@ fun! CleanExtraSpaces()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIMRC CONFIGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>ge :e! ~/.myconfig/neovim/init.vim<cr>
+map <leader>ev :e! $MYVIMRC<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CUSTOM KEYBINDINGS
