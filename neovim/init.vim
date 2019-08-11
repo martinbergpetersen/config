@@ -31,10 +31,6 @@ Plug 'craigemery/vim-autotag'
 " zenmode
 Plug 'junegunn/goyo.vim'
 
-" Icons
-" Tabular - text alignment
-Plug 'ervandew/supertab'
-"
 " Python
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
@@ -229,7 +225,7 @@ fun! CleanExtraSpaces()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIMRC CONFIGS
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>ev :e! $MYVIMRC<cr>
+map <leader>ev :e! ~/.myconfig/neovim/init.vim<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CUSTOM KEYBINDINGS
@@ -477,7 +473,6 @@ endfunction
  let g:goyo_width = '100%'
  let g:goyo_height = 100
 
-
 """""""""""""""""""""""""""""
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
@@ -485,24 +480,17 @@ endfunction
 inoremap <expr> <C-J> ("\<C-n>")
 inoremap <expr> <C-k> ("\<C-p>")
 
-"""""""""""""""""""""""""""""
-" => ULTISNIPPETS
-"""""""""""""""""""""""""""""""
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" " better key bindings for UltiSnipsExpandTrigger
+""""""""""""""""""""""""""""""
+"" => ULTISNIPPETS
+""""""""""""""""""""""""""""""""
+" better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', 'UltiSnips']
 
-
-
-
-
-
+"""""""""""""""""""""""""""""
+" => BufferClose
+"""""""""""""""""""""""""""""""
 " Delete buffer while keeping window layout (don't close buffer's windows).
 " Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
 if v:version < 700 || exists('loaded_bclose') || &cp
@@ -520,10 +508,6 @@ function! s:Warn(msg)
   echohl NONE
 endfunction
 
-
-"""""""""""""""""""""""""""""
-" => BClose - see it it can come into seperate file.
-"""""""""""""""""""""""""""""""
 " Command ':Bclose' executes ':bd' to delete buffer in current window.
 " The window will show the alternate buffer (Ctrl-^) if it exists,
 " or the previous buffer (:bp), or a blank buffer if no previous.
@@ -580,6 +564,11 @@ endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
 
+
+
+"""""""""""""""""""""""""""""
+" => SpellSuggest.
+"""""""""""""""""""""""""""""
 autocmd FileType gitcommit,markdown setlocal spell
 nnoremap <silent><F7> :cal SpellSuggest()<CR>
 function! SpellSuggest()
@@ -604,17 +593,30 @@ function! SpellSuggest()
   endif
 endfunction
 
+"""""""""""""""""""""""""""""
+" => Coc-settings.
+"""""""""""""""""""""""""""""
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <c-s> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent><leader>d <Plug>(coc-definition)
