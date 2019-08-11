@@ -245,7 +245,7 @@ inoremap <C-A> <C-U>
 inoremap jj <ESC>
 
 nnoremap <F5> :SearchIndex<CR>
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 
 
 map <leader>cc :botright cope<cr>
@@ -259,14 +259,14 @@ map <c-w><c-a> :wa<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-g><c-d> :Gvdiff<cr>
-map <C-g><c-b> :Gblame<cr>
+nnoremap <C-g><c-d> :Gvdiff<cr>
+nnoremap <C-g><c-b> :Gblame<cr>
 
 """"""""""""""""""""""""""""""
 " => Rust
 " """"""""""""""""""""""""""""""
 augroup RustCustomization
-	:autocmd FileType rust nmap <leader>f :write<CR>
+	:autocmd FileType rust nnoremap <leader>f :write<CR>
 augroup END
 
 """"""""""""""""""""""""""""""
@@ -283,8 +283,8 @@ augroup PythonCustomization
 	:autocmd FileType python set cindent
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
-	:autocmd FileType python nmap <leader>s :Isort<CR>
-	:autocmd FileType python nmap <leader>f :Black<CR>
+	:autocmd FileType python nnoremap <leader>s :Isort<CR>
+	:autocmd FileType python nnoremap <leader>f :Black<CR>
 	:autocmd FileType python xmap <leader>f :YAPF<CR>
 augroup END
 
@@ -347,10 +347,10 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 let g:fzf_layout = { 'down': '~20%' }
 
-nmap <C-B> :Buffers<cr>
-nmap <C-F> :Files<cr>
-nmap <C-T> :Tags<cr>
-nmap <C-S> :Rg 
+nnoremap <C-B> :Buffers<cr>
+nnoremap <C-F> :Files<cr>
+nnoremap <C-T> :Tags<cr>
+nnoremap <C-S> :Rg
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -370,7 +370,7 @@ tnoremap <c-w><c-k> <c-\><c-n><c-w>k
 tnoremap <c-w><c-l> <c-\><c-n><c-w>l
 
 tnoremap <c-w><c-w> <c-\><c-n>
-nmap <c-t><c-t> :split+terminal<CR><c-w>r
+nnoremap <c-t><c-t> :split+terminal<CR><c-w>r
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
