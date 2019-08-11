@@ -242,7 +242,7 @@ map <leader>p :split<cr><leader>d
 
 inoremap <C-A> <C-U>
 " Exit insert mode
-inoremap jj <ESC>
+inoremap jk <ESC>
 
 nnoremap <F5> :SearchIndex<CR>
 nnoremap <F8> :TagbarToggle<CR>
