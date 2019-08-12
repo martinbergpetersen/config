@@ -232,6 +232,7 @@ map <leader>ev :e! ~/.myconfig/neovim/init.vim<cr>
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+inoremap <esc> <nop>
 
 " Peek the view. It splits the screen and shows the called funtion
 map <leader>p :split<cr><leader>d
