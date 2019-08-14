@@ -350,3 +350,4 @@ ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR=nvim
+export TERM=xterm-color
