@@ -23,7 +23,7 @@ remote="$1"
 url="$2"
 branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 
-warning="Did you remember to format, sort and use modernize: y/n "
+warning="Did you remember to check branch size, format, sort and use modernize: y/n "
 protected_branch="master"
 origin="origin"
 alert="You are pushing to the remote: $remote on branch: $branch, are you sure? y/n: "
