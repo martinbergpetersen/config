@@ -19,37 +19,13 @@
 # This sample shows how to prevent push of commits where the log message starts
 # with "WIP" (work in progress).
 
-remote="$1"
-url="$2"
-branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
-
-protected_branch="master"
-origin="origin"
-
-alert="You are pushing to the remote: $remote on branch: $branch, are you sure? y/n: "
-
+warning="Did you remember to check the branch size, format, sort and use modernize: y/n "
 master_alert="You are about to push to master, are you sure? (Check JENKINS) y/n"
 
-if [ $remote = $origin ]
-    then
-        exit 0
-    fi
-elif [ $branch = $protected_branch ]
-    then
-        read -p "$master_alert" answer < /dev/tty
-        if [ $answer == "y" ]
-        then
-            exit 0
-        else
-            exit 1
-        fi
-    fi
+read -p "$warning" answer < /dev/tty
+if [ $answer == "y" ]
+then
+    exit 0
 else
-        read -p "$alert" answer < /dev/tty
-        if [ $answer == "y" ]
-        then
-            exit 0
-        else
-            exit 1
-        fi
+    exit 1
 fi
