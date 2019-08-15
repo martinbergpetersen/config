@@ -347,7 +347,7 @@ let g:fzf_layout = { 'down': '~20%' }
 nnoremap <C-B> :Buffers<cr>
 nnoremap <C-F> :Files<cr>
 nnoremap <C-T> :Tags<cr>
-nnoremap <C-S> :Rg
+nnoremap <C-S> :Rg<space>
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -571,28 +571,7 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 " => SpellSuggest.
 """""""""""""""""""""""""""""
 autocmd FileType gitcommit,markdown setlocal spell
-nnoremap <silent><F7> :cal SpellSuggest()<CR>
-function! SpellSuggest()
-  let s = substitute(system("echo ".expand("<cword>")." | aspell -a -W2 | grep '^&'"), "^.*:\\s\\(.*\\)\\n", "\\1,", "")
-  if s != ""
-    let slength = strlen(s)
-    let end = 0
-    let i = 0
-    while end != slength
-      let i = i + 1
-      let w = matchstr(s, "^\\%(.\\{-}\\zs[^ ,]\\+\\ze,\\)\\{".i."}")
-      echon "(".i.")".w." "
-      let end = matchend(s, w.",")
-    endwhile
-    echo ""
-    let c = input("Replace with: ")
-    if c =~ "^[1-9]\\d*$" && c > 0 && c <= i
-      execute "normal! ciw".matchstr(s, "^\\%(.\\{-}\\zs[^ ,]\\+\\ze,\\)\\{".c."}")
-    endif
-  else
-    echo "No suggestions"
-  endif
-endfunction
+nnoremap <F7> z=<CR>
 
 """""""""""""""""""""""""""""
 " => Coc-settings.
