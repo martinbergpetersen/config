@@ -39,7 +39,6 @@ if [ $remote = $origin ]
         else
             exit 1
         fi
-    fi
 elif [ $branch = $protected_branch ]
     then
         read -p "$master_alert" answer < /dev/tty
@@ -49,7 +48,6 @@ elif [ $branch = $protected_branch ]
         else
             exit 1
         fi
-    fi
 else
         read -p "$alert" answer < /dev/tty
         if [ $answer == "y" ]
