@@ -304,9 +304,6 @@ if [ -f '/usr/share/fzf/key-bindings.bash' ]; then
     export FZF_DEFAULT_COMMAND="rg --files"
     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND; fi
 
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
-
 export EDITOR=nvim
 export TERM=xterm
 my_bin="~/bin"
