@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=5000
+HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -184,20 +184,6 @@ export SCM_CHECK=true
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-translate() {
-      echo "$1" | translate-bin -s google -f en -t da |  grep -oP '>[a-zA-Z\Wæøå ]*'
-}
-
-create_docker(){
-~/work/create_docker $1 $2
-}
-
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-
-
 # Path to the bash it configuration
 export BASH_IT="/home/mbp/.bash_it"
 
@@ -285,12 +271,6 @@ export PATH="/home/$USER/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
 # If not running interactively, don't do anything
 case $- in
