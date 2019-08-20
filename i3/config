@@ -142,6 +142,7 @@ bindsym $mod+r mode "resize"
 # 
 bar {
         status_command i3status
+    	position top
         colors {
             #color class       border  back.   text
             focused_workspace  #0f5257 #0f5257 #ffffff
@@ -149,8 +150,6 @@ bar {
             inactive_workspace #2b2b2b #2b2b2b #ffffff
             urgent_workspace   #2f343a #900000 #ffffff
         }
-        font pango:Hack 10
-    	position top
 }
 
 
