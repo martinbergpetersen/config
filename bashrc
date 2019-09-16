@@ -295,5 +295,4 @@ ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
 
 export EDITOR=nvim
 export TERM=xterm
-my_bin="~/bin"
-export PATH=$PATH:$my_bin
+export PATH=$PATH:~/bin
