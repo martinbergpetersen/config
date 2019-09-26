@@ -42,6 +42,7 @@ Plug 'arcticicestudio/nord-vim'
 
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
+Plug 'huyvohcmc/atlas.vim'
 
 Plug 'plytophogy/vim-virtualenv'
 
@@ -127,13 +128,10 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-syntax off
 " Use of spaces instead of tabs
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
-autocmd BufRead,VimEnter * syntax off
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -408,7 +406,7 @@ nnoremap <leader>as :ALEPrevious<CR>
 """"""""""""""""""""""""""""""
 " => COLOR/THEMES
 " """"""""""""""""""""""""""""""
-colorscheme nord
+colorscheme atlas
 let g:airline_theme='nord'
 set background=dark
 """"""""""""""""""""""""""""""
@@ -632,3 +630,18 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+
+ab why Why:
+\<CR>
+\<CR>Python2to3
+\<CR>
+\<CR>This change addresses the need by:
+\<CR>
+\<CR>Added the fixers on /backports
+\<CR><tab>import
+\<CR>imports_six
+
+hi DiffAdd    cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Green
+hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Red
+hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=none guibg=None
+hi DiffText   cterm=bold ctermfg=223 ctermbg=88 gui=none guifg=bg guibg=White
