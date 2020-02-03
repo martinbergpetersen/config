@@ -185,14 +185,14 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => STATUS LINE
  """"""""""""""""""""""""""""""
 " never how the status line
-autocmd VimEnter,BufRead,BufWrite * set laststatus=0
-set showtabline=0
-" Format the status line
-set statusline+=%#CursorColumn#
-set statusline+=\ %F%m%r%h\ %w 
-set statusline+=%=       
-set statusline+=%{strftime('%H:%M')}
-set statusline+=\ 
+" autocmd VimEnter,BufRead,BufWrite * set laststatus=0
+set showtabline=2
+" " Format the status line
+" set statusline+=%#CursorColumn#
+" set statusline+=\ %F%m%r%h\ %w 
+" set statusline+=%=       
+" set statusline+=%{strftime('%H:%M')}
+" set statusline+=\ 
 
 " => Buffer LINE
  """"""""""""""""""""""""""""""
