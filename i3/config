@@ -195,7 +195,7 @@ mode $keyboardMode {
 
 
 # custom keyshortcuts
-bindsym $mod+g exec firefox
+bindsym $mod+g exec chromium
 
 #workspace10 
 assign [class="Slack"] $workspace10
