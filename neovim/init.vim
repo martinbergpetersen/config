@@ -34,7 +34,6 @@ Plug 'junegunn/goyo.vim'
 " Python
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
-Plug 'google/yapf', { 'rtp': 'plugins/vim'}
 
 " Theme
 Plug 'arcticicestudio/nord-vim'
@@ -281,7 +280,6 @@ augroup PythonCustomization
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
 	:autocmd FileType python nnoremap <leader>f :ALEFix<CR>
-	:autocmd FileType python xnoremap <leader>f :YAPF<CR>
 augroup END
 
 function! SetPython2Host()
