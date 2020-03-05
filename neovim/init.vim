@@ -35,7 +35,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
 Plug 'google/yapf', { 'rtp': 'plugins/vim'}
-Plug 'psf/black'
 
 " Theme
 Plug 'arcticicestudio/nord-vim'
@@ -281,7 +280,7 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
-	:autocmd FileType python nnoremap <leader>f :Black<CR>
+	:autocmd FileType python nnoremap <leader>f :ALEFix<CR>
 	:autocmd FileType python xnoremap <leader>f :YAPF<CR>
 augroup END
 
@@ -398,6 +397,7 @@ autocmd BufWritePost * GitGutterEnable
 " """"""""""""""""""""""""""""""
 let g:ale_lint_on_enter = 1
 let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = {'python': ['black']}
 
 highlight clear ALEWarningSign
 " sets ale to use python3 for flake
