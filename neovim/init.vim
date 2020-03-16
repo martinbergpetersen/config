@@ -340,7 +340,7 @@ let g:fzf_tags_command = 'ctags -R'
 " [Commands] --expect expression for directly executing the command
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
-let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_layout = { 'down': '~40%' }
 
 nnoremap <C-B> :Buffers<cr>
 nnoremap <C-F> :Files<cr>
