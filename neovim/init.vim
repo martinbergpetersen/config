@@ -5,6 +5,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'farmergreg/vim-lastplace'
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'OmniSharp/omnisharp-vim'
 
 " Async linter
 Plug 'w0rp/ale'
@@ -26,7 +27,6 @@ Plug 'tpope/vim-rhubarb'
 
 " Ctags
 Plug 'majutsushi/tagbar' 
-Plug 'craigemery/vim-autotag'
 
 " zenmode
 Plug 'junegunn/goyo.vim'
@@ -329,6 +329,7 @@ let g:fzf_action = {
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
+let g:fzf_preview_window = ''
 
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -644,3 +645,5 @@ hi DiffAdd    cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Green
 hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Red
 hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=none guibg=None
 hi DiffText   cterm=bold ctermfg=223 ctermbg=88 gui=none guifg=bg guibg=White
+
+let g:coc_global_extensions=[ 'coc-omnisharp']
