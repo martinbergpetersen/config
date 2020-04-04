@@ -631,16 +631,6 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-ab why Why:
-\<CR>
-\<CR>Python2to3
-\<CR>
-\<CR>This change addresses the need by:
-\<CR>
-\<CR>Added the fixers on /backports
-\<CR><tab>import
-\<CR>imports_six
-
 hi DiffAdd    cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Green
 hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Red
 hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=none guibg=None
