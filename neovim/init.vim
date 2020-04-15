@@ -3,6 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'farmergreg/vim-lastplace'
+Plug 'tarekbecker/vim-yaml-formatter'
+
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'OmniSharp/omnisharp-vim'
