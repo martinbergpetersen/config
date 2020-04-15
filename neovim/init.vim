@@ -11,6 +11,9 @@ Plug 'OmniSharp/omnisharp-vim'
 
 " Async linter
 Plug 'w0rp/ale'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " " JSON
 " Plug 'elzr/vim-json', {'for': 'json'}
@@ -282,6 +285,10 @@ augroup PythonCustomization
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
 	:autocmd FileType python nnoremap <leader>f :ALEFix<CR>
+augroup END
+
+augroup PrettierCustomization
+	:autocmd FileType js,json,html,css,yaml nnoremap <leader>f :Prettier<CR>
 augroup END
 
 function! SetPython2Host()
@@ -632,16 +639,6 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-ab why Why:
-\<CR>
-\<CR>Python2to3
-\<CR>
-\<CR>This change addresses the need by:
-\<CR>
-\<CR>Added the fixers on /backports
-\<CR><tab>import
-\<CR>imports_six
 
 hi DiffAdd    cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Green
 hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Red
