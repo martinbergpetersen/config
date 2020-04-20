@@ -288,7 +288,7 @@ augroup PythonCustomization
 augroup END
 
 augroup PrettierCustomization
-	:autocmd FileType js,json,html,css,yaml nnoremap <leader>f :Prettier<CR>
+	:autocmd FileType javascript,json,html,css,yaml nnoremap <leader>f :Prettier<CR>
 augroup END
 
 function! SetPython2Host()
@@ -349,7 +349,7 @@ let g:fzf_tags_command = 'ctags -R'
 " [Commands] --expect expression for directly executing the command
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
-let g:fzf_layout = { 'down': '~30%' }
+let g:fzf_layout = { 'down': '~40%' }
 
 nnoremap <C-B> :Buffers<cr>
 nnoremap <C-F> :Files<cr>
@@ -634,8 +634,6 @@ nmap <leader>f <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
