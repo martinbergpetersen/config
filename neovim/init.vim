@@ -71,6 +71,7 @@ Plug 'honza/vim-snippets'
 
 " Surrond
 Plug 'tpope/vim-surround'
+Plug 'lifepillar/pgsql.vim'
 
 
 " Initialize plugin system
