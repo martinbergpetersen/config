@@ -240,8 +240,6 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 
-[[ -s /home/mbp/.wd ]] && source /home/mbp/.wd
-
 ###-begin-graphql-completions-###
 #
 # yargs command completion script
