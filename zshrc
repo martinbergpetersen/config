@@ -28,7 +28,7 @@ compinit
 
 
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(zsh-vim-mode git fzf wd pip docker git ssh-agent zsh-autosuggestions)
+plugins=(zsh-vim-mode git fzf wd pip docker git ssh-agent)
 
 
 # If you come from bash you might have to change your $PATH.
@@ -168,5 +168,4 @@ MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #ffffff"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff,bg=black,bold,underline"
 
-bindkey '^ ' autosuggest-accept
-bindkey '^e' accept-line
+bindkey '^ ' accept-line
