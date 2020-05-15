@@ -145,15 +145,6 @@ esac
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
-
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-fi
-
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
-
 export EDITOR=nvim
 export TERM=xterm
 export PATH=$PATH:~/bin
@@ -161,8 +152,7 @@ export PATH=$PATH:~/bin
 
 
 # zsh-vim-mode
-MODE_CURSOR_VIINS="#ffffff blinking bar"
-MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ffffff"
+MODE_CURSOR_VIINS="#ffffff steady bar"
 MODE_CURSOR_VICMD="white block"
 MODE_CURSOR_SEARCH="#ffffff steady underline"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
