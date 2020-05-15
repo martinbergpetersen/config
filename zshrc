@@ -33,7 +33,7 @@ plugins=(zsh-vim-mode git fzf wd pip docker git ssh-agent)
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-ZSH_THEME=avit
+ZSH_THEME=bira
 
 # Path to your oh-my-zsh installation.
 
