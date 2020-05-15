@@ -1,13 +1,23 @@
+source $HOME/.antigen/antigen.zsh
+antigen use oh-my-zsh
+
+antigen bundle zsh-users/zsh-completions
+
+antigen bundle git
+antigen bundle wd
+antigen bundle ssh-agent
+antigen bundle pip
+antigen bundle docker
+
+antigen apply
+
+plugins=(zsh-vim-mode fzf)
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mbp/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+export ZSH_CUSTOM="$ZSH/custom"
 ZSH_THEME="minimal"
 
 # Set list of themes to pick from when loading at random
@@ -68,9 +78,16 @@ ZSH_THEME="minimal"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf)
+#VIM_MODE_VICMD_KEY='^D'
+# antigen
+
+
+VIM_MODE_VICMD_KEY='jk'
 
 source $ZSH/oh-my-zsh.sh
+
+
+
 
 # User configuration
 
@@ -79,25 +96,9 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -112,8 +113,6 @@ alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
 alias python=python3.7
 alias dict='dict -d gcide'
 
-
-[[ -s /home/mbp/.wd ]] && source /home/mbp/.wd
 
 export PATH="/home/$USER/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -143,3 +142,11 @@ export TERM=xterm
 export PATH=$PATH:~/bin
 
 
+
+# zsh-vim-mode
+MODE_CURSOR_VIINS="#ffffff blinking bar"
+MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ffffff"
+MODE_CURSOR_VICMD="white block"
+MODE_CURSOR_SEARCH="#ffffff steady underline"
+MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
+MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #ffffff"
