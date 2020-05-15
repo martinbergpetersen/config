@@ -1,17 +1,11 @@
-source $HOME/.antigen/antigen.zsh
-antigen use oh-my-zsh
-
-antigen bundle zsh-users/zsh-completions
-
-antigen apply
+export ZSH="/home/mbp/.oh-my-zsh"
 
 plugins=(zsh-vim-mode fzf wd pip docker git ssh-agent)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mbp/.oh-my-zsh"
-export ZSH_CUSTOM="$ZSH/custom"
 ZSH_THEME="minimal"
 
 # Set list of themes to pick from when loading at random
