@@ -149,6 +149,13 @@ export EDITOR=nvim
 export TERM=xterm
 export PATH=$PATH:~/bin
 
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
 
 
 # zsh-vim-mode
