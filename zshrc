@@ -3,15 +3,9 @@ antigen use oh-my-zsh
 
 antigen bundle zsh-users/zsh-completions
 
-antigen bundle git
-antigen bundle wd
-antigen bundle ssh-agent
-antigen bundle pip
-antigen bundle docker
-
 antigen apply
 
-plugins=(zsh-vim-mode fzf)
+plugins=(zsh-vim-mode fzf wd pip docker git ssh-agent)
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
