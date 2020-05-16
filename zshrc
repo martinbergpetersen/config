@@ -28,7 +28,7 @@ compinit
 
 
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(zsh-vim-mode httpie git wd pip docker git ssh-agent command-not-found sudo compleat zsh-autosuggestions fzf)
+plugins=(zsh-vim-mode httpie git wd pip docker git ssh-agent command-not-found compleat zsh-autosuggestions zsh-syntax-highlighting fzf)
 
 
 # If you come from bash you might have to change your $PATH.
