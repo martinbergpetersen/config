@@ -84,7 +84,6 @@ ZSH_THEME=bira
 
 
 VIM_MODE_VICMD_KEY='jk'
-VIM_MODE_VICMD_KEY='jk'
 
 source $ZSH/oh-my-zsh.sh
 
