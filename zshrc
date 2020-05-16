@@ -168,5 +168,5 @@ MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #ffffff"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff,bg=black,bold,underline"
 
-bindkey '^e' autosuggest-accept
+bindkey '^e' autosuggest-execute
 bindkey '^ ' accept-line
