@@ -161,6 +161,3 @@ bindkey -M menuselect "^J" down-line-or-history
 bindkey -M menuselect "^K" up-line-or-history
 bindkey -M  menuselect '^L' forward-char
 bindkey -M menuselect '^H' backward-char
-# setopt noautomenu
-setopt menu_complete
-
