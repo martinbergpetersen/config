@@ -12,7 +12,7 @@ compinit
 
 
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(zsh-vim-mode httpie git wd pip docker git ssh-agent command-not-found compleat zsh-autosuggestions fzf)
+plugins=(zsh-vim-mode httpie git wd pip docker git ssh-agent command-not-found compleat zsh-autosuggestions zsh-completions fzf)
 
 
 # If you come from bash you might have to change your $PATH.
@@ -113,6 +113,7 @@ alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "stat
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
 alias python=python3.7
 alias dict='dict -d gcide'
+alias todo='todo.sh'
 
 
 export PATH="/home/$USER/.pyenv/bin:$PATH"
@@ -150,7 +151,7 @@ MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
 MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #ffffff"
 
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff,bg=black,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080,bg=black,underline"
 
 bindkey '^e' autosuggest-execute
 bindkey '^ ' accept-line
