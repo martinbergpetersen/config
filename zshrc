@@ -162,3 +162,4 @@ bindkey -M menuselect "^K" up-line-or-history
 bindkey -M menuselect '^L' forward-char
 bindkey -M menuselect '^H' backward-char
 bindkey '^B' clear-screen
+bindkey -M main "^O" reverse-menu-complete
