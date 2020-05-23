@@ -293,7 +293,7 @@ function! VisualExecute() range
     echo @"
         call execute("DB g:db " . @" . "")
     call execute("wincmd p")
-    call execute("resize +10")
+    call execute("resize +20")
     let @" = l:saved_reg
 endfunction
 
