@@ -281,7 +281,7 @@ let g:black_linelength=79
 """"""""""""""""""""""""""""""
 " => SQL
 " """"""""""""""""""""""""""""""
-let g:db = 'postgresql://172.17.0.2/dvdrental'
+let g:db = 'postgresql://mbp@172.17.0.2/dvdrental'
 augroup SQLCustomization
 	:autocmd FileType sql nnoremap <leader>a :DB g:db<space>
     :autocmd FileType sql xnoremap <C-A> :call VisualExecute()<CR>
