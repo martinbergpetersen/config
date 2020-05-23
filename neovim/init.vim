@@ -288,13 +288,16 @@ augroup SQLCustomization
 augroup END
 
 function! VisualExecute() range
-    let l:saved_reg = @"
+    let l:query = @"
+    let l:database = g:db
     execute "normal! v\gvy"
-    echo @"
-        call execute("DB g:db " . @" . "")
+    echo "Current DB: " l:database
+    echo "Query: " @"
+
+    call execute("DB g:db " . @" . "")
     call execute("wincmd p")
     call execute("resize +20")
-    let @" = l:saved_reg
+    let @" = l:query
 endfunction
 
 """"""""""""""""""""""""""""""
