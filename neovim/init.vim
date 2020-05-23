@@ -99,6 +99,8 @@ set completeopt+=noselect
 set autoread
 set title
 
+set shortmess=a
+
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
 let g:mapleader = ","
@@ -284,17 +286,21 @@ let g:black_linelength=79
 let g:db = 'postgresql://mbp@172.17.0.2/dvdrental'
 augroup SQLCustomization
 	:autocmd FileType sql nnoremap <leader>a :DB g:db<space>
-    :autocmd FileType sql xnoremap <C-A> :call VisualExecute()<CR>
+    :autocmd FileType sql xnoremap <silent><C-A> :call VisualExecute('line')<CR>
+    :autocmd FileType sql nnoremap <silent><C-A> :call VisualExecute('all')<CR>
 augroup END
 
-function! VisualExecute() range
+function! VisualExecute(execute) range
     let l:query = @"
     let l:database = g:db
-    execute "normal! v\gvy"
-    echo "Current DB: " l:database
-    echo "Query: " @"
+    execute "silent normal! v\gvy"
 
-    call execute("DB g:db " . @" . "")
+    if a:execute == 'all'
+        call execute("silent %DB g:db")
+    endif
+    if a:execute == 'line'
+        call execute("DB g:db " . @")
+    endif
     call execute("wincmd p")
     call execute("resize +20")
     let @" = l:query
