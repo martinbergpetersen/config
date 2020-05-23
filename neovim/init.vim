@@ -20,6 +20,7 @@ Plug 'prettier/vim-prettier', {
 " Commentings
 Plug 'tpope/vim-commentary'
 
+
 Plug 'dkprice/vim-easygrep'
 
 Plug 'vim-scripts/diffchanges.vim'
@@ -72,6 +73,8 @@ Plug 'honza/vim-snippets'
 " Surrond
 Plug 'tpope/vim-surround'
 Plug 'lifepillar/pgsql.vim'
+
+Plug 'tpope/vim-dadbod'
 
 
 " Initialize plugin system
@@ -274,6 +277,25 @@ augroup END
 " """"""""""""""""""""""""""""""
 let g:black_skip_string_normalization=1
 let g:black_linelength=79
+
+""""""""""""""""""""""""""""""
+" => SQL
+" """"""""""""""""""""""""""""""
+let g:db = 'postgresql://172.17.0.2/dvdrental'
+augroup SQLCustomization
+	:autocmd FileType sql nnoremap <leader>a :DB g:db<space>
+    :autocmd FileType sql xnoremap <C-A> :call VisualExecute()<CR>
+augroup END
+
+function! VisualExecute() range
+    let l:saved_reg = @"
+    execute "normal! v\gvy"
+    echo @"
+        call execute("DB g:db " . @" . "")
+    call execute("wincmd p")
+    call execute("resize +10")
+    let @" = l:saved_reg
+endfunction
 
 """"""""""""""""""""""""""""""
 " => PYTHON
