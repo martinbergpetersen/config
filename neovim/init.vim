@@ -100,6 +100,8 @@ set autoread
 set title
 
 set shortmess=a
+set winheight=9999
+set winminheight=20
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
@@ -290,6 +292,9 @@ augroup SQLCustomization
     :autocmd FileType sql nnoremap <silent><C-A> :call VisualExecute('all')<CR>
 augroup END
 
+function! SetupDatabase(name)
+endfunction
+
 function! VisualExecute(execute) range
     let l:query = @"
     let l:database = g:db
@@ -302,7 +307,6 @@ function! VisualExecute(execute) range
         call execute("DB g:db " . @")
     endif
     call execute("wincmd p")
-    call execute("resize +20")
     let @" = l:query
 endfunction
 
