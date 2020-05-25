@@ -100,8 +100,6 @@ set autoread
 set title
 
 set shortmess=a
-set winheight=9999
-set winminheight=20
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
