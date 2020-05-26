@@ -679,3 +679,4 @@ hi DiffText   cterm=bold ctermfg=223 ctermbg=88 gui=none guifg=bg guibg=White
 let g:coc_global_extensions=[ 'coc-omnisharp']
 
 hi Pmenu ctermbg=gray guibg=black guifg=white
+highlight LineNr guifg=#989898
