@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-curl -Ss https://wttr.in/Copenhagen?T0q
