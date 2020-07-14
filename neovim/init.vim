@@ -307,7 +307,13 @@ function! VisualExecute(execute) range
     call execute("wincmd p")
     let @" = l:query
 endfunction
-
+"
+""""""""""""""""""""""""""""""
+" => C#
+" """"""""""""""""""""""""""""""
+augroup CSharpCustomization
+	:autocmd FileType cs nnoremap <leader>f :OmniSharpCodeFormat<CR>
+augroup END
 """"""""""""""""""""""""""""""
 " => PYTHON
 " """"""""""""""""""""""""""""""

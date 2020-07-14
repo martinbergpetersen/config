@@ -111,7 +111,7 @@ alias slack='slack & disown'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
-alias python=python3.7
+alias python=python3
 alias dict='dict -d gcide'
 alias todo='todo.sh'
 
