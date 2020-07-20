@@ -313,6 +313,9 @@ endfunction
 " """"""""""""""""""""""""""""""
 augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <leader>f :OmniSharpCodeFormat<CR>
+	:autocmd FileType cs nnoremap <leader>d :OmniSharpGotoDefinition<CR>
+	:autocmd FileType cs nnoremap <leader>i :OmniSharpFindImplementations<CR>
+	:autocmd FileType cs nnoremap <leader>p :OmniSharpPreviewDefinition<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => PYTHON
