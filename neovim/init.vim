@@ -100,6 +100,7 @@ set autoread
 set title
 
 set shortmess=a
+set inccommand=nosplit
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
@@ -689,3 +690,4 @@ let g:coc_global_extensions=[ 'coc-omnisharp']
 
 hi Pmenu ctermbg=gray guibg=black guifg=white
 highlight LineNr guifg=#F5F5F5
+highlight Normal guifg=#e0e0e0 guibg=#2e3440 gui=NONE ctermfg=254 ctermbg=235 cterm=NONE
