@@ -110,9 +110,7 @@ alias tree=/usr/bin/tree
 alias slack='slack & disown'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
-alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
 alias python=python3
-alias dict='dict -d gcide'
 alias todo='todo.sh'
 
 
@@ -164,10 +162,10 @@ bindkey -M menuselect '^H' backward-char
 bindkey -M main "^O" reverse-menu-complete
 bindkey '^B' clear-screen
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
