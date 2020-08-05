@@ -76,6 +76,8 @@ Plug 'lifepillar/pgsql.vim'
 
 Plug 'tpope/vim-dadbod'
 
+Plug 'ap/vim-templates'
+
 
 " Initialize plugin system
 call plug#end()
@@ -691,3 +693,5 @@ let g:coc_global_extensions=[ 'coc-omnisharp']
 hi Pmenu ctermbg=gray guibg=black guifg=white
 highlight LineNr guifg=#F5F5F5
 highlight Normal guifg=#e0e0e0 guibg=#2e3440 gui=NONE ctermfg=254 ctermbg=235 cterm=NONE
+highlight vertsplit guifg=fg guibg=bg
+highlight SignColumn guibg=None
