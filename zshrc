@@ -159,12 +159,12 @@ bindkey -M menuselect "^K" up-line-or-history
 bindkey -M menuselect '^L' forward-char
 bindkey -M menuselect '^H' backward-char
 bindkey -M main "^O" reverse-menu-complete
-bindkey '^B' clear-screen
+# bindkey '^B' clear-screen
 
 # # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # # The next line enables shell command completion for gcloud.
-if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # source <(kubectl completion zsh)
