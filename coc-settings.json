@@ -4,17 +4,6 @@
     "python.linting.enabled": true,
     "python.jediEnabled": false,
     "coc.preferences.formatOnSaveFiletypes": ["rust"],
-    "languageserver": {
-        "golang": {
-            "command": "go-langserver",
-            "filetypes": ["go"],
-            "initializationOptions": {
-                "gocodeCompletionEnabled": true,
-                "diagnosticsEnabled": true,
-                "lintTool": "golint"
-            }
-        }
-    },
     "clangd.path": "/home/mbp/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
     "yaml.schemas": {
         "kubernetes": "/*.yaml"

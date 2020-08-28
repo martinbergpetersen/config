@@ -40,12 +40,15 @@ Plug 'junegunn/goyo.vim'
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
 
+" Go
+Plug 'fatih/vim-go'
+
 " Theme
 Plug 'arcticicestudio/nord-vim'
-
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
 Plug 'huyvohcmc/atlas.vim'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'plytophogy/vim-virtualenv'
 
@@ -319,6 +322,14 @@ augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <leader>d :OmniSharpGotoDefinition<CR>
 	:autocmd FileType cs nnoremap <leader>i :OmniSharpFindImplementations<CR>
 	:autocmd FileType cs nnoremap <leader>p :OmniSharpPreviewDefinition<CR>
+augroup END
+""""""""""""""""""""""""""""""
+" => Go
+" """"""""""""""""""""""""""""""
+let g:go_doc_keywordprg_enabled = 0 " Disable go_doc
+let g:go_fmt_autosave = 0
+augroup GoCustomization
+	:autocmd FileType go nnoremap <leader>f :GoFmt<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => PYTHON

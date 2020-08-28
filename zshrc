@@ -167,4 +167,4 @@ bindkey -M main "^O" reverse-menu-complete
 # # The next line enables shell command completion for gcloud.
 # if [ -f '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mbp/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# source <(kubectl completion zsh)
+source <(kubectl completion zsh)
