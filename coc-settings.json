@@ -7,5 +7,15 @@
     "clangd.path": "/home/mbp/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
     "yaml.schemas": {
         "kubernetes": "/*.yaml"
-    }
+    },
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-14",
+            "path": "/usr/lib/jvm/jdk-14-openjdk",
+            "default": true
+        }
+    ],
+    "java.format.comments.enabled": true,
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.completion.overwrite": true
 }

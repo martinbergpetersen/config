@@ -313,6 +313,12 @@ function! VisualExecute(execute) range
     call execute("wincmd p")
     let @" = l:query
 endfunction
+
+""""""""""""""""""""""""""""""
+" => YAML
+" """"""""""""""""""""""""""""""
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 "
 """"""""""""""""""""""""""""""
 " => C#
@@ -330,6 +336,12 @@ let g:go_doc_keywordprg_enabled = 0 " Disable go_doc
 let g:go_fmt_autosave = 0
 augroup GoCustomization
 	:autocmd FileType go nnoremap <leader>f :GoFmt<CR>
+augroup END
+""""""""""""""""""""""""""""""
+" => Java
+" """"""""""""""""""""""""""""""
+augroup JavaCustomization
+	:autocmd FileType java nnoremap <leader>s :call CocAction('runCommand', 'java.action.organizeImports')<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => PYTHON

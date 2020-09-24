@@ -201,4 +201,4 @@ bindsym $mod+g exec chromium
 assign [class="Slack"] $workspace10
 
 #Setup wallpaper ---
-exec_always feh --bg-scale ~/.config/i3/linux.jpg
+exec --no-startup-id feh --bg-scale ~/.config/i3/kali-linux-3.png
