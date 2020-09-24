@@ -335,7 +335,7 @@ augroup END
 let g:go_doc_keywordprg_enabled = 0 " Disable go_doc
 let g:go_fmt_autosave = 0
 augroup GoCustomization
-	:autocmd FileType go nnoremap <leader>f :GoFmt<CR>
+	" :autocmd FileType go nnoremap <leader>f :GoFmt<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Java
@@ -352,7 +352,7 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
-	:autocmd FileType python nnoremap <leader>f :ALEFix<CR>
+	" :autocmd FileType python nnoremap <leader>f :ALEFix<CR>
 augroup END
 
 augroup PrettierCustomization
