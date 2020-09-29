@@ -75,7 +75,6 @@ Plug 'honza/vim-snippets'
 
 " Surrond
 Plug 'tpope/vim-surround'
-Plug 'lifepillar/pgsql.vim'
 
 Plug 'tpope/vim-dadbod'
 
@@ -287,37 +286,12 @@ let g:black_skip_string_normalization=1
 let g:black_linelength=79
 
 """"""""""""""""""""""""""""""
-" => SQL
-" """"""""""""""""""""""""""""""
-let g:db = 'postgresql://mbp@172.17.0.2/dvdrental'
-augroup SQLCustomization
-	:autocmd FileType sql nnoremap <leader>a :DB g:db<space>
-    :autocmd FileType sql xnoremap <silent><C-A> :call VisualExecute('line')<CR>
-    :autocmd FileType sql nnoremap <silent><C-A> :call VisualExecute('all')<CR>
-augroup END
-
-function! SetupDatabase(name)
-endfunction
-
-function! VisualExecute(execute) range
-    let l:query = @"
-    let l:database = g:db
-    execute "silent normal! v\gvy"
-
-    if a:execute == 'all'
-        call execute("silent %DB g:db")
-    endif
-    if a:execute == 'line'
-        call execute("DB g:db " . @")
-    endif
-    call execute("wincmd p")
-    let @" = l:query
-endfunction
-
-""""""""""""""""""""""""""""""
 " => YAML
 " """"""""""""""""""""""""""""""
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup PrettierCustomization
+	:autocmd FileType javascript,json,html,css,yaml nnoremap <leader>f :Prettier<CR>
+augroup END
 
 "
 """"""""""""""""""""""""""""""
@@ -355,9 +329,6 @@ augroup PythonCustomization
 	" :autocmd FileType python nnoremap <leader>f :ALEFix<CR>
 augroup END
 
-augroup PrettierCustomization
-	:autocmd FileType javascript,json,html,css,yaml nnoremap <leader>f :Prettier<CR>
-augroup END
 
 function! SetPython2Host()
     echo 'Running with Python2.7'
