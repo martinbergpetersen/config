@@ -135,7 +135,7 @@ alias python=python3.7
 alias dict='dict -d gcide'
 
 # Path to the bash it configuration
-export BASH_IT="/home/mbp/.bash_it"
+export BASH_IT="/home/$USER/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
@@ -186,7 +186,7 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 # Path to the bash it configuration
-export BASH_IT="/home/mbp/.bash_it"
+export BASH_IT="/home/$USER/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
