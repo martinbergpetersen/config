@@ -31,3 +31,5 @@
     hidden = "!git ls-files -v | grep ^S"
 [diff]
 	renameLimit = 1210
+[pull]
+	ff = only
