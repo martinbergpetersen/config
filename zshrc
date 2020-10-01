@@ -111,7 +111,6 @@ alias slack='slack & disown'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias python=python3
-alias todo='todo.sh'
 
 
 export PATH="/home/$USER/.pyenv/bin:$PATH"
@@ -164,3 +163,4 @@ bindkey -M main "^O" reverse-menu-complete
 
 source <(kubectl completion zsh | sed s/kubectl/k/g)
 source <(minikube completion zsh)
+figlet $USER
