@@ -10,8 +10,8 @@
     },
     "java.configuration.runtimes": [
         {
-            "name": "JavaSE-14",
-            "path": "/usr/lib/jvm/jdk-14-openjdk",
+            "name": "JavaSE-13",
+            "path": "/usr/lib/jvm/jdk-13-openjdk",
             "default": true
         }
     ],

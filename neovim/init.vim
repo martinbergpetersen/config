@@ -689,3 +689,4 @@ highlight LineNr guifg=#F5F5F5
 highlight Normal guifg=#e0e0e0 guibg=#2e3440 gui=NONE ctermfg=254 ctermbg=235 cterm=NONE
 highlight vertsplit guifg=fg guibg=bg
 highlight SignColumn guibg=None
+hi Comment guifg=white ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
