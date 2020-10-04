@@ -161,6 +161,6 @@ bindkey -M menuselect '^H' backward-char
 bindkey -M main "^O" reverse-menu-complete
 # bindkey '^B' clear-screen
 
-# source <(kubectl completion zsh | sed s/kubectl/k/g)
-# source <(minikube completion zsh)
+source <(kubectl completion zsh | sed s/kubectl/k/g)
+source <(minikube completion zsh)
 figlet $USER
