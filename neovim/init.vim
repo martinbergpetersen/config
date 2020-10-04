@@ -290,7 +290,7 @@ let g:black_linelength=79
 " """"""""""""""""""""""""""""""
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup PrettierCustomization
-	:autocmd FileType javascript,json,html,css,yaml nnoremap <leader>f :Prettier<CR>
+	:autocmd FileType yaml nnoremap <leader>f :Prettier<CR>
 augroup END
 
 "
@@ -312,11 +312,22 @@ augroup GoCustomization
 	" :autocmd FileType go nnoremap <leader>f :GoFmt<CR>
 augroup END
 """"""""""""""""""""""""""""""
+" => Javascript, css, html
+" """"""""""""""""""""""""""""""
+augroup JavascriptCustomization
+	:autocmd FileType javascript,html,css nnoremap <leader>s :call CocAction('runCommand', 'tsserver.organizeImports')<CR>
+augroup END
+""""""""""""""""""""""""""""""
 " => Java
 " """"""""""""""""""""""""""""""
 augroup JavaCustomization
 	:autocmd FileType java nnoremap <leader>s :call CocAction('runCommand', 'java.action.organizeImports')<CR>
+    command! Javac call Javac()
 augroup END
+function! Javac()
+    !javac -g %
+    echo 'Compilling done'
+endfunction
 """"""""""""""""""""""""""""""
 " => PYTHON
 " """"""""""""""""""""""""""""""

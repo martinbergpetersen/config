@@ -110,7 +110,7 @@ alias k=kubectl
 alias slack='slack & disown'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
-alias python=python3
+# alias python=python3
 
 
 export PATH="/home/$USER/.pyenv/bin:$PATH"
@@ -161,6 +161,6 @@ bindkey -M menuselect '^H' backward-char
 bindkey -M main "^O" reverse-menu-complete
 # bindkey '^B' clear-screen
 
-source <(kubectl completion zsh | sed s/kubectl/k/g)
-source <(minikube completion zsh)
+# source <(kubectl completion zsh | sed s/kubectl/k/g)
+# source <(minikube completion zsh)
 figlet $USER

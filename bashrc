@@ -130,7 +130,6 @@ export PATH=$PATH:$GOPATH/bin
 alias slack='slack & disown'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
-alias sourceintempus='source ~/.virtualenvs/django/bin/activate'
 alias python=python3.7
 alias dict='dict -d gcide'
 
@@ -290,7 +289,7 @@ if [ ! -S ~/.ssh/ssh_auth_sock ]; then
 fi
 
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add ~/.ssh/intempus ~/.ssh/id_rsa
+ssh-add -l > /dev/null || ~/.ssh/id_rsa
 
 export EDITOR=nvim
 export TERM=xterm
