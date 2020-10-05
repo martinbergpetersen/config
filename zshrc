@@ -159,7 +159,7 @@ bindkey -M menuselect "^K" up-line-or-history
 bindkey -M menuselect '^L' forward-char
 bindkey -M menuselect '^H' backward-char
 bindkey -M main "^O" reverse-menu-complete
-# bindkey '^B' clear-screen
+bindkey '^B' clear-screen
 
 source <(kubectl completion zsh | sed s/kubectl/k/g)
 source <(minikube completion zsh)

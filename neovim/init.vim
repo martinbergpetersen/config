@@ -22,6 +22,7 @@ Plug 'tpope/vim-commentary'
 
 
 Plug 'dkprice/vim-easygrep'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'vim-scripts/diffchanges.vim'
 
