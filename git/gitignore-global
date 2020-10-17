@@ -18,3 +18,4 @@ api2/static
 **/package-lock.json
 *.toml
 *.class
+*.beam
