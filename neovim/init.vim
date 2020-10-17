@@ -338,7 +338,7 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
-	" :autocmd FileType python nnoremap <leader>f :ALEFix<CR>
+	:autocmd FileType python nnoremap <leader>f :ALEFix<CR>
 augroup END
 
 
@@ -357,7 +357,7 @@ function! SetPython3Host()
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
-let python3_host='~/.pyenv/versions/neovim3/bin/python3.7'
+let python3_host='~/.pyenv/versions/neovim3/bin/python3.8'
 let g:python3_host_prog = python3_host
 let python2_host='~/.pyenv/versions/neovim2/bin/python2.7'
 let g:python_host_prog =python2_host
@@ -701,4 +701,4 @@ highlight LineNr guifg=#F5F5F5
 highlight Normal guifg=#e0e0e0 guibg=#2e3440 gui=NONE ctermfg=254 ctermbg=235 cterm=NONE
 highlight vertsplit guifg=fg guibg=bg
 highlight SignColumn guibg=None
-hi Comment guifg=white ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
