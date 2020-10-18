@@ -703,3 +703,4 @@ highlight Normal guifg=#e0e0e0 guibg=#2e3440 gui=NONE ctermfg=254 ctermbg=235 ct
 highlight vertsplit guifg=fg guibg=bg
 highlight SignColumn guibg=None
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi SpellBad cterm=underline ctermfg=red gui=undercurl
