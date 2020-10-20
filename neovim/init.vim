@@ -79,8 +79,6 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-dadbod'
 
-Plug 'ap/vim-templates'
-
 
 " Initialize plugin system
 call plug#end()
