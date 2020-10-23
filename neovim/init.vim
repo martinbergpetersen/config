@@ -103,7 +103,7 @@ set autoread
 set title
 
 set shortmess=a
-set inccommand=nosplit
+" set inccommand=nosplit
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
@@ -337,7 +337,7 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
-	:autocmd FileType python nnoremap <leader>f :ALEFix<CR>
+	" :autocmd FileType python nnoremap <leader>f :ALEFix<CR>
 augroup END
 
 
@@ -356,9 +356,9 @@ function! SetPython3Host()
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
-let python3_host='~/.pyenv/versions/neovim3/bin/python3.8'
+let python3_host='~/.virtualenv/neovim3/bin/python3.8'
 let g:python3_host_prog = python3_host
-let python2_host='~/.pyenv/versions/neovim2/bin/python2.7'
+let python2_host='~/.virtualenv/neovim2/bin/python2.7'
 let g:python_host_prog =python2_host
 
 

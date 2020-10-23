@@ -1,5 +1,6 @@
 [user]
 	name = Martin Berg Petersen
+	email = martinbergpetersen@gmail.com
 [core]
 	editor = "nvim"
 	excludesfile = ~/.gitignore-global

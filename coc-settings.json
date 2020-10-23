@@ -12,7 +12,7 @@
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-13",
-            "path": "/usr/lib/jvm/jdk-13-openjdk",
+            "path": "/usr/lib/jvm/java-1.13.0-openjdk-amd64",
             "default": true
         }
     ],

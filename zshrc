@@ -102,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias cat='bat'
+alias cat='batcat'
 alias tree=/usr/bin/tree
 alias k=kubectl
 
@@ -110,10 +110,9 @@ alias k=kubectl
 alias slack='slack & disown'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
-# alias python=python3
 
 
-export PATH="/home/$USER/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -130,15 +129,9 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export EDITOR=nvim
 export TERM=xterm
 export PATH=$PATH:~/bin
-
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-fi
-
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add  ~/.ssh/id_rsa
-
+export PATH="/home/tdc/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # zsh-vim-mode
 MODE_CURSOR_VIINS="#ffffff steady bar"
@@ -161,6 +154,4 @@ bindkey -M menuselect '^H' backward-char
 bindkey -M main "^O" reverse-menu-complete
 bindkey '^B' clear-screen
 
-source <(kubectl completion zsh | sed s/kubectl/k/g)
-source <(minikube completion zsh)
 figlet $USER
