@@ -127,7 +127,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # myalias
 alias slack='slack & disown'
-# alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias dict='dict -d gcide'
 
