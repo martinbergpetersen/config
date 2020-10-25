@@ -19,3 +19,4 @@ api2/static
 *.toml
 *.class
 *.beam
+tags

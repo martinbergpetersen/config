@@ -34,3 +34,6 @@
 	renameLimit = 1210
 [pull]
 	ff = only
+
+[pager]
+    log = false
