@@ -84,6 +84,11 @@ ZSH_THEME=bira
 
 VIM_MODE_VICMD_KEY='jk'
 
+if [ -f ~/.ssh/tdc ]; then
+    zstyle :omz:plugins:ssh-agent identities id_rsa tdc
+else
+    zstyle :omz:plugins:ssh-agent identities id_rsa
+fi
 source $ZSH/oh-my-zsh.sh
 
 
