@@ -155,3 +155,11 @@ bindkey -M main "^O" reverse-menu-complete
 bindkey '^B' clear-screen
 
 figlet $USER
+export JAVA_HOME=/usr/lib/jvm/default-java
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+source <(kubectl completion zsh)
+source <(kubectl completion zsh | sed s/kubectl/k/g)
+source <(minikube completion zsh)

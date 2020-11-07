@@ -31,6 +31,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
+
+" NerdTree
+Plug 'preservim/nerdtree'
+
+
 " Ctags
 Plug 'majutsushi/tagbar' 
 
@@ -245,6 +250,8 @@ map <leader>ev :e! ~/.myconfig/neovim/init.vim<cr>
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " inoremap <esc> <nop>
+"
+nnoremap <leader>cd :cd %:h<cr>
 
 " Peek the view. It splits the screen and shows the called funtion
 map <leader>p :split<cr><leader>d
@@ -314,7 +321,7 @@ augroup END
 " => Javascript, css, html
 " """"""""""""""""""""""""""""""
 augroup JavascriptCustomization
-	:autocmd FileType javascript,html,css nnoremap <leader>s :call CocAction('runCommand', 'tsserver.organizeImports')<CR>
+	:autocmd FileType javascript,html,css,json nnoremap <leader>s :call CocAction('runCommand', 'tsserver.organizeImports')<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Java
@@ -468,6 +475,11 @@ nnoremap <leader>as :ALEPrevious<CR>
 " """"""""""""""""""""""""""""""
 colorscheme atlas
 set background=dark
+
+""""""""""""""""""""""""""""""
+" => NerdTree
+" """"""""""""""""""""""""""""""
+map <leader>nn :NERDTreeToggle<CR>
 """"""""""""""""""""""""""""""
 " => INDENT
 " """"""""""""""""""""""""""""""
