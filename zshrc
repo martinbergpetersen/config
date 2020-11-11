@@ -112,7 +112,7 @@ alias tree=/usr/bin/tree
 alias k=kubectl
 
 # myalias
-alias slack='slack & disown'
+alias tdc-start='slack & disown; teams'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 

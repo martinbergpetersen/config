@@ -199,6 +199,7 @@ bindsym $mod+g exec google-chrome
 
 #workspace10 
 assign [class="Slack"] $workspace10
+assign [class="Teams"] $workspace10
 
 #Setup wallpaper ---
 exec --no-startup-id feh --bg-scale ~/.config/i3/kali-linux-3.png
