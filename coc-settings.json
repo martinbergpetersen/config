@@ -17,6 +17,6 @@
         }
     ],
     "java.format.comments.enabled": true,
-    "java.format.settings.url": "/home/tdc/.config/coc/extensions/node_modules/redhat.java/home/tdc/.config/coc/extensions/node_modules/redhat.java/https:/raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-    "java.completion.overwrite": true
+    "java.completion.overwrite": true,
+    "java.format.settings.url": "/home/tdc/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
 }
