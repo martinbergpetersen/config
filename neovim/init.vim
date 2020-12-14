@@ -329,6 +329,7 @@ augroup END
 augroup JavaCustomization
 	:autocmd FileType java nnoremap <leader>s :call CocAction('runCommand', 'java.action.organizeImports')<CR>
 	:autocmd FileType java nnoremap <leader>a :CocAction<CR>
+	:autocmd FileType java :ALEDisable
     command! Javac call Javac()
 augroup END
 function! Javac()

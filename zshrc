@@ -112,7 +112,7 @@ alias tree=/usr/bin/tree
 alias k=kubectl
 
 # myalias
-alias tdc-start='slack & disown; teams'
+alias slack='slack & disown; exit'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 
@@ -167,4 +167,9 @@ export PATH=${M2_HOME}/bin:${PATH}
 
 source <(kubectl completion zsh)
 source <(kubectl completion zsh | sed s/kubectl/k/g)
-source <(minikube completion zsh)
+if [ -f ~/.ssh/tdc ]; then
+else
+    source <(minikube completion zsh)
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
