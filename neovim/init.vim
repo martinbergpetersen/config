@@ -299,7 +299,12 @@ augroup PrettierCustomization
 	:autocmd FileType yaml nnoremap <leader>f :Prettier<CR>
 augroup END
 
-"
+""""""""""""""""""""""""""""""
+" => JSON
+" """"""""""""""""""""""""""""""
+let g:indentLine_setConceal = 0
+
+
 """"""""""""""""""""""""""""""
 " => C#
 " """"""""""""""""""""""""""""""
