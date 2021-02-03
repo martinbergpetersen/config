@@ -36,4 +36,4 @@
 	ff = only
 
 [pager]
-    log = false
+    log = true

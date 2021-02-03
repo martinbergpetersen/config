@@ -10,15 +10,18 @@ Plug 'OmniSharp/omnisharp-vim'
 
 " Async linter
 Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " " JSON
 " Plug 'elzr/vim-json', {'for': 'json'}
 
 " Commentings
 Plug 'tpope/vim-commentary'
+
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plug 'google/vim-glaive'
 
 
 Plug 'dkprice/vim-easygrep'
@@ -175,6 +178,17 @@ set nowb
 set noswapfile
 set nowritebackup
 
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Google Format
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+call glaive#Install()
+Glaive codefmt plugin[mappings]
+Glaive codefmt google_java_executable="java -jar /home/tdc/.config/coc/google-java-format-1.9-all-deps.jar"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -279,25 +293,9 @@ nnoremap <C-g><c-d> :Gvdiff<cr>
 nnoremap <C-g><c-b> :Gblame<cr>
 
 """"""""""""""""""""""""""""""
-" => Rust
-" """"""""""""""""""""""""""""""
-augroup RustCustomization
-	:autocmd FileType rust nnoremap <leader>f :write<CR>
-augroup END
-
-""""""""""""""""""""""""""""""
-" => BLACK
-" """"""""""""""""""""""""""""""
-let g:black_skip_string_normalization=1
-let g:black_linelength=79
-
-""""""""""""""""""""""""""""""
 " => YAML
 " """"""""""""""""""""""""""""""
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-augroup PrettierCustomization
-	:autocmd FileType yaml nnoremap <leader>f :Prettier<CR>
-augroup END
 
 """"""""""""""""""""""""""""""
 " => JSON
@@ -335,12 +333,7 @@ augroup JavaCustomization
 	:autocmd FileType java nnoremap <leader>s :call CocAction('runCommand', 'java.action.organizeImports')<CR>
 	:autocmd FileType java nnoremap <leader>a :CocAction<CR>
 	:autocmd FileType java :ALEDisable
-    command! Javac call Javac()
 augroup END
-function! Javac()
-    !javac -g %
-    echo 'Compilling done'
-endfunction
 """"""""""""""""""""""""""""""
 " => PYTHON
 " """"""""""""""""""""""""""""""
