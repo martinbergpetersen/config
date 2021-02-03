@@ -644,6 +644,7 @@ nnoremap <F7> z=<CR>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
+let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-tsserver'] 
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
