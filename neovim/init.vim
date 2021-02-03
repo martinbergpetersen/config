@@ -19,9 +19,6 @@ Plug 'tpope/vim-commentary'
 
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
-" Also add Glaive, which is used to configure codefmt's maktaba flags. See
-" `:help :Glaive` for usage.
-Plug 'google/vim-glaive'
 
 
 Plug 'dkprice/vim-easygrep'
@@ -177,17 +174,6 @@ set nobackup
 set nowb
 set noswapfile
 set nowritebackup
-
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Google Format
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-call glaive#Install()
-Glaive codefmt plugin[mappings]
-Glaive codefmt google_java_executable="java -jar /home/tdc/.config/coc/google-java-format-1.9-all-deps.jar"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
