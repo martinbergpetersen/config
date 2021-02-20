@@ -22,3 +22,5 @@ api2/static
 tags
 tags*
 *.min.*
+**/yarn.lock
+**/*local*
