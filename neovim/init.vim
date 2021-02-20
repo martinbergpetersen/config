@@ -120,6 +120,8 @@ set exrc
 " Ignore case when searching
 set ignorecase
 
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*node_modules*,*lock.json
+
 " Highlight search results
 set hlsearch
 
@@ -465,6 +467,8 @@ set background=dark
 " => NerdTree
 " """"""""""""""""""""""""""""""
 map <leader>nn :NERDTreeToggle<CR>
+let NERDTreeRespectWildIgnore=1
+
 """"""""""""""""""""""""""""""
 " => INDENT
 " """"""""""""""""""""""""""""""
