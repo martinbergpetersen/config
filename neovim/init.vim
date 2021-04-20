@@ -350,9 +350,9 @@ function! SetPython3Host()
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
-let python3_host='~/.virtualenv/neovim3/bin/python3.8'
+let python3_host='~/.pyenv/versions/neovim3/bin/python3.8'
 let g:python3_host_prog = python3_host
-let python2_host='~/.virtualenv/neovim2/bin/python2.7'
+let python2_host='~/.pyenv/versions/neovim2/bin/python2.7'
 let g:python_host_prog =python2_host
 
 
