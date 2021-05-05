@@ -22,4 +22,4 @@ api2/static
 tags
 tags*
 **/yarn.lock
-**/*local*
+*-local.json
