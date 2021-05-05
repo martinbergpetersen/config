@@ -21,5 +21,6 @@ api2/static
 *.beam
 tags
 tags*
+*.min.*
 **/yarn.lock
 *-local.json
