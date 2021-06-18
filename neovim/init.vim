@@ -70,6 +70,9 @@ Plug 'google/vim-searchindex'
 " Easy motiom
 Plug 'easymotion/vim-easymotion'
 
+" Limelight
+Plug 'junegunn/limelight.vim'
+
 " Multiple cursors 
 Plug 'terryma/vim-multiple-cursors'
 
