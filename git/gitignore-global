@@ -23,6 +23,5 @@ tags
 tags*
 *.min.*
 **/yarn.lock
-*-local.json
 *-local.yml
 my-docs.txt
