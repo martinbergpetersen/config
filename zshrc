@@ -169,9 +169,4 @@ export PATH=${M2_HOME}/bin:${PATH}
 
 source <(kubectl completion zsh)
 source <(kubectl completion zsh | sed s/kubectl/k/g)
-if [ -f ~/.ssh/tdc ]; then
-else
-    source <(minikube completion zsh)
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
