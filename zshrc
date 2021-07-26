@@ -115,6 +115,7 @@ alias k=kubectl
 alias slack='slack & disown; exit'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
+alias gnome-todo="gnome-todo & disown"
 
 
 export PATH="$HOME/.pyenv/bin:$PATH"
