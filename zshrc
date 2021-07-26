@@ -161,6 +161,8 @@ bindkey '^B' clear-screen
 
 figlet $USER
 export JAVA_HOME=/usr/lib/jvm/default-java
+export PATH=$JAVA_HOME/bin:$PATH
+export JDK_HOME=${JAVA_HOME}
 export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
