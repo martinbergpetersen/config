@@ -302,6 +302,7 @@ augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <leader>d :OmniSharpGotoDefinition<CR>
 	:autocmd FileType cs nnoremap <leader>i :OmniSharpFindImplementations<CR>
 	:autocmd FileType cs nnoremap <leader>p :OmniSharpPreviewDefinition<CR>
+	:autocmd FileType cs nnoremap <leader>a :CocAction<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Go
