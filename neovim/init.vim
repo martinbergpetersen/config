@@ -366,7 +366,6 @@ let g:python_host_prog =python2_host
 map <SPACE> /
 nnoremap <C-J> :call DisabledHighlight()<return><ESC>
 xnoremap <C-S> :call VisualSelection('s', '')<CR>
-xnoremap <C-R> :call VisualSelection('r', '')<CR>
 nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>
 
 " Visual mode pressing * or # searches for the current selection
@@ -494,12 +493,6 @@ function! s:ZoomToggle() abort
 endfunction
 
 
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction 
-
 " Removed hightlights on words
 function! DisabledHighlight()
    if exists('#auto_highlight')
@@ -521,10 +514,7 @@ function! VisualSelection(direction, extra_filter) range
     let l:pattern = substitute(l:pattern, "\n$", "", "")
     echo l:pattern
     if a:direction == 's'
-        call CmdLine("Rg " . l:pattern . "")
-    endif
-    if a:direction == 'r'
-        call CmdLine("%s/" . l:pattern . "//gc<LEFT><LEFT><LEFT>")
+        execute "Rg " . l:pattern . ""
     endif
     let @/ = l:pattern
     let @" = l:saved_reg
