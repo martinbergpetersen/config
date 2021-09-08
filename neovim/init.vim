@@ -470,7 +470,9 @@ set background=dark
 " => NerdTree
 " """"""""""""""""""""""""""""""
 map <leader>nn :NERDTreeToggle<CR>
+map <leader>nf :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore=1
+let NERDTreeWinSize=50
 
 """"""""""""""""""""""""""""""
 " => INDENT
