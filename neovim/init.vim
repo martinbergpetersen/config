@@ -70,6 +70,9 @@ Plug 'google/vim-searchindex'
 " Easy motiom
 Plug 'easymotion/vim-easymotion'
 
+" Limelight
+Plug 'junegunn/limelight.vim'
+
 " Multiple cursors 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -299,6 +302,7 @@ augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <leader>d :OmniSharpGotoDefinition<CR>
 	:autocmd FileType cs nnoremap <leader>i :OmniSharpFindImplementations<CR>
 	:autocmd FileType cs nnoremap <leader>p :OmniSharpPreviewDefinition<CR>
+	:autocmd FileType cs nnoremap <leader>a :CocAction<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Go
@@ -362,7 +366,6 @@ let g:python_host_prog =python2_host
 map <SPACE> /
 nnoremap <C-J> :call DisabledHighlight()<return><ESC>
 xnoremap <C-S> :call VisualSelection('s', '')<CR>
-xnoremap <C-R> :call VisualSelection('r', '')<CR>
 nnoremap <silent> <C-Space> :let @/=expand('<cword>') <bar> set hls <cr>: SearchIndex<CR>
 
 " Visual mode pressing * or # searches for the current selection
@@ -467,7 +470,9 @@ set background=dark
 " => NerdTree
 " """"""""""""""""""""""""""""""
 map <leader>nn :NERDTreeToggle<CR>
+map <leader>nf :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore=1
+let NERDTreeWinSize=50
 
 """"""""""""""""""""""""""""""
 " => INDENT
@@ -490,12 +495,6 @@ function! s:ZoomToggle() abort
 endfunction
 
 
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction 
-
 " Removed hightlights on words
 function! DisabledHighlight()
    if exists('#auto_highlight')
@@ -517,10 +516,7 @@ function! VisualSelection(direction, extra_filter) range
     let l:pattern = substitute(l:pattern, "\n$", "", "")
     echo l:pattern
     if a:direction == 's'
-        call CmdLine("Rg " . l:pattern . "")
-    endif
-    if a:direction == 'r'
-        call CmdLine("%s/" . l:pattern . "//gc<LEFT><LEFT><LEFT>")
+        execute "Rg " . l:pattern . ""
     endif
     let @/ = l:pattern
     let @" = l:saved_reg

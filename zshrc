@@ -115,6 +115,7 @@ alias k=kubectl
 alias slack='slack & disown; exit'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
+alias gnome-todo="gnome-todo & disown"
 
 
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -161,15 +162,15 @@ bindkey '^B' clear-screen
 
 figlet $USER
 export JAVA_HOME=/usr/lib/jvm/default-java
+export PATH=$JAVA_HOME/bin:$PATH
+export JDK_HOME=${JAVA_HOME}
 export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
 
 source <(kubectl completion zsh)
 source <(kubectl completion zsh | sed s/kubectl/k/g)
-if [ -f ~/.ssh/tdc ]; then
-else
-    source <(minikube completion zsh)
+if [[ $HOST == "lenovo-p1" ]]; then
+    source ~/.minikube/auto_completion.sh
 fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
