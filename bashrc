@@ -210,6 +210,6 @@ if [ -f '/usr/share/fzf/key-bindings.bash' ]; then
 export EDITOR=vim
 export TERM=xterm
 export PATH=$PATH:~/bin
-export PATH="/home/tdc/.pyenv/bin:$PATH"
+export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
