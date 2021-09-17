@@ -298,11 +298,11 @@ let g:indentLine_setConceal = 0
 " => C#
 " """"""""""""""""""""""""""""""
 augroup CSharpCustomization
-	:autocmd FileType cs nnoremap <leader>f :OmniSharpCodeFormat<CR>
-	:autocmd FileType cs nnoremap <leader>d :OmniSharpGotoDefinition<CR>
-	:autocmd FileType cs nnoremap <leader>i :OmniSharpFindImplementations<CR>
-	:autocmd FileType cs nnoremap <leader>p :OmniSharpPreviewDefinition<CR>
-	:autocmd FileType cs nnoremap <leader>a :CocAction<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpCodeFormat<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>d :OmniSharpGotoDefinition<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>i :OmniSharpFindImplementations<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>p :OmniSharpPreviewDefinition<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>a :CocAction<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Go
@@ -316,14 +316,14 @@ augroup END
 " => Javascript, css, html
 " """"""""""""""""""""""""""""""
 augroup JavascriptCustomization
-	:autocmd FileType javascript,html,css,json nnoremap <leader>s :call CocAction('runCommand', 'tsserver.organizeImports')<CR>
+	:autocmd FileType javascript,html,css,json nnoremap <buffer> <leader>s :call CocAction('runCommand', 'tsserver.organizeImports')<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Java
 " """"""""""""""""""""""""""""""
 augroup JavaCustomization
-	:autocmd FileType java nnoremap <leader>s :call CocAction('runCommand', 'java.action.organizeImports')<CR>
-	:autocmd FileType java nnoremap <leader>a :CocAction<CR>
+	:autocmd FileType java nnoremap <buffer> <leader>s :call CocAction('runCommand', 'java.action.organizeImports')<CR>
+	:autocmd FileType java nnoremap <buffer> <leader>a :CocAction<CR>
 	:autocmd FileType java :ALEDisable
 augroup END
 """"""""""""""""""""""""""""""
