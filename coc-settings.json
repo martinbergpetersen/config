@@ -10,11 +10,7 @@
   "java.configuration.runtimes": [
     {
       "name": "JavaSE-1.8",
-      "path": "/usr/lib/jvm/jdk1.8.0_301"
-    },
-    {
-      "name": "JavaSE-13",
-      "path": "/usr/lib/jvm/jdk-13.0.2",
+      "path": "/usr/lib/jvm/default-java",
       "default": true
     }
   ],

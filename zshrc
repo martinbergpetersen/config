@@ -170,7 +170,7 @@ export PATH=${M2_HOME}/bin:${PATH}
 
 source <(kubectl completion zsh)
 source <(kubectl completion zsh | sed s/kubectl/k/g)
-if [[ $HOST == "lenovo-p1" ]]; then
+if [[ $HOST == "lenovo-p1" ]] | [[ $HOST == "tdc" ]]; then
     source ~/.minikube/auto_completion.sh
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

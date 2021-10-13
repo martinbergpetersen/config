@@ -25,3 +25,4 @@ tags*
 **/yarn.lock
 *-local.json
 my-docs.txt
+*logs
