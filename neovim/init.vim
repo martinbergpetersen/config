@@ -457,8 +457,8 @@ let g:ale_fixers = {'python': ['black']}
 highlight clear ALEWarningSign
 " sets ale to use python3 for flake
 " highlight clear ALEWarningSign
-nnoremap <leader>ad :ALENext<CR>
-nnoremap <leader>as :ALEPrevious<CR>
+" nnoremap <leader>ad :ALENext<CR>
+" nnoremap <leader>as :ALEPrevious<CR>
 
 """"""""""""""""""""""""""""""
 " => COLOR/THEMES
@@ -473,6 +473,7 @@ map <leader>nn :NERDTreeToggle<CR>
 map <leader>nf :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize=50
+let NERDTreeIgnore = ['bin', 'obj', 'tags']
 
 """"""""""""""""""""""""""""""
 " => INDENT
@@ -658,6 +659,11 @@ nmap <silent><leader>d <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+
+" Map jump to next error
+nmap <silent> <leader>as <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>ad <Plug>(coc-diagnostic-next)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
