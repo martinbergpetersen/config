@@ -26,5 +26,5 @@ tags*
 *-local.json
 my-docs.txt
 *logs
-obj
-bin
+obj/
+bin/
