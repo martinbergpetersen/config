@@ -112,8 +112,9 @@ alias tree=/usr/bin/tree
 alias k=kubectl
 
 # myalias
-alias slack='slack & disown; exit'
-alias teams='teams & disown; exit'
+alias slack='slack & disown'
+alias teams='teams & disown'
+alias work='slack && teams && google-chrome outlook.office.com & disown; exit 1'
 alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias gnome-todo="gnome-todo & disown; exit"
