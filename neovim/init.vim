@@ -706,3 +706,4 @@ highlight vertsplit guifg=fg guibg=bg
 highlight SignColumn guibg=None
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SpellBad cterm=underline ctermfg=red gui=undercurl
+
