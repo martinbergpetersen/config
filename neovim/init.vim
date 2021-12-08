@@ -184,6 +184,9 @@ set nowritebackup
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+map <C-k><C-k> :move -2<cr>
+map <C-j><C-j> :move +1<cr>
+
 " Close a tab
 map <leader>tc :tabclose<cr>
 map <leader>te :tabedit<cr>
