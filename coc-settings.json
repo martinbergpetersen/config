@@ -1,20 +1,21 @@
 {
-  "python.linting.pylintEnabled": false,
-  "python.linting.pep8Enabled": false,
-  "python.linting.enabled": true,
-  "python.formatting.provider": "black",
-  "python.jediEnabled": false,
-  "yaml.schemas": {
-    "kubernetes": "/*.yaml"
-  },
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-1.8",
-      "path": "/usr/lib/jvm/default-java",
-      "default": true
-    }
-  ],
-  "java.format.comments.enabled": true,
-  "java.completion.overwrite": true,
-  "java.format.settings.url": "/home/tdc/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": false,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "~/.local/bin/black",
+    "python.jediEnabled": false,
+    "yaml.schemas": {
+        "kubernetes": "/*.yaml"
+    },
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.8",
+            "path": "/usr/lib/jvm/default-java",
+            "default": true
+        }
+    ],
+    "java.format.comments.enabled": true,
+    "java.completion.overwrite": true,
+    "java.format.settings.url": "/home/tdc/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
 }

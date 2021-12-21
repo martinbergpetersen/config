@@ -171,9 +171,9 @@ export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
 
-source <(kubectl completion zsh)
-source <(kubectl completion zsh | sed s/kubectl/k/g)
 if [[ $HOST == "lenovo-p1" ]] | [[ $HOST == "tdc" ]]; then
     source ~/.minikube/auto_completion.sh
+    source <(kubectl completion zsh)
+    source <(kubectl completion zsh | sed s/kubectl/k/g)
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
