@@ -62,8 +62,8 @@ Plug 'plytophogy/vim-virtualenv'
 " Indentline
 Plug 'Yggdroot/indentLine'
 
-" SEARCH
-Plug '~/.fzf'
+" " SEARCH
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'google/vim-searchindex'
 
