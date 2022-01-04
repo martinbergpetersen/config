@@ -163,7 +163,6 @@ bindkey -M menuselect '^H' backward-char
 bindkey -M main "^O" reverse-menu-complete
 bindkey '^B' clear-screen
 
-figlet $USER
 export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$JAVA_HOME/bin:$PATH
 export JDK_HOME=${JAVA_HOME}
