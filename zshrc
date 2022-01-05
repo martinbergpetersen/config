@@ -177,3 +177,5 @@ if [[ $HOST == "lenovo-p1" ]] | [[ $HOST == "tdc" ]]; then
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export LC_ALL="en_US.utf8"
+unset GDK_PIXBUF_MODULEDIR
+unset GDK_PIXBUF_MODULE_FILE
