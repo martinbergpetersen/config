@@ -179,3 +179,4 @@ fi
 export LC_ALL="en_US.utf8"
 unset GDK_PIXBUF_MODULEDIR
 unset GDK_PIXBUF_MODULE_FILE
+fpath+=${ZDOTDIR:-~}/.zsh_functions
