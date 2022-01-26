@@ -634,7 +634,7 @@ nnoremap <F7> z=<CR>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-tsserver'] 
+let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-omnisharp', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker']
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -700,7 +700,6 @@ hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Red
 hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=none guibg=None
 hi DiffText   cterm=bold ctermfg=223 ctermbg=88 gui=none guifg=bg guibg=White
 
-let g:coc_global_extensions=[ 'coc-omnisharp']
 
 hi Pmenu ctermbg=gray guibg=black guifg=white
 highlight LineNr guifg=#F5F5F5
@@ -709,3 +708,4 @@ highlight vertsplit guifg=fg guibg=bg
 highlight SignColumn guibg=None
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SpellBad cterm=underline ctermfg=red gui=undercurl
+highlight CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=red
