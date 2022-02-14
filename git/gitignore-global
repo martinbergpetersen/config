@@ -29,6 +29,7 @@ my-docs.txt
 obj/
 bin/
 work-docs/
+__pycache__/
 
 
 # Csharp
