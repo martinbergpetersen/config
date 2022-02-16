@@ -1,0 +1,8 @@
+1. Add a  pyrightconfig.json in the root folder. This has to be empty
+2. Add .vim/coc-settings.json
+
+{
+    "python.pythonPath": "~/.pyenv/versions/kea/bin/python",
+    "python.venvPath": "~/.pyenv/versions/kea/"
+}
+
