@@ -11,6 +11,7 @@ pylintrc
 .vim
 target/
 release/
+*/metasploitable3-workspace/
 core/static
 api2/front-end/
 api2/static
