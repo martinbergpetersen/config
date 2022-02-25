@@ -12,6 +12,7 @@ pylintrc
 target/
 release/
 */metasploitable3-workspace/
+*/.vagrant/
 core/static
 api2/front-end/
 api2/static
