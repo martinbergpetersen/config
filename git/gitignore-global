@@ -8,6 +8,7 @@ tags
 pylintrc
 .hypothesis
 *.huskyrc
+*.log
 .vim
 target/
 release/
