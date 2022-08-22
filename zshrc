@@ -169,6 +169,7 @@ export JDK_HOME=${JAVA_HOME}
 export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
+export PATH=$PATH:/usr/local/go/bin
 
 if [[ $HOST == "lenovo-p1" ]] | [[ $HOST == "tdc" ]]; then
     source ~/.minikube/auto_completion.sh
