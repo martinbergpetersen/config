@@ -313,7 +313,7 @@ augroup END
 let g:go_doc_keywordprg_enabled = 0 " Disable go_doc
 let g:go_fmt_autosave = 0
 augroup GoCustomization
-	" :autocmd FileType go nnoremap <leader>f :GoFmt<CR>
+	:autocmd FileType go nnoremap <leader>f :GoFmt<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Javascript, css, html
