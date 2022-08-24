@@ -536,16 +536,16 @@ endfunction
 " => OMNIFUNC
 """""""""""""""""""""""""""""""
 " Move up and down in autocomplete with <c-j> and <c-k>
-inoremap <expr> <C-J> ("\<C-n>")
-inoremap <expr> <C-k> ("\<C-p>")
+" inoremap <expr> <C-j> ("\<C-n>")
+" inoremap <expr> <C-k> ("\<C-p>")
 
 """"""""""""""""""""""""""""""
 "" => ULTISNIPPETS
 """"""""""""""""""""""""""""""""
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """""""""""""""""""""""""""""
 " => BufferClose
@@ -636,26 +636,17 @@ nnoremap <F7> z=<CR>
 """""""""""""""""""""""""""""
 let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-omnisharp', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker', 'coc-ltex']
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <c-s> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent><leader>d <Plug>(coc-definition)
@@ -709,3 +700,16 @@ highlight SignColumn guibg=None
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SpellBad cterm=underline ctermfg=red gui=undercurl
 highlight CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=red
+
+
+if empty(mapcheck('<C-s>', 'i'))
+  inoremap <silent><expr> <C-s> coc#pum#visible() ? coc#pum#confirm() : "\<C-s>"
+endif
+
+if empty(mapcheck('<C-j>', 'i'))
+  inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+endif
+if empty(mapcheck('<C-k>', 'i'))
+  inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+endif
+
