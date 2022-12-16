@@ -702,8 +702,8 @@ hi SpellBad cterm=underline ctermfg=red gui=undercurl
 highlight CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=red
 
 
-if empty(mapcheck('<C-s>', 'i'))
-  inoremap <silent><expr> <C-s> coc#pum#visible() ? coc#pum#confirm() : "\<C-s>"
+if empty(mapcheck('<C-e>', 'i'))
+  inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#confirm() : "\<C-e>"
 endif
 if empty(mapcheck('<C-j>', 'i'))
   inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"

@@ -9,6 +9,7 @@
   "python.linting.pylintEnabled": false,
   "pyright.inlayHints.functionReturnTypes":false,
   "pyright.inlayHints.variableTypes": false,
+  "suggest.noselect": true,
   "python.linting.enabled": true,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.local/bin/black",
