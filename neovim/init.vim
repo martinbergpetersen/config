@@ -6,7 +6,7 @@ Plug 'farmergreg/vim-lastplace'
 
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 
 " Async linter
 Plug 'w0rp/ale'
@@ -476,7 +476,7 @@ map <leader>nn :NERDTreeToggle<CR>
 map <leader>nf :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize=50
-let NERDTreeIgnore = ['bin', 'obj', 'tags', '\.csproj', '__pycache__']
+let NERDTreeIgnore = ['obj', 'tags', '\.csproj', '__pycache__']
 
 """"""""""""""""""""""""""""""
 " => INDENT
@@ -634,7 +634,7 @@ nnoremap <F7> z=<CR>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-omnisharp', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker', 'coc-ltex']
+let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker', 'coc-ltex']
 
 function! s:check_back_space() abort
   let col = col('.') - 1
