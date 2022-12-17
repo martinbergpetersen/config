@@ -700,6 +700,12 @@ highlight SignColumn guibg=None
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SpellBad cterm=underline ctermfg=red gui=undercurl
 highlight CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=red
+"
+""""""""""""""""""""""""""""""
+" => COLOR/THEMES
+" """"""""""""""""""""""""""""""
+colorscheme atlas
+set background=dark
 
 
 if empty(mapcheck('<C-e>', 'i'))
@@ -711,4 +717,5 @@ endif
 if empty(mapcheck('<C-k>', 'i'))
   inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 endif
-
+autocmd! User GoyoLeave source $HOME/.myconfig/neovim/init.vim
+"
