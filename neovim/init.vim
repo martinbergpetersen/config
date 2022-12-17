@@ -283,7 +283,7 @@ map <c-w><c-a> :wa<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-g><c-d> :Gdiffsplit<cr>
+nnoremap <C-g><c-d> :Gvdiffsplit<cr>
 nnoremap <C-g><c-b> :Git blame<cr>
 
 """"""""""""""""""""""""""""""
