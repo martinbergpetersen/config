@@ -686,11 +686,6 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-hi DiffAdd    cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Green
-hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Red
-hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=none guibg=None
-hi DiffText   cterm=bold ctermfg=223 ctermbg=88 gui=none guifg=bg guibg=White
-
 
 hi Pmenu ctermbg=gray guibg=black guifg=white
 highlight LineNr guifg=#F5F5F5
@@ -719,3 +714,12 @@ if empty(mapcheck('<C-k>', 'i'))
 endif
 autocmd! User GoyoLeave source $HOME/.myconfig/neovim/init.vim
 "
+" hi DiffAdd    cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Green
+" hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 guibg=none guifg=Red
+" hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=orange guibg=None
+" hi DiffText   cterm=bold ctermfg=223 ctermbg=88 gui=none guifg=white guibg=White
+
+hi DiffAdd      ctermfg=NONE          ctermbg=Green guifg=Green
+hi DiffChange   ctermfg=NONE          ctermbg=Black  guifg=White
+hi DiffDelete   ctermfg=LightBlue     ctermbg=Red   guifg=Red
+hi DiffText     ctermfg=Yellow        ctermbg=Red   guifg=White
