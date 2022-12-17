@@ -154,10 +154,10 @@ bar {
 
 
 #colors:                border  backgr. text    indicator
-client.focused          #ffffff #2e3440 #ffffff #2b2b2b
-client.focused_inactive #202020 #2e3440 #ffffff #2b2b2b
-client.unfocused        #202020 #2e3440 #ffffff #2b2b2b
-client.urgent           #900000 #2e3440 #ffffff #2b2b2b
+client.focused          #ffffff #242222 #ffffff #2b2b2b
+client.focused_inactive #202020 #242222 #ffffff #2b2b2b
+client.unfocused        #202020 #242222 #ffffff #2b2b2b
+client.urgent           #900000 #242222 #ffffff #2b2b2b
 # Pulse Audio controls
  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
  bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
