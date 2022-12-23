@@ -39,9 +39,6 @@ Plug 'preservim/nerdtree'
 " Ctags
 Plug 'majutsushi/tagbar' 
 
-" zenmode
-Plug 'junegunn/goyo.vim'
-
 " Python
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
