@@ -687,14 +687,6 @@ augroup mygroup
 augroup end
 
 
-hi Pmenu ctermbg=gray guibg=black guifg=white
-highlight LineNr guifg=#F5F5F5
-highlight Normal guifg=#e0e0e0 guibg=#2e3440 gui=NONE ctermfg=254 ctermbg=235 cterm=NONE
-highlight vertsplit guifg=fg guibg=bg
-highlight SignColumn guibg=None
-hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellBad cterm=underline ctermfg=red gui=undercurl
-highlight CocUnusedHighlight ctermbg=NONE guibg=NONE guifg=red
 "
 """"""""""""""""""""""""""""""
 " => COLOR/THEMES
@@ -724,3 +716,10 @@ hi DiffChange   ctermfg=NONE guibg=NONE ctermbg=Green  guifg=None
 hi DiffDelete   ctermfg=NONE guibg=NONE ctermbg=Red   guifg=Red
 hi DiffText     ctermfg=NONE  guiBG=NONE ctermbg=NONE   guifg=Green
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight LineNr guifg=White
+hi Pmenu ctermbg=gray guibg=black guifg=white
+highlight vertsplit guifg=fg guibg=bg
+highlight SignColumn guibg=None
+hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi SpellBad cterm=underline ctermfg=red gui=undercurl
+highlight CocUnusedHighlight cterm=underline  gui=underline guibg=NONE guifg=red
