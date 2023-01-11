@@ -42,6 +42,7 @@ Plug 'majutsushi/tagbar'
 " Python
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
+Plug 'ambv/black', { 'for': 'python' }
 
 " Go
 Plug 'fatih/vim-go'
@@ -335,6 +336,8 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
+	:autocmd FileType python nnoremap <leader>f :Black<CR>
+    :autocmd FileType python :ALEDisable
 	" :autocmd FileType python nnoremap <leader>f :ALEFix<CR>
 augroup END
 
@@ -354,7 +357,7 @@ function! SetPython3Host()
 endfunction
 
 let g:virtualenv_directory = '/home/$USER/.pyenv/versions'
-let python3_host='~/.pyenv/versions/neovim3/bin/python3.8'
+let python3_host='~/.pyenv/versions/neovim3/bin/python3'
 let g:python3_host_prog = python3_host
 let python2_host='~/.pyenv/versions/neovim2/bin/python2.7'
 let g:python_host_prog =python2_host
@@ -453,6 +456,9 @@ autocmd BufWritePost * GitGutterEnable
 let g:ale_lint_on_enter = 1
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {'python': ['black']}
+let g:ale_virtualtext_cursor=0
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 
 highlight clear ALEWarningSign
 " sets ale to use python3 for flake

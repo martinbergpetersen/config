@@ -176,5 +176,10 @@ if [[ $HOST == "lenovo-p1" ]] | [[ $HOST == "tdc" ]]; then
     source <(kubectl completion zsh)
     source <(kubectl completion zsh | sed s/kubectl/k/g)
 fi
+if [[ $HOST == "mbp" ]]; then
+    source <(kubectl completion zsh)
+    source <(kubectl completion zsh | sed s/kubectl/k/g)
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions

@@ -13,6 +13,8 @@
   "python.linting.enabled": true,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.local/bin/black",
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "⚠",
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
   },
@@ -24,5 +26,6 @@
     }
   ],
   "java.format.comments.enabled": true,
-  "java.completion.overwrite": true
+  "java.completion.overwrite": true,
+  "snippets.ultisnips.pythonPrompt": false
 }
