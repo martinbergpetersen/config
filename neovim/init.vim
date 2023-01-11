@@ -260,7 +260,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nnoremap <leader>cd :cd %:h<cr>
 
 " Peek the view. It splits the screen and shows the called funtion
-map <leader>p :split<cr><leader>d
+" map <leader>p :split<cr><leader>d
 
 inoremap <C-A> <C-U>
 " Exit insert mode
@@ -653,6 +653,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Remap keys for gotos
 nmap <silent><leader>d <Plug>(coc-definition)
+nnoremap <silent><nowait> <leader>a  :call CocAction('jumpDefinition', v:false)<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
