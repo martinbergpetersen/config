@@ -654,6 +654,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Remap keys for gotos
 nmap <silent><leader>d <Plug>(coc-definition)
 nnoremap <silent><nowait> <leader>a  :call CocAction('jumpDefinition', v:false)<CR>
+nmap <silent><leader>p :call CocAction('jumpDefinition', 'split')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
