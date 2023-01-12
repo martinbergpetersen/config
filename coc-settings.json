@@ -1,33 +1,29 @@
 {
-  "languageserver": {
-    "csharp": {
-      "command": "csharp-ls",
-      "rootPatterns": ["*.sln", "git", "*.csproj"],
-      "filetypes": ["cs", "csharp"]
-    }
-  },
-  "python.linting.pylintEnabled": false,
-  "pyright.inlayHints.functionReturnTypes":false,
-  "pyright.inlayHints.variableTypes": false,
-  "suggest.noselect": true,
-  "python.linting.enabled": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "~/.local/bin/black",
-  "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": "⚠",
-  "diagnostic.hintSign": "⚠",
-  "yaml.schemas": {
-    "kubernetes": "/*.yaml"
-  },
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-1.8",
-      "path": "/usr/lib/jvm/default-java",
-      "default": true
-    }
-  ],
-  "java.format.comments.enabled": true,
-  "java.completion.overwrite": true,
-  "snippets.ultisnips.pythonPrompt": false
+    "languageserver": {
+        "csharp": {
+            "command": "csharp-ls",
+            "rootPatterns": ["*.sln", "git", "*.csproj"],
+            "filetypes": ["cs", "csharp"],
+        }
+    },
+    "python.linting.pylintEnabled": false,
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "suggest.noselect": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "~/.local/bin/black",
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "⚠",
+    "diagnostic.hintSign": "⚠",
+    "python.analysis.typeCheckingMode": "off",
+    "yaml.schemas": {"kubernetes": "/*.yaml"},
+    "coc.source.file.ignorePatterns": ["reportGeneralTypeIssues"],
+    "java.configuration.runtimes": [
+        {"name": "JavaSE-1.8", "path": "/usr/lib/jvm/default-java", "default": true}
+    ],
+    "java.format.comments.enabled": true,
+    "java.completion.overwrite": true,
+    "snippets.ultisnips.pythonPrompt": false,
 }

@@ -119,6 +119,7 @@ alias vim='nvim'
 alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias gnome-todo="gnome-todo & disown; exit"
 alias python="python3"
+alias pydoc="pydoc3"
 
 
 export PATH="$HOME/.pyenv/bin:$PATH"
