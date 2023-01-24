@@ -5,6 +5,8 @@ makefile
 tags
 .ctags.d/
 .nvimrc
+.eslintrc.json
+git-sim_media/
 pylintrc
 .hypothesis
 *.huskyrc
