@@ -181,6 +181,17 @@ if [[ $HOST == "mbp" ]]; then
     source <(kubectl completion zsh)
     source <(kubectl completion zsh | sed s/kubectl/k/g)
 fi
+if [ -f "$HOME/.completions/az-auto-completions" ]; then
+    autoload -U +X bashcompinit && bashcompinit
+    source $HOME/.completions/az-auto-completions
+    fi
+
+if [ -f "$HOME/.is-totalkredit" ]; then
+    alias dashboard-api="source ~/.pyenv/versions/mit-hjem-dashboard-api/bin/activate"
+    alias mit-hjem="source ~/.pyenv/versions/mit-hjem/bin/activate"
+    alias data-service="source ~/.pyenv/versions/mit-hjem-data-service/bin/activate"
+    alias infra="source ~/.pyenv/versions/mit-hjem-infra/bin/activate"
+    fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
