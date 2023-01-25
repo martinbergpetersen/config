@@ -719,7 +719,7 @@ autocmd! User GoyoLeave source $HOME/.myconfig/neovim/init.vim
 hi DiffAdd      ctermfg=NONE guibg=darkgreen ctermbg=Green guifg=White
 hi DiffChange   ctermfg=NONE guibg=darkblue ctermbg=Green guifg=White
 hi DiffDelete   ctermfg=NONE guibg=NONE ctermbg=Red guifg=Red
-hi DiffText     ctermfg=NONE  guibg=darkblue ctermbg=NONE guifg=white
+hi DiffText     ctermfg=NONE  guibg=White ctermbg=NONE guifg=darkcyan
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 highlight LineNr guifg=White
 hi Pmenu ctermbg=gray guibg=black guifg=white
