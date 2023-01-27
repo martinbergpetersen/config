@@ -282,6 +282,7 @@ map <c-w><c-a> :wa<cr>
 " => GIT-FUGITIVE
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-g><c-d> :Gvdiffsplit<cr>
+nnoremap <C-g><c-m> :Gvdiffsplit main<cr>
 nnoremap <C-g><c-b> :Git blame<cr>
 
 """"""""""""""""""""""""""""""
@@ -723,10 +724,10 @@ autocmd! User GoyoLeave source $HOME/.myconfig/neovim/init.vim
 " hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=orange guibg=None
 " hi DiffText   cterm=bold ctermfg=223 ctermbg=88 gui=none guifg=white guibg=White
 
-hi DiffAdd      ctermfg=NONE guibg=White ctermbg=Green guifg=Green
-hi DiffChange   ctermfg=NONE guibg=NONE ctermbg=Green  guifg=None
-hi DiffDelete   ctermfg=NONE guibg=NONE ctermbg=Red   guifg=Red
-hi DiffText     ctermfg=NONE  guiBG=NONE ctermbg=NONE   guifg=Green
+hi DiffAdd      ctermfg=NONE guibg=darkgreen ctermbg=Green guifg=White
+hi DiffChange   ctermfg=NONE guibg=darkblue ctermbg=Green guifg=White
+hi DiffDelete   ctermfg=NONE guibg=NONE ctermbg=Red guifg=Red
+hi DiffText     ctermfg=NONE  guibg=White ctermbg=NONE guifg=darkcyan
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 highlight LineNr guifg=White
 hi Pmenu ctermbg=gray guibg=black guifg=white
