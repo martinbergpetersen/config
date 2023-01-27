@@ -327,6 +327,14 @@ augroup JavaCustomization
 	:autocmd FileType java nnoremap <buffer> <leader>a :CocAction<CR>
 	:autocmd FileType java :ALEDisable
 augroup END
+"
+""""""""""""""""""""""""""""""
+" => Javascript
+" """"""""""""""""""""""""""""""
+augroup JavascriptCustomization
+	:autocmd FileType javascript nnoremap <buffer> <leader>as :ALENext<CR>
+	:autocmd FileType javascript nnoremap <buffer> <leader>ad :ALEPrevious<CR>
+augroup END
 """"""""""""""""""""""""""""""
 " => PYTHON
 " """"""""""""""""""""""""""""""
