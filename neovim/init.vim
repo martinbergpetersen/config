@@ -337,9 +337,7 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
-	:autocmd FileType python nnoremap <leader>f :Black<CR>
     :autocmd FileType python :ALEDisable
-	" :autocmd FileType python nnoremap <leader>f :ALEFix<CR>
 augroup END
 
 
