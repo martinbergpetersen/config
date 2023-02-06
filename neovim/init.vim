@@ -328,6 +328,14 @@ augroup JavaCustomization
 	:autocmd FileType java nnoremap <buffer> <leader>a :CocAction<CR>
 	:autocmd FileType java :ALEDisable
 augroup END
+"
+""""""""""""""""""""""""""""""
+" => Javascript
+" """"""""""""""""""""""""""""""
+augroup JavascriptCustomization
+	:autocmd FileType javascript nnoremap <buffer> <leader>as :ALENext<CR>
+	:autocmd FileType javascript nnoremap <buffer> <leader>ad :ALEPrevious<CR>
+augroup END
 """"""""""""""""""""""""""""""
 " => PYTHON
 " """"""""""""""""""""""""""""""
@@ -636,7 +644,7 @@ nnoremap <F7> z=<CR>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker', 'coc-ltex']
+let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker', 'coc-ltex', 'coc-sql']
 
 function! s:check_back_space() abort
   let col = col('.') - 1
