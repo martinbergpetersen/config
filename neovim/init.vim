@@ -43,7 +43,8 @@ Plug 'majutsushi/tagbar'
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'python-rope/ropevim', { 'for': 'python' }
 Plug 'ambv/black', { 'for': 'python' }
-
+Plug 'python-rope/pylsp-rope'
+"
 " Go
 Plug 'fatih/vim-go'
 
@@ -345,6 +346,8 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
+	:autocmd FileType python vnoremap <leader>e :RopeExtractMethod<CR>
+	:autocmd FileType python nnoremap <leader>g :RopeGenerateFunction<CR>
     :autocmd FileType python :ALEDisable
 augroup END
 
