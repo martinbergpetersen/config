@@ -346,8 +346,6 @@ augroup PythonCustomization
 	:autocmd FileType python set cinkeys-=0#
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
-	:autocmd FileType python vnoremap <leader>e :RopeExtractMethod<CR>
-	:autocmd FileType python nnoremap <leader>g :RopeGenerateFunction<CR>
     :autocmd FileType python :ALEDisable
 augroup END
 
@@ -693,6 +691,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format)
+map <Leader>ca <Plug>(coc-codeaction-selected)
 
 augroup mygroup
   autocmd!

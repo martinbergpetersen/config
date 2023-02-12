@@ -4,6 +4,23 @@
       "command": "csharp-ls",
       "rootPatterns": ["*.sln", "git", "*.csproj"],
       "filetypes": ["cs", "csharp"]
+    },
+    "python": {
+      "command": "python3",
+      "args": ["-mpylsp"],
+      "trace.server": "verbose",
+      "filetypes": ["python"],
+      "settings": {
+        "pyls": {
+          "enable": true,
+          "trace": {
+            "server": "verbose"
+          },
+          "commandPath": "",
+          "configurationSources": ["pycodestyle"],
+          "plugins": {}
+        }
+      }
     }
   },
   "python.linting.pylintEnabled": false,
