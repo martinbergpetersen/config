@@ -691,7 +691,8 @@ nmap <leader>rn <Plug>(coc-rename)
 
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format)
-map <Leader>ca <Plug>(coc-codeaction-selected)
+nmap <Leader>ca <Plug>(coc-codeaction-selected)<CR>
+xmap <Leader>ca <Plug>(coc-codeaction-selected)
 
 augroup mygroup
   autocmd!
