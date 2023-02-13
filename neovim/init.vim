@@ -41,9 +41,7 @@ Plug 'majutsushi/tagbar'
 
 " Python
 Plug 'fisadev/vim-isort', { 'for': 'python' }
-Plug 'python-rope/ropevim', { 'for': 'python' }
 Plug 'ambv/black', { 'for': 'python' }
-Plug 'python-rope/pylsp-rope'
 "
 " Go
 Plug 'fatih/vim-go'
@@ -691,8 +689,6 @@ nmap <leader>rn <Plug>(coc-rename)
 
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format)
-nmap <Leader>ca <Plug>(coc-codeaction-selected)<CR>
-xmap <Leader>ca <Plug>(coc-codeaction-selected)
 
 augroup mygroup
   autocmd!
