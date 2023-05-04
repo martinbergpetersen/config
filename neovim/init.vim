@@ -6,7 +6,7 @@ Plug 'farmergreg/vim-lastplace'
 
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim'
 
 " Async linter
 Plug 'w0rp/ale'
@@ -298,11 +298,14 @@ let g:indentLine_setConceal = 0
 """"""""""""""""""""""""""""""
 " => C#
 " """"""""""""""""""""""""""""""
+
+let g:OmniSharp_server_use_net6 = 1
 augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpCodeFormat<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>d :OmniSharpGotoDefinition<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>i :OmniSharpFindImplementations<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>p :OmniSharpPreviewDefinition<CR>
+	:autocmd FileType cs nnoremap <buffer> K :OmniSharpDocumentation<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>a :CocAction<CR>
 augroup END
 """"""""""""""""""""""""""""""
@@ -460,7 +463,7 @@ autocmd BufWritePost * GitGutterEnable
 " => WORP/ALE
 " """"""""""""""""""""""""""""""
 let g:ale_lint_on_enter = 1
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8'], 'cs': ['OmniSharp']}
 let g:ale_fixers = {'python': ['black']}
 let g:ale_virtualtext_cursor=0
 let g:ale_sign_error = '✘'

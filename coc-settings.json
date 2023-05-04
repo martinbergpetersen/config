@@ -1,11 +1,4 @@
 {
-  "languageserver": {
-    "csharp": {
-      "command": "csharp-ls",
-      "rootPatterns": ["*.sln", "git", "*.csproj"],
-      "filetypes": ["cs", "csharp"]
-    }
-  },
   "python.linting.pylintEnabled": false,
   "pyright.inlayHints.functionReturnTypes": false,
   "pyright.inlayHints.variableTypes": false,
