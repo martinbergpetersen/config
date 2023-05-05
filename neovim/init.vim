@@ -488,7 +488,7 @@ map <leader>nn :NERDTreeToggle<CR>
 map <leader>nf :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize=50
-let NERDTreeIgnore = ['obj', 'tags', '\.csproj', '__pycache__']
+let NERDTreeIgnore = ['obj', 'tags', '\.csproj', '__pycache__', 'bin']
 
 """"""""""""""""""""""""""""""
 " => INDENT
