@@ -83,6 +83,9 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-dadbod'
+"
+" If you have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 
 " Initialize plugin system
@@ -306,7 +309,9 @@ augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <buffer> <leader>i :OmniSharpFindImplementations<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>p :OmniSharpPreviewDefinition<CR>
 	:autocmd FileType cs nnoremap <buffer> K :OmniSharpDocumentation<CR>
-	:autocmd FileType cs nnoremap <buffer> <leader>a :CocAction<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>a :OmniSharpGetCodeAction<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>as :ALENext<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>ad :ALEPrevious<CR>
 augroup END
 """"""""""""""""""""""""""""""
 " => Go
@@ -488,7 +493,7 @@ map <leader>nn :NERDTreeToggle<CR>
 map <leader>nf :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore=1
 let NERDTreeWinSize=50
-let NERDTreeIgnore = ['obj', 'tags', '\.csproj', '__pycache__', 'bin']
+let NERDTreeIgnore = ['obj', 'tags', '__pycache__', 'bin']
 
 """"""""""""""""""""""""""""""
 " => INDENT
