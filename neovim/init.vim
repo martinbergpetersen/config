@@ -299,6 +299,26 @@ let g:indentLine_setConceal = 0
 " => C#
 " """"""""""""""""""""""""""""""
 
+
+" OmniSharp: {{{
+let g:OmniSharp_popup_position = 'peek'
+if has('nvim')
+  let g:OmniSharp_popup_options = {
+  \ 'winblend': 30,
+  \ 'winhl': 'Normal:Normal,FloatBorder:ModeMsg',
+  \ 'border': 'rounded'
+  \}
+else
+  let g:OmniSharp_popup_options = {
+  \ 'highlight': 'Normal',
+  \ 'padding': [0],
+  \ 'border': [1],
+  \ 'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+  \ 'borderhighlight': ['ModeMsg']
+  \}
+endif
+" }}}
+
 let g:OmniSharp_server_use_net6 = 1
 augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <buffer> <leader>f :OmniSharpCodeFormat<CR>
