@@ -78,3 +78,4 @@ msbuild.wrn
 # Visual Studio 2015
 .vs/
 .flake8
+**/app_data/logs.txt

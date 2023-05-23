@@ -373,6 +373,7 @@ augroup PythonCustomization
 	:autocmd FileType python set indentkeys-=0#
 	:autocmd FileType python nnoremap <leader>s :Isort<CR>
     :autocmd FileType python :ALEDisable
+	:autocmd FileType python nnoremap <buffer> <leader>f :Black<CR>
 augroup END
 
 
