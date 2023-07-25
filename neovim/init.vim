@@ -328,6 +328,7 @@ augroup CSharpCustomization
 	:autocmd FileType cs nnoremap <buffer> <leader>d :OmniSharpGotoDefinition<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>i :OmniSharpFindImplementations<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>p :OmniSharpPreviewDefinition<CR>
+	:autocmd FileType cs nnoremap <buffer> <leader>or :OmniSharpRestartServer<CR>
 	:autocmd FileType cs nnoremap <buffer> K :OmniSharpDocumentation<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>a :OmniSharpGetCodeAction<CR>
 	:autocmd FileType cs nnoremap <buffer> <leader>as :ALENext<CR>

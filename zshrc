@@ -139,7 +139,7 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export EDITOR=nvim
 export TERM=xterm
 export PATH=$PATH:~/bin
-export PATH="/home/tdc/.pyenv/bin:$PATH"
+export PATH=$PATH:~/.local/bin
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
