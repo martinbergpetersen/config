@@ -7,3 +7,5 @@
 --exclude=*.html
 --exclude=*.css
 --exclude=*.js
+--exclude=*.json
+--exclude=*/Migrations/*

@@ -172,7 +172,7 @@ export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
 export PATH=$PATH:/usr/local/go/bin
 
-if [[ $HOST == "lenovo-p1" ]] | [[ $HOST == "tdc" ]]; then
+if [[ $HOST == "lenovo-p1" ]] ; then
     source ~/.minikube/auto_completion.sh
     source <(kubectl completion zsh)
     source <(kubectl completion zsh | sed s/kubectl/k/g)
@@ -184,13 +184,6 @@ fi
 if [ -f "$HOME/.completions/az-auto-completions" ]; then
     autoload -U +X bashcompinit && bashcompinit
     source $HOME/.completions/az-auto-completions
-    fi
-
-if [ -f "$HOME/.is-totalkredit" ]; then
-    alias dashboard-api="source ~/.pyenv/versions/mit-hjem-dashboard-api/bin/activate"
-    alias mit-hjem="source ~/.pyenv/versions/mit-hjem/bin/activate"
-    alias data-service="source ~/.pyenv/versions/mit-hjem-data-service/bin/activate"
-    alias infra="source ~/.pyenv/versions/mit-hjem-infra/bin/activate"
     fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
