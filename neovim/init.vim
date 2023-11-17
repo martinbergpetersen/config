@@ -286,6 +286,7 @@ map <c-w><c-a> :wa<cr>
 nnoremap <C-g><c-d> :Gvdiffsplit<cr>
 nnoremap <C-g><c-s> :Gvdiffsplit main<cr>
 nnoremap <C-g><c-b> :Git blame<cr>
+nnoremap <C-g><c-f> :vertical Git log -p %<cr>
 
 """"""""""""""""""""""""""""""
 " => YAML
