@@ -50,7 +50,7 @@ cursor = "#d8dee9"
 text = "#242222"
 
 [font]
-size = 20
+size = 22
 
 [font.normal]
 family = "Hack"
