@@ -353,8 +353,9 @@ augroup END
 " => Java
 " """"""""""""""""""""""""""""""
 augroup JavaCustomization
-	:autocmd FileType java nnoremap <buffer> <leader>s :call CocAction('runCommand', 'java.action.organizeImports')<CR>
+	:autocmd FileType java nnoremap <buffer> <leader>s :call CocCommand('runCommand', 'editor.action.organizeImport')<CR>
 	:autocmd FileType java nnoremap <buffer> <leader>a :CocAction<CR>
+	:autocmd FileType java nnoremap <buffer> <leader>c :CocCommand<CR>
 	:autocmd FileType java :ALEDisable
 augroup END
 "
@@ -674,7 +675,7 @@ nnoremap <F7> z=<CR>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker', 'coc-ltex', 'coc-sql']
+let g:coc_global_extensions = ['coc-prettier', 'coc-snippets', 'coc-yaml', 'coc-go', 'coc-java', 'coc-json', 'coc-xml', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-html', 'coc-docker', 'coc-ltex', 'coc-sql']
 
 function! s:check_back_space() abort
   let col = col('.') - 1
