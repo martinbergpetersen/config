@@ -353,9 +353,10 @@ augroup END
 " => Java
 " """"""""""""""""""""""""""""""
 augroup JavaCustomization
-	:autocmd FileType java nnoremap <buffer> <leader>s :call CocCommand('runCommand', 'editor.action.organizeImport')<CR>
-	:autocmd FileType java nnoremap <buffer> <leader>a :CocAction<CR>
+	:autocmd FileType java nnoremap <buffer> <leader>s :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 	:autocmd FileType java nnoremap <buffer> <leader>c :CocCommand<CR>
+	:autocmd FileType java nmap <leader>a <Plug>(coc-codeaction-cursor)
+	:autocmd FileType java nnoremap <buffer> <leader>or :CocRestart<CR>
 	:autocmd FileType java :ALEDisable
 augroup END
 "
