@@ -680,9 +680,9 @@ autocmd FileType gitcommit,markdown setlocal spell
 " => ChatGPT.
 lua require('chatgpt').setup()
 
-nnoremap <C-g>g :ChatGPT<space><CR>
-nnoremap <C-g>h :ChatGPTEditWithInstructions<space><CR>
-nnoremap <C-g>j :ChatGPTRun<space>
+nnoremap <C-g><C-j> :ChatGPT<space><CR>
+nnoremap <C-g><C-e> :ChatGPTEditWithInstructions<space><CR>
+nnoremap <C-g><C-r> :ChatGPTRun<space>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
