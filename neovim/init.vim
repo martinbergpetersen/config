@@ -675,10 +675,6 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 " => SpellSuggest.
 """""""""""""""""""""""""""""
 autocmd FileType gitcommit,markdown setlocal spell
-nnoremap <silent> <Leader>cg :ChatGPT<CR>
-nnoremap <silent> <Leader>cg :ChatGPT<CR>
-
-
 
 """""""""""""""""""""""""""""
 " => ChatGPT.
