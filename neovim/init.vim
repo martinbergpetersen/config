@@ -11,6 +11,10 @@ Plug 'OmniSharp/omnisharp-vim'
 " Async linter
 Plug 'w0rp/ale'
 
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'commit': '776b509f80dd49d8205b9b0d94485568236d1192' }
+Plug 'jackMort/ChatGPT.nvim'
 " " JSON
 " Plug 'elzr/vim-json', {'for': 'json'}
 
@@ -671,8 +675,18 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 " => SpellSuggest.
 """""""""""""""""""""""""""""
 autocmd FileType gitcommit,markdown setlocal spell
-nnoremap <F7> z=<CR>
+nnoremap <silent> <Leader>cg :ChatGPT<CR>
+nnoremap <silent> <Leader>cg :ChatGPT<CR>
 
+
+
+"""""""""""""""""""""""""""""
+" => ChatGPT.
+lua require('chatgpt').setup()
+
+nnoremap <C-g>g :ChatGPT<space><CR>
+nnoremap <C-g>h :ChatGPTEditWithInstructions<space><CR>
+nnoremap <C-g>j :ChatGPTRun<space>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""

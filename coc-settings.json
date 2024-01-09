@@ -1,4 +1,5 @@
 {
+  "inlayHint.enable": false,
   "python.linting.pylintEnabled": false,
   "pyright.inlayHints.functionReturnTypes": false,
   "pyright.inlayHints.variableTypes": false,
@@ -14,10 +15,11 @@
   "python.analysis.typeCheckingMode": "off",
   "yaml.schemas": { "kubernetes": "/*.yaml" },
   "coc.source.file.ignorePatterns": ["reportGeneralTypeIssues"],
+  "java.quickfix.showAt": "line",
   "java.configuration.runtimes": [
     {
-      "name": "JavaSE-1.8",
-      "path": "/usr/lib/jvm/default-java",
+      "name": "JavaSE-17",
+      "path": "/usr/lib/jvm/java-1.17.0-openjdk-amd64",
       "default": true
     }
   ],
