@@ -8,6 +8,12 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'OmniSharp/omnisharp-vim'
 
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plug 'google/vim-glaive'
+
 " Async linter
 Plug 'w0rp/ale'
 
@@ -362,6 +368,8 @@ augroup JavaCustomization
 	:autocmd FileType java nmap <leader>a <Plug>(coc-codeaction-cursor)
 	:autocmd FileType java nnoremap <buffer> <leader>or :CocRestart<CR>
 	:autocmd FileType java :ALEDisable
+	:autocmd FileType java nnoremap <buffer> <leader>f :FormatCode<CR>
+	:autocmd FileType java vnoremap <buffer> <leader>f :FormatLines<CR>
 augroup END
 "
 """"""""""""""""""""""""""""""
@@ -683,6 +691,7 @@ lua require('chatgpt').setup()
 nnoremap <C-g><C-j> :ChatGPT<space><CR>
 nnoremap <C-g><C-e> :ChatGPTEditWithInstructions<space><CR>
 nnoremap <C-g><C-r> :ChatGPTRun<space>
+nnoremap <C-g><C-k> :ChatGPTRun complete_code<space><CR>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
@@ -776,3 +785,7 @@ highlight SignColumn guibg=None
 hi Comment guifg=lightgreen ctermfg=242 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SpellBad cterm=underline ctermfg=red gui=undercurl
 highlight CocUnusedHighlight cterm=underline  gui=underline guibg=NONE guifg=red
+
+call glaive#Install()
+    Glaive codefmt plugin[mappings]
+    Glaive codefmt google_java_executable="java -jar /home/mbp/bin/google-java-format-1.19.2-all-deps.jar"
