@@ -363,6 +363,7 @@ augroup END
 " => Java
 " """"""""""""""""""""""""""""""
 augroup JavaCustomization
+    :autocmd FileType java set autoindent expandtab tabstop=2 shiftwidth=2
 	:autocmd FileType java nnoremap <buffer> <leader>s :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 	:autocmd FileType java nnoremap <buffer> <leader>c :CocCommand<CR>
 	:autocmd FileType java nmap <leader>a <Plug>(coc-codeaction-cursor)
