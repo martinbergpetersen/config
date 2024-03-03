@@ -125,6 +125,7 @@ alias pydoc="pydoc3"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(zoxide init --cmd cd zsh)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # If not running interactively, don't do anything
@@ -140,8 +141,6 @@ export EDITOR=nvim
 export TERM=xterm
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # zsh-vim-mode
 MODE_CURSOR_VIINS="#ffffff steady bar"
