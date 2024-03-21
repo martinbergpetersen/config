@@ -357,6 +357,7 @@ augroup END
 " """"""""""""""""""""""""""""""
 augroup JavascriptCustomization
 	:autocmd FileType javascript,html,css,json nnoremap <buffer> <leader>s :call CocAction('runCommand', 'tsserver.organizeImports')<CR>
+	:autocmd FileType javascript nmap <leader>a <Plug>(coc-codeaction-cursor)
 augroup END
 """"""""""""""""""""""""""""""
 " => Java
@@ -703,8 +704,9 @@ nmap <silent> gr <Plug>(coc-references)
 
 
 " Map jump to next error
-nmap <silent> <leader>as <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>ad <Plug>(coc-diagnostic-next)
+
+nmap <leader>as :call CocAction('diagnosticNext')<cr>
+nmap <leader>ad :call CocAction('diagnosticPrevious')<cr>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -773,4 +775,4 @@ highlight CocUnusedHighlight cterm=underline  gui=underline guibg=NONE guifg=red
 
 call glaive#Install()
     Glaive codefmt plugin[mappings]
-    Glaive codefmt google_java_executable="java -jar /home/mbp/bin/google-java-format-1.19.2-all-deps.jar"
+    Glaive codefmt google_java_executable="java -jar /home/mbp/bin/google-java-format-1.20.0-all-deps.jar"
