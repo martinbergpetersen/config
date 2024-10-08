@@ -1,0 +1,94 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#90ee90",
+          "style": "plain",
+          "template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
+          "type": "session"
+        },
+        {
+          "foreground": "#add8e6",
+          "style": "plain",
+          "template": " {{ .PWD }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#cccc00",
+          "style": "plain",
+          "template": " {{ .HEAD }} ",
+          "type": "git"
+        },
+        {
+          "foreground": "#ffffff",
+          "properties": {
+            "fetch_version": false
+          },
+          "style": "plain",
+          "template": " \ue77f ",
+          "type": "dotnet"
+        },
+        {
+          "background": "#7FD5EA",
+          "foreground": "#ffffff",
+          "properties": {
+            "fetch_version": false
+          },
+          "style": "plain",
+          "template": " \ue626 ",
+          "type": "go"
+        },
+        {
+          "background": "#906cff",
+          "foreground": "#100e23",
+          "properties": {
+            "fetch_version": false
+          },
+          "style": "plain",
+          "template": " \ue235 ",
+          "type": "python"
+        },
+        {
+          "background": "#99908a",
+          "foreground": "#193549",
+          "properties": {
+            "fetch_version": false
+          },
+          "style": "plain",
+          "template": " \ue7a8 ",
+          "type": "rust"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "{{ .Name }} ",
+          "type": "shell",
+          "properties": {
+            "mapped_shell_names": {
+              "pwsh": "$",
+              "shell": "$",
+              "cmd": "$",
+              "lua": "$",
+              "nu": "$",
+              "fish": "$",
+              "zsh": "$",
+              "bash": "$"
+            }
+          }
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 2
+}
