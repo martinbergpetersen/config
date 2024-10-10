@@ -5,19 +5,19 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#90ee90",
+          "foreground": "green",
           "style": "plain",
           "template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
           "type": "session"
         },
         {
-          "foreground": "#add8e6",
+          "foreground": "blue",
           "style": "plain",
           "template": " {{ .PWD }} ",
           "type": "path"
         },
         {
-          "foreground": "#cccc00",
+          "foreground": "yellow",
           "style": "plain",
           "template": " {{ .HEAD }} ",
           "type": "git"

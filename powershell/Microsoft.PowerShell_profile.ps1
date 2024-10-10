@@ -29,3 +29,5 @@ Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {
 oh-my-posh init pwsh --config /home/mbp/.config/powershell/tiwahu.omp.json | Invoke-Expression
 import-Module posh-git
 $env:FZF_DEFAULT_OPTS='--height=40%'
+
+
