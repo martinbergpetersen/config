@@ -15,11 +15,14 @@
   "python.analysis.typeCheckingMode": "off",
   "yaml.schemas": { "kubernetes": "/*.yaml" },
   "coc.source.file.ignorePatterns": ["reportGeneralTypeIssues"],
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
   "java.quickfix.showAt": "line",
+  "java.format.onType.enabled": true,
   "java.configuration.runtimes": [
     {
       "name": "JavaSE-17",
-      "path": "/usr/lib/jvm/java-1.17.0-openjdk-amd64",
+      "path": "/usr/lib/jvm/default-java",
       "default": true
     }
   ],

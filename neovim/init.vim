@@ -17,10 +17,6 @@ Plug 'google/vim-glaive'
 " Async linter
 Plug 'w0rp/ale'
 
-Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'commit': '776b509f80dd49d8205b9b0d94485568236d1192' }
-Plug 'jackMort/ChatGPT.nvim'
 " " JSON
 " Plug 'elzr/vim-json', {'for': 'json'}
 
@@ -356,15 +352,15 @@ augroup END
 " => Javascript, css, html
 " """"""""""""""""""""""""""""""
 augroup JavascriptCustomization
-	:autocmd FileType javascript,html,css,json nnoremap <buffer> <leader>s :call CocAction('runCommand', 'tsserver.organizeImports')<CR>
-	:autocmd FileType javascript nmap <leader>a <Plug>(coc-codeaction-cursor)
+	:autocmd FileType javascript,html,css,json,*.tsx,*.ts,ts,tsx nnoremap <buffer> <leader>s :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+	:autocmd FileType javascript,jsx,tsx nmap <leader>a <Plug>(coc-codeaction-cursor)
+    :autocmd FileType javascript,jsx,tsx,typescript.tsx set autoindent expandtab tabstop=2 shiftwidth=2
 augroup END
 """"""""""""""""""""""""""""""
 " => Java
 " """"""""""""""""""""""""""""""
 augroup JavaCustomization
-    :autocmd FileType java set autoindent expandtab tabstop=2 shiftwidth=2
-	:autocmd FileType java nnoremap <buffer> <leader>s :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+    :autocmd filetype java set autoindent expandtab tabstop=2 shiftwidth=2
 	:autocmd FileType java nnoremap <buffer> <leader>c :CocCommand<CR>
 	:autocmd FileType java nmap <leader>a <Plug>(coc-codeaction-cursor)
 	:autocmd FileType java nnoremap <buffer> <leader>or :CocRestart<CR>
@@ -377,8 +373,8 @@ augroup END
 " => Javascript
 " """"""""""""""""""""""""""""""
 augroup JavascriptCustomization
-	:autocmd FileType javascript nnoremap <buffer> <leader>as :ALENext<CR>
-	:autocmd FileType javascript nnoremap <buffer> <leader>ad :ALEPrevious<CR>
+    :autocmd FileType javascript nmap <leader>as :call CocAction('diagnosticNext')<cr>
+    :autocmd FileType javascript nmap <leader>ad :call CocAction('diagnosticPrevious')<cr>
 augroup END
 """"""""""""""""""""""""""""""
 " => PYTHON
@@ -671,13 +667,6 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 autocmd FileType gitcommit,markdown setlocal spell
 
 """""""""""""""""""""""""""""
-" => ChatGPT.
-lua require('chatgpt').setup()
-
-nnoremap <C-g><C-j> :ChatGPT<space><CR>
-nnoremap <C-g><C-e> :ChatGPTEditWithInstructions<space><CR>
-nnoremap <C-g><C-r> :ChatGPTRun<space>
-nnoremap <C-g><C-k> :ChatGPTRun complete_code<space><CR>
 """""""""""""""""""""""""""""
 " => Coc-settings.
 """""""""""""""""""""""""""""
@@ -729,6 +718,9 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format)
 
+nmap <leader>s :CocCommand editor.action.organizeImport<cr>
+
+
 augroup mygroup
   autocmd!
   " Update signature help on jump placeholder
@@ -775,4 +767,4 @@ highlight CocUnusedHighlight cterm=underline  gui=underline guibg=NONE guifg=red
 
 call glaive#Install()
     Glaive codefmt plugin[mappings]
-    Glaive codefmt google_java_executable="java -jar /home/mbp/bin/google-java-format-1.20.0-all-deps.jar"
+    Glaive codefmt google_java_executable="java -jar /home/mbp/bin/google-java-format-1.23.0-all-deps.jar"
