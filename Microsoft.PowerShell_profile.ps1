@@ -3,6 +3,7 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 Set-Alias -Name cd -Value z -Option AllScope
 Set-Alias -Name cdi -Value zi -Option AllScope
+Set-Alias -Name vim -Value vim -Option AllScope
 
 Set-PSReadLineKeyHandler -Chord Tab -Function Complete
 Set-PSReadLineKeyHandler -Chord "ctrl+w" -Function BackwardKillWord
