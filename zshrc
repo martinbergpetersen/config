@@ -84,11 +84,6 @@ ZSH_THEME=bira
 
 VIM_MODE_VICMD_KEY='jk'
 
-if [ -f ~/.ssh/tdc ]; then
-    zstyle :omz:plugins:ssh-agent identities id_rsa tdc
-else
-    zstyle :omz:plugins:ssh-agent identities id_rsa
-fi
 source $ZSH/oh-my-zsh.sh
 
 
@@ -111,20 +106,14 @@ alias cat='batcat'
 alias tree=/usr/bin/tree
 alias k=kubectl
 
-# myalias
-alias slack='slack & disown'
-alias teams='teams & disown'
-alias work='slack && teams && google-chrome outlook.office.com & disown; exit 1'
 alias vim='nvim'
-alias showpower='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
-alias gnome-todo="gnome-todo & disown; exit"
 alias python="python3"
 alias pydoc="pydoc3"
+alias sumatra='/mnt/c/Users/bergp/AppData/Local/SumatraPDF/SumatraPDF.exe'
+alias msbuild='/mnt/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe'
 
 
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 eval "$(zoxide init --cmd cd zsh)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
@@ -171,11 +160,6 @@ export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
 export PATH=$PATH:/usr/local/go/bin
 
-if [[ $HOST == "lenovo-p1" ]] ; then
-    source ~/.minikube/auto_completion.sh
-    source <(kubectl completion zsh)
-    source <(kubectl completion zsh | sed s/kubectl/k/g)
-fi
 if [[ $HOST == "mbp" ]]; then
     source <(kubectl completion zsh)
     source <(kubectl completion zsh | sed s/kubectl/k/g)
