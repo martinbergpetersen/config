@@ -1,6 +1,7 @@
 makefile
 .vscode/
 .env/
+.mvn/
 .ropeproject/
 tags
 .ctags.d/
