@@ -9,10 +9,8 @@ autoload -Uz compinit
 compinit
 
 
-
-
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(zsh-vim-mode httpie wd pip docker ssh-agent command-not-found compleat zsh-autosuggestions zsh-completions fzf taskwarrior)
+plugins=(zsh-vim-mode ssh-agent httpie wd pip docker command-not-found compleat zsh-autosuggestions zsh-completions fzf)
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
