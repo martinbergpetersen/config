@@ -1,0 +1,363 @@
+.page {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Hides the raw <input type="file"> (browser styling for it can't be
+   themed directly) and uses the label itself, styled as a button, as the
+   clickable surface — clicking anywhere on it opens the file picker via
+   normal label/input association. */
+.file-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #2a5da0;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.file-picker:hover {
+  background: #234b84;
+}
+
+.file-picker input[type='file'] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.canvas-wrap {
+  overflow: auto;
+  border: 1px solid #ddd;
+  margin: 1rem 0;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+/* position:fixed so it's placed relative to the viewport (screenX/screenY
+   come from the raw contextmenu event), not clipped by .canvas-wrap's
+   overflow:auto. */
+.context-menu {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  text-align: left;
+}
+
+.context-menu button {
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.context-menu button:hover {
+  background: rgba(0, 100, 255, 0.08);
+}
+
+.context-menu-item {
+  position: relative;
+}
+
+.context-menu-item > span {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: default;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.context-menu-item:hover > span {
+  background: rgba(0, 100, 255, 0.08);
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -4px;
+  flex-direction: column;
+  min-width: 140px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+}
+
+.context-menu-item:hover .submenu {
+  display: flex;
+}
+
+.submenu button {
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Signature names ("Frederik Waesterberg") are longer than the stamp
+   labels the base .submenu width was sized for, so they'd otherwise wrap
+   onto a second line. */
+.submenu-wide {
+  min-width: 210px;
+}
+
+.submenu button:hover {
+  background: rgba(0, 100, 255, 0.08);
+}
+
+.canvas-stack {
+  position: relative;
+  margin: 0 auto;
+}
+
+.canvas-stack canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* left/top are the box's own position and must exactly match what
+   download() uses to place content in the PDF. */
+.overlay-item {
+  position: absolute;
+}
+
+/* A fixed spot above the item, not hugging content edges: the content
+   itself is absolutely positioned (required for exact left/top placement),
+   so this wrapper has no intrinsic size to anchor a "right of content"
+   position against. */
+/* top is set inline per-item via chromeRowTop() — it must rise as text/
+   stamp font size grows, since that content extends upward from the
+   baseline (item.top) and would otherwise climb up over these buttons. */
+.chrome-row {
+  position: absolute;
+  left: 0;
+  display: flex;
+  gap: 4px;
+}
+
+.drag-handle {
+  cursor: grab;
+  user-select: none;
+  padding: 2px 4px;
+  background: #2a5da0;
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: -2px;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.resize-handle {
+  cursor: nwse-resize;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  background: #2a5da0;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.remove-btn {
+  border: 1px solid #a02a2a;
+  background: #fff;
+  color: #a02a2a;
+  cursor: pointer;
+  padding: 0 6px;
+}
+
+/* item.top is this item's PDF baseline. This input can only reasonably be
+   positioned top-down, not baseline-up, so its [style.top.px] binding
+   shifts it up by an approximate ascent — cosmetic only, since the
+   committed item.top never changes while typing. */
+.text-input {
+  position: absolute;
+  left: 0;
+  display: block;
+  box-sizing: border-box;
+  appearance: none;
+  border: none;
+  outline: 1px dashed #2a5da0;
+  outline-offset: 1px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1;
+}
+
+.text-input:focus {
+  outline: 1px dashed #2a5da0;
+}
+
+/* SVG <text> positions by baseline natively, so x=0/y=0 lands exactly on
+   item.left/top with no font-metric approximation — this is what makes the
+   locked preview match download() exactly, unlike the input above. */
+.text-locked-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  width: 1px;
+  height: 1px;
+  cursor: pointer;
+}
+
+.text-locked-svg text {
+  font-family: Helvetica, Arial, sans-serif;
+  white-space: pre;
+}
+
+.text-locked-svg:hover text {
+  text-decoration: underline dashed rgba(0, 100, 255, 0.5);
+}
+
+.overlay-item img {
+  display: block;
+  border: 1px dashed transparent;
+  cursor: pointer;
+}
+
+.overlay-item img:hover {
+  border-color: rgba(0, 100, 255, 0.5);
+}
+
+.overlay-item img.editing {
+  border-color: #2a5da0;
+}
+
+/* width/height are set inline per-item (resizable via the ⤡ handle). */
+.checkbox-box {
+  box-sizing: border-box;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.1s, border-color 0.1s;
+}
+
+.checkbox-box.checked {
+  background: #1a8a3c;
+  border-color: #1a8a3c;
+  color: #fff;
+}
+
+.checkbox-box:hover {
+  outline: 1px dashed rgba(0, 100, 255, 0.4);
+}
+
+/* See .text-locked-svg above: SVG <text> positions by baseline natively. */
+.stamp-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  width: 1px;
+  height: 1px;
+  cursor: pointer;
+}
+
+.stamp-svg text {
+  font-family: Helvetica, Arial, sans-serif;
+  white-space: pre;
+}
+
+.stamp-svg:hover text {
+  text-decoration: underline dashed rgba(0, 100, 255, 0.5);
+}
+
+/* width is set inline per-item (resizable via the ⤡ handle); height/color
+   are fixed — a strikethrough never grows "font size" wise, only wider.
+   A 2px line is nearly impossible to double-click precisely, so the
+   element itself is a 14px-tall (invisible) hit box, offset up by 7px so
+   its vertical center lands on item.top (matching where drawLine renders
+   it); the actually-visible 2px bar is a separate inset ::after rather
+   than relying on padding + background-clip, which silently paints
+   nothing if box-sizing ever becomes border-box here. */
+.strike-line {
+  position: relative;
+  top: -6px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.strike-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  background: #000;
+}
+
+.strike-line:hover {
+  outline: 1px dashed rgba(0, 100, 255, 0.5);
+  outline-offset: -1px;
+}
+
+.strike-line.editing {
+  outline: 1px dashed rgba(0, 100, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.preview {
+  font-weight: 600;
+}
+
+.hint {
+  color: #888;
+  font-size: 0.9rem;
+}
